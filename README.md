@@ -52,3 +52,6 @@
 - HTML
 - CSS
 - JavaScript
+
+## 画面遷移図
+Figma：https://www.figma.com/design/q4G7Nwu8Wyb56KLD9ks0TM/recollection_calendar_app?node-id=0-1&p=f&t=CC89fp5GsBNClTqM-0
