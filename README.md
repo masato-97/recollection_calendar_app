@@ -55,3 +55,6 @@
 
 ## 画面遷移図
 Figma：https://www.figma.com/design/q4G7Nwu8Wyb56KLD9ks0TM/recollection_calendar_app?node-id=0-1&p=f&t=CC89fp5GsBNClTqM-0
+
+## ER図
+ER図：https://drive.google.com/file/d/18CzP48Ffv42-0Ntx27n2pQAB2zTgmDRc/view?usp=sharing
