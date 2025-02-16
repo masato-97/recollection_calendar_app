@@ -39,7 +39,7 @@
   z-index: -1;
 }
 .button a:hover {
-  color: #fff;
+  color: #ffff;
 }
 .button a:hover:before {
   width: 9em;
