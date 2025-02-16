@@ -104,6 +104,10 @@ GEM
       reline (>= 0.3.8)
     dockerfile-rails (1.7.6)
       rails (>= 3.0.0)
+    dotenv (3.1.7)
+    dotenv-rails (3.1.7)
+      dotenv (= 3.1.7)
+      railties (>= 6.1)
     drb (2.2.1)
     erubi (1.13.1)
     et-orbi (1.2.11)
@@ -320,6 +324,7 @@ DEPENDENCIES
   cssbundling-rails
   debug
   dockerfile-rails (>= 1.7)
+  dotenv-rails
   jbuilder
   jsbundling-rails
   pg (~> 1.5, >= 1.5.9)

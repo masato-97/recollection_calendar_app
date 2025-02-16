@@ -4,8 +4,8 @@ services:
     restart: always
     environment:
       TZ: Asia/Tokyo
-      POSTGRES_USER: ${USER_NAME}
-      POSTGRES_PASSWORD: ${USER_PASS}
+      POSTGRES_USER: <%= ENV["USER_NAME"] %> 
+      POSTGRES_PASSWORD: <%= ENV["USER_PASS"] %> 
     volumes:
       - db-data:/var/lib/postgresql/data
     ports:
