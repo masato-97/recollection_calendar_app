@@ -1,0 +1,10 @@
+body{
+  background-image: url('top.jpg');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  vertical-align:middle; 
+  padding: 50px 0;
+  text-align: center;
+}
