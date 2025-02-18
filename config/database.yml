@@ -86,7 +86,7 @@ production:
     <<: *default
     database: calendar_myapp_production
     username: calendar_myapp
-    password: <%= ENV["CALENDAR_MYAPP_DATABASE_PASSWORD"] %>
+    password: <%= ENV["DATABASE_PASSWORD"] %>
   cache:
     <<: *primary_production
     database: calendar_myapp_production_cache
