@@ -41,7 +41,7 @@
 
 .signup-button {
   width: 100%;
-  color: #0fd850;
+  color: #cff947;
   background-color: #333;
   transition: .5s;
   font-size: 20px;
@@ -56,8 +56,8 @@
 
 .signup-button:hover {
   transition: all ease-in-out .3s;
-  background-color: #0fd850;
-  color: #161616;
+  background-color: #cff947;
+  color: #333;
   cursor: pointer;
 }
 
