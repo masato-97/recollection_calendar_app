@@ -1,3 +1,24 @@
+.background{
+  background-image: url('top.jpg');
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center center;
+  vertical-align:middle;
+  padding: 50px 0;
+}
+
+.top-inner-text {
+  font-family: 'Times New Roman';
+  width: 100%;
+  text-align: center;
+  font-size: 6rem;
+  color: #36C062;
+  position: relative;
+  /* 今の位置を基準 */
+  top: 2em;
+  /* 上から10px */
+}
+
 #button-container {
   display: flex;
   flex-direction: row;
