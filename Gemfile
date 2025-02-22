@@ -64,3 +64,4 @@ end
 gem "dockerfile-rails", ">= 1.7", group: :development
 gem "dotenv-rails"
 gem "devise", "~> 4.9", ">= 4.9.4"
+gem "simple_calendar", "~> 3.1"
