@@ -1,0 +1,51 @@
+.header-position {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 100;
+  background-color: #000000;
+}
+
+.header-inner {
+  height: 70px;
+  padding-left: 20px;
+  padding-right: 20px;
+  display:flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header-logo {
+  color: #36C062;
+  font-size: 2rem;
+  line-height: 2rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.header-link {
+  color: #ffffff;
+  font-size: 2rem;
+  font-weight: 500;
+  text-decoration: none;
+  padding-left: 70px;
+}
+
+.icons {
+  align-items: center;
+  display:flex;
+}
+
+.set-icon {
+  color: #ffffff;
+  font-size: 1.7em;
+}
+
+.user-icon {
+  padding-left: 40px;
+}
+
+.dropdown-toggle::after {
+  color: #ffffff;
+  font-size: 20px;
+}
