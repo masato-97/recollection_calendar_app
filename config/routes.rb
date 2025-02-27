@@ -9,5 +9,9 @@ Rails.application.routes.draw do
     registrations: "users/registrations",
     sessions: "users/sessions"
   }
-  resources :memories, only: %i[index]
+  resources :memories do
+    member do
+      get "oneday"
+    end
+  end
 end

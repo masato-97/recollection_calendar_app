@@ -1,7 +1,17 @@
 <body class="background-3">
   <div class="position">
-    <%= month_calendar events: @memoeies do |date, memoeies| %>
-      <%= date.day %>
+    <%= month_calendar events: @memories do |date, memories| %>
+      <%= link_to oneday_memory_path(date), class: "navbar-item" do %>
+        <%= date.day %>
+
+        <% @memories.each do |memory| %>
+          <div>
+            <% if date == memory.day %>
+              <%= link_to memory.title, memory %>
+            <% end %>
+          </div>
+        <% end %>
+      <% end%>
     <% end %>
   </div>
 </body>
