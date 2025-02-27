@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class Users::SessionsController < Devise::SessionsController
+  before_action :move_to_signed_in
   # before_action :configure_sign_in_params, only: [:create]
 
   # GET /resource/sign_in
@@ -33,6 +34,14 @@ class Users::SessionsController < Devise::SessionsController
 
   # サインアウト後のリダイレクト先を指定する
   def after_sign_out_path_for(resource_or_scope)
-    new_user_session_path
+    root_path
+  end
+
+  private
+
+  def move_to_signed_in
+    if user_signed_in?
+      redirect_to "/memories"
+    end
   end
 end

@@ -1,0 +1,25 @@
+<%= form_with model: memory do |f| %>
+  <div class="mb-3">
+    <%= f.label :day %>
+    <%= f.date_field :day %>
+  </div>
+  <div class="mb-3">
+    <%= f.label :title %>
+    <%= f.text_field :title, class: "form-control" %>
+  </div>
+  <div class="mb-3">
+    <%= f.label :body %>
+    <%= f.text_area :body, class: "form-control", rows: "10" %>
+  </div>
+  <div class="mb-3">
+    <%= f.label :main_image %>
+    <%= f.file_field :main_image, class: "form-control", accept: 'image/*' %>
+    <%= f.hidden_field :main_image_cache %>
+  </div>
+  <div class="mb-3">
+    <%= f.label :sub_image %>
+    <%= f.file_field :sub_image, class: "form-control", accept: 'image/*' %>
+    <%= f.hidden_field :sub_image_cache %>
+  </div>
+  <%= f.submit nil, class: "btn btn-primary mb-3" %>
+<% end %>
