@@ -6,5 +6,16 @@
   <%= @memory.body %>
 </div>
 <div>
-  <%= image_tag @memory.main_image_url %>
+  <%= image_tag @memory.main_image_url, width: "300", height: "200" %>
+</div>
+<div>
+  <%= image_tag @memory.sub_image_url, width: "300", height: "200" %>
+</div>
+<div class='ms-auto'>
+  <%= link_to edit_memory_path(@memory), id: "button-edit-#{@memory.id}" do %>
+    <i class="bi bi-pencil-fill"></i>
+  <% end %>
+  <%= link_to memory_path(@memory), id: "button-delete-#{@memory.id}", data: { turbo_method: :delete, turbo_confirm: "削除しますか？" } do %>
+    <i class="bi bi-trash-fill"></i>
+  <% end %>
 </div>

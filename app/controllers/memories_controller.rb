@@ -2,7 +2,7 @@ class MemoriesController < ApplicationController
   before_action :move_to_signed_in
 
   def index
-    @memories = Memory.all
+    @memories = Memory.where(user_id: current_user.id)
   end
 
   def new
@@ -19,7 +19,7 @@ class MemoriesController < ApplicationController
   end
 
   def show
-    @memory = Memory.find(params[:id])
+    @memory = current_user.memories.find(params[:id])
   end
 
   def oneday
@@ -32,6 +32,25 @@ class MemoriesController < ApplicationController
 
   def all
     @memories = Memory.where(user_id: current_user.id)
+  end
+
+  def edit
+    @memory = current_user.memories.find(params[:id])
+  end
+
+  def update
+    @memory = current_user.memories.find(params[:id])
+    if @memory.update(memory_params)
+      redirect_to memory_path(@memory)
+    else
+      render :edit, status: :unprocessable_entity
+    end
+  end
+
+  def destroy
+    @memory = current_user.memories.find(params[:id])
+    @memory.destroy!
+    redirect_to all_memories_path
   end
 
   private

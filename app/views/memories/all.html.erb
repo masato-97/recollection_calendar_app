@@ -1,6 +1,15 @@
+<h1>思い出一覧</h1>
 <% @memories.each do |memory| %>
   <%= memory.day %>
   <div>
     <%= link_to memory.title, memory_path(memory) %>
+  </div>
+  <div class='ms-auto'>
+    <%= link_to edit_memory_path(memory), id: "button-edit-#{memory.id}" do %>
+      <i class="bi bi-pencil-fill"></i>
+    <% end %>
+    <%= link_to memory_path(memory), id: "button-delete-#{memory.id}", data: { turbo_method: :delete, turbo_confirm: "削除しますか？" } do %>
+      <i class="bi bi-trash-fill"></i>
+    <% end %>
   </div>
 <% end %>
