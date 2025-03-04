@@ -1,0 +1,6 @@
+<% @memories.each do |memory| %>
+  <%= memory.day %>
+  <div>
+    <%= link_to memory.title, memory_path(memory) %>
+  </div>
+<% end %>

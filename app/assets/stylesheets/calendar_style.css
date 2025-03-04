@@ -1,6 +1,5 @@
-.background-3{
-  background-image: url('top.jpg');
-  background-size: cover;
+.background{
+  background-color: #f3f3f3;
 }
 
 .calendar-heading{
