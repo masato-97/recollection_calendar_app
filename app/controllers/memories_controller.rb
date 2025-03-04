@@ -30,6 +30,10 @@ class MemoriesController < ApplicationController
     end
   end
 
+  def all
+    @memories = Memory.where(user_id: current_user.id)
+  end
+
   private
 
   def move_to_signed_in

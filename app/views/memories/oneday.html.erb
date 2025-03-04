@@ -1,3 +1,12 @@
 <% @memories.each do |memory| %>
-  <%= memory.title %>
+  <%= memory.day %>
+  <div>
+    <%= memory.title %>
+  </div>
+  <div>
+    <%= memory.body %>
+  </div>
+  <div>
+    <%= image_tag memory.main_image_url %>
+  </div>
 <% end %>
