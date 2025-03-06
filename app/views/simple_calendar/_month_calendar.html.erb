@@ -1,7 +1,7 @@
 <div class="simple-calendar">
   <div class="calendar-heading">
     <%= link_to t("simple_calendar.previous", default: "<<"), calendar.url_for_previous_view %>
-    <span class="calendar-title"><b><%= start_date.year %>年 <%= t("date.month_names")[start_date.month] %></b></span>
+    <span class="calendar-title"><b><%= start_date.year %> <%= t("date.abbr_month_names")[start_date.month] %></b></span>
     <%= link_to t("simple_calendar.next", default: ">>"), calendar.url_for_next_view %>
 
     <nav>
@@ -9,7 +9,7 @@
     </nav>
   </div>
 
-  <table class="table table-striped">
+  <table class="table">
     <thead>
       <tr>
         <% date_range.slice(0, 7).each do |day| %>
