@@ -1,8 +1,11 @@
 class MemoriesController < ApplicationController
   before_action :move_to_signed_in
+  before_action :set_beginning_of_week
 
   def index
-    @memories = Memory.where(user_id: current_user.id)
+    start_date = params.fetch(:start_date, Date.today).to_date
+    @memories = Memory.where(user_id: current_user.id, day: start_date.beginning_of_month.beginning_of_week..start_date.end_of_month.end_of_week)
+    @memories_total = Memory.where(user_id: current_user.id, day: start_date.beginning_of_month..start_date.end_of_month)
   end
 
   def new
@@ -64,5 +67,9 @@ class MemoriesController < ApplicationController
 
   def memory_params
     params.require(:memory).permit(:day, :title, :body, :main_image, :sub_image, :main_image_cache, :sub_image_cache, :star)
+  end
+
+  def set_beginning_of_week
+    Date.beginning_of_week = :sunday
   end
 end

@@ -1,19 +1,23 @@
-.background{
+.background {
   background-color: #f3f3f3;
 }
 
-.calendar-heading{
+.calendar-heading {
   text-align: center;
 }
 
-.day-names{
+.calendar-title {
+  font-size: 2rem;
+}
+
+.day-names {
   text-align: center;
 }
 
 .simple-calendar {
   width: 50%;
   position: absolute;
-  top: 15rem;
+  top: 10rem;
   left: 52rem;
 
   table {
