@@ -10,15 +10,24 @@
   font-size: 2rem;
 }
 
-.day-names {
-  text-align: center;
+.day-style {
+  text-decoration: none;
+  font-size: 2rem;
+}
+
+.memory-day-color {
+  color: #00ae9d;
+}
+
+.day-color {
+  color: #000000;
 }
 
 .simple-calendar {
-  width: 50%;
   position: absolute;
-  top: 10rem;
-  left: 52rem;
+  width: 50%;
+  top: 8rem;
+  padding-right: 20px;
 
   table {
     -webkit-border-horizontal-spacing: 0px;
@@ -29,6 +38,10 @@
     box-sizing: border-box;
     max-width: 100%;
     width: 100%;
+  }
+
+  tbody {
+    table-layout: fixed;
   }
 
   tr {
@@ -49,7 +62,6 @@
 
   td {
     padding: 6px;
-    vertical-align: top;
     width: 10%;
 
     border: 1px solid #ddd;

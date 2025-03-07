@@ -1,18 +1,21 @@
-<div class="total">
-  <h2>今月の思い出の数：<%= @memories_total.count %></h2>
-</div>
 <div class="position">
-  <%= month_calendar events: @memories do |date, memories| %>
-    <%= link_to oneday_memory_path(date), class: "navbar-item" do %>
-      <%= date.day %>
+  <div class="total">
+    <h2>今月の思い出の数：<%= @memories_total.count %></h2>
+  </div>
 
-      <% @memories.each do |memory| %>
-        <div>
-          <% if date == memory.day %>
-            <p><%= memory.title %></p>
-          <% end %>
-        </div>
-      <% end %>
-    <% end%>
-  <% end %>
+  <div>
+    <%= month_calendar events: @memories do |date, memories| %>
+      <%= link_to oneday_memory_path(date), class: "day-style" do %>
+        <% if @memories.any? { |memory| date == memory.day } %>
+          <div class="memory-day-color">
+            <%= date.day %>
+          </div>
+        <% else %>
+          <div class="day-color">
+            <%= date.day %>
+          </div>
+        <% end %>
+      <% end%>
+    <% end %>
+  </div>
 </div>
