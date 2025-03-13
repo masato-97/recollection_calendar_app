@@ -3,14 +3,30 @@
     <%= f.label :day %>
     <%= f.date_field :day %>
   </div>
+
   <div class="mb-3">
     <%= f.label :title %>
     <%= f.text_field :title, class: "form-control" %>
   </div>
+
   <div class="mb-3">
     <%= f.label :body %>
     <%= f.text_area :body, class: "form-control", rows: "10" %>
   </div>
+
+  <a>評価</a>
+  <div class="main-rating">
+    <div class="ratings mb-3">
+      <span class="fa fa-star-o" id="star"></span>
+      <span class="fa fa-star-o" id="star"></span>
+      <span class="fa fa-star-o" id="star"></span>
+      <span class="fa fa-star-o" id="star"></span>
+      <span class="fa fa-star-o" id="star"></span>
+    </div>
+    <div class="ml-3 rating-value-display"><span id="rating-value-display">0</span>/5</div>
+  </div>
+  <%= f.hidden_field :score, id: "rating-value" %>
+
   <div class="mb-3">
     <%= f.label :main_image %>
     <%= f.file_field :main_image, class: "form-control", accept: 'image/*' %>
@@ -23,3 +39,5 @@
   </div>
   <%= f.submit nil, class: "btn btn-primary mb-3" %>
 <% end %>
+
+<%= javascript_include_tag "rating.js" %>

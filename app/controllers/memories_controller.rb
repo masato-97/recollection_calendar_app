@@ -15,7 +15,7 @@ class MemoriesController < ApplicationController
   def create
     @memory = current_user.memories.build(memory_params)
     if @memory.save
-      redirect_to memories_path
+      redirect_to memory_path(@memory)
     else
       render :new
     end
@@ -66,7 +66,7 @@ class MemoriesController < ApplicationController
   end
 
   def memory_params
-    params.require(:memory).permit(:day, :title, :body, :main_image, :sub_image, :main_image_cache, :sub_image_cache, :star)
+    params.require(:memory).permit(:day, :title, :body, :main_image, :sub_image, :main_image_cache, :sub_image_cache, :score)
   end
 
   def set_beginning_of_week

@@ -18,6 +18,8 @@ ActiveRecord::Schema[8.0].define(version: 2025_02_27_091648) do
     t.string "title", null: false
     t.text "body", null: false
     t.datetime "start_time"
+    t.date "day", null: false
+    t.integer "score"
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

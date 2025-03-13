@@ -5,7 +5,7 @@ class CreateMemories < ActiveRecord::Migration[8.0]
       t.text :body, null: false
       t.datetime :start_time
       t.date :day, null: false
-      t.string :star
+      t.integer :score
       t.references :user, foreign_key: true
 
       t.timestamps

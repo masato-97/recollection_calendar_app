@@ -1,0 +1,14 @@
+.main-rating {
+  display: flex;
+}
+
+.main-rating .ratings .fa {
+  font-size: 30px;
+  color: #fc0;
+  cursor: pointer;
+}
+
+.rating-value-display {
+  font-size: 20px;
+  padding-left: 10px;
+}
