@@ -1,10 +1,23 @@
-<%= @memory.day %>
+<div>
+  <%= @memory.day %>
+</div>
 <div>
   <%= @memory.title %>
 </div>
 <div>
   <%= @memory.body %>
 </div>
+<% if @memory.score.present? %>
+  <div class="content average-score">
+    <div class="star-rating mb-2">
+      <div class="star-rating-front" style="width: <%= @memory.score * 20 %>%">★★★★★</div>
+      <div class="star-rating-back">★★★★★</div>
+    </div>
+    <div class="average-score-display ml-3 pt-2">
+      <%= @memory.score %>/5
+    </div>
+  </div>
+<% end %>
 <div>
   <%= image_tag @memory.main_image_url, width: "300", height: "200" %>
 </div>
