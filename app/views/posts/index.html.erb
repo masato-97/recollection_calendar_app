@@ -2,10 +2,22 @@
 <% @posts.each do |post| %>
   <div class="mb-3">
     <div>
-      <%= post.title %>
+      <%= link_to post.title, memory_post_path(memory_id: post.memory_id, id: post.id) %>
     </div>
+
     <div>
       <%= post.body %>
     </div>
+
+    <% if current_user.own?(post) %>
+      <div class='ms-auto'>
+        <%= link_to edit_memory_post_path(memory_id: post.memory_id, id: post.id), id: "button-edit-#{post.id}" do %>
+          <i class="bi bi-pencil-fill"></i>
+        <% end %>
+        <%= link_to memory_post_path(memory_id: post.memory_id, id: post.id), id: "button-delete-#{post.id}", data: { turbo_method: :delete, turbo_confirm: "削除しますか？" } do %>
+          <i class="bi bi-trash-fill"></i>
+        <% end %>
+      </div>
+    <% end %>
   </div>
 <% end %>
