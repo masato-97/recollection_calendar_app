@@ -16,5 +16,9 @@ Rails.application.routes.draw do
     collection do
       get "all"
     end
+
+    resources :posts, only: %i[new create show edit update destroy]
   end
+
+  resources :posts, only: %i[index]
 end
