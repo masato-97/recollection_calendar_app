@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   before_action :move_to_signed_in
-  before_action :set_memory, only: [:new, :create, :show]
+  before_action :set_memory, only: %i[new create show]
 
   def index
     @posts = Post.all
