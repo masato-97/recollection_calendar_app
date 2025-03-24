@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   before_action :move_to_signed_in
-  before_action :set_memory, only: %i[new create show]
+  before_action :set_memory, only: %i[new create show edit update destroy]
 
   def index
     @posts = Post.all
@@ -27,6 +27,26 @@ class PostsController < ApplicationController
 
   def show
     @post = current_user.posts.find(params[:id])
+  end
+
+  def edit
+    @post = current_user.posts.find(params[:id])
+  end
+
+  def update
+    @post = current_user.posts.find(params[:id])
+
+    if @post.update(post_params)
+      redirect_to memory_post_path(@memory, @memory.post)
+    else
+      render :edit, status: :unprocessable_entity
+    end
+  end
+
+  def destroy
+    @post = current_user.posts.find(params[:id])
+    @post.destroy!
+    redirect_to posts_path
   end
 
   private

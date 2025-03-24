@@ -1,9 +1,9 @@
 <div class="container">
   <div class="row">
     <div class="col-lg-8 offset-lg-2">
-      <h1>post作成</h1>
+      <h1>post編集</h1>
 
-      <%= form_with model: @post, url: memory_posts_path(@memory), local: true do |f| %>
+      <%= form_with model: @post, url: memory_post_path(@memory, @post), local: true do |f| %>
         <div class="mb-3">
           <%= f.label :title %>
           <%= f.text_field :title, class: "form-control" %>
