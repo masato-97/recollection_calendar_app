@@ -32,3 +32,13 @@
     <i class="bi bi-trash-fill"></i>
   <% end %>
 </div>
+
+<% if @memory.post.present? %>
+  <div>
+    <%= link_to 'Post詳細', memory_post_path(@memory, @memory.post), class: 'btn btn-primary' %>
+  </div>
+<% else %>
+  <div>
+    <%= link_to 'Post作成', new_memory_post_path(@memory), class: 'btn btn-primary' %>
+  </div>
+<% end %>

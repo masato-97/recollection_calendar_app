@@ -7,16 +7,16 @@
     <%= memory.body %>
   </div>
   <% if memory.score.present? %>
-  <div class="content average-score">
-    <div class="star-rating mb-2">
-      <div class="star-rating-front" style="width: <%= memory.score * 20 %>%">★★★★★</div>
-      <div class="star-rating-back">★★★★★</div>
+    <div class="content average-score">
+      <div class="star-rating mb-2">
+        <div class="star-rating-front" style="width: <%= memory.score * 20 %>%">★★★★★</div>
+        <div class="star-rating-back">★★★★★</div>
+      </div>
+      <div class="average-score-display ml-3 pt-2">
+        <%= memory.score %>/5
+      </div>
     </div>
-    <div class="average-score-display ml-3 pt-2">
-      <%= memory.score %>/5
-    </div>
-  </div>
-<% end %>
+  <% end %>
   <div>
     <%= image_tag memory.main_image_url, width: "300", height: "200" %>
   </div>
@@ -31,4 +31,14 @@
       <i class="bi bi-trash-fill"></i>
     <% end %>
   </div>
+
+  <% if memory.post.present? %>
+    <div>
+      <%= link_to 'Post詳細', memory_post_path(memory, memory.post), class: 'btn btn-primary' %>
+    </div>
+  <% else %>
+    <div>
+      <%= link_to 'Post作成', new_memory_post_path(memory), class: 'btn btn-primary' %>
+    </div>
+  <% end %>
 <% end %>

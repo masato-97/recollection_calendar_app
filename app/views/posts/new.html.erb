@@ -1,0 +1,24 @@
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 offset-lg-2">
+      <h1>post作成</h1>
+      <%= render 'form' %>
+      <div>
+        <h2>Memory Image</h2>
+        <%= image_tag @memory.main_image_url, width: "300", height: "200" %> <!-- imageカラムを表示 -->
+      </div>
+
+      <% if @memory.score.present? %>
+        <div class="content average-score">
+          <div class="star-rating mb-2">
+            <div class="star-rating-front" style="width: <%= @memory.score * 20 %>%">★★★★★</div>
+            <div class="star-rating-back">★★★★★</div>
+          </div>
+          <div class="average-score-display ml-3 pt-2">
+            <%= @memory.score %>/5
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
