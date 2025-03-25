@@ -7,7 +7,4 @@ class Memory < ApplicationRecord
 
   mount_uploader :main_image, MainImageUploader
   mount_uploader :sub_image, SubImageUploader
-
-  validates :title, presence: true
-  validates :body, presence: true
 end
