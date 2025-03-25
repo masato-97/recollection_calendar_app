@@ -5,10 +5,11 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
 
   test "should get show" do
     user = User.create!(name: "テストユーザー", email: "test@example.com", password: "password")
-    memory = user.memories.create!(title: "テストメモリー", body: "テストメモリー", day: "2025-03-25") # Memory を明示的に作成
-    sign_in user # current_user を設定
+    puts user.persisted?
+    memory = user.memories.create!(title: "テストメモリー", body: "テストメモリー", day: "2025-03-25")
+    sign_in user
 
-    get user_url(user) # 適切なルートに変更
+    get user_url(user)
     assert_response :success
   end
 end
