@@ -9,6 +9,8 @@ Rails.application.routes.draw do
     registrations: "users/registrations",
     sessions: "users/sessions"
   }
+  get "users/profile" => "users#show"
+
   resources :memories, only: %i[index new create show edit update destroy] do
     member do
       get "oneday"
