@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :move_to_signed_in
-  
+
   def show
     @user = current_user
   end

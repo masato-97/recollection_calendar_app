@@ -2,6 +2,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   before_action :configure_sign_up_params, only: [ :create ]
   before_action :configure_account_update_params, only: [ :update ]
   before_action :move_to_signed_in, only: [ :create ]
+  before_action :move_to_not_signed_in, only: [ :edit ]
 
   # GET /resource/sign_up
   def new
@@ -70,6 +71,13 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def move_to_signed_in
     if user_signed_in?
       redirect_to "/memories"
+    end
+  end
+
+  def move_to_not_signed_in
+    unless user_signed_in?
+      # サインインしていないユーザーはログインページが表示される
+      redirect_to "/users/sign_in"
     end
   end
 end
