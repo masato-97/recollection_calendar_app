@@ -1,44 +1,61 @@
 <% @memories.each do |memory| %>
-  <%= memory.day %>
-  <div>
-    <%= memory.title %>
-  </div>
-  <div>
-    <%= memory.body %>
-  </div>
-  <% if memory.score.present? %>
-    <div class="content average-score">
-      <div class="star-rating mb-2">
-        <div class="star-rating-front" style="width: <%= memory.score * 20 %>%">★★★★★</div>
-        <div class="star-rating-back">★★★★★</div>
-      </div>
-      <div class="average-score-display ml-3 pt-2">
-        <%= memory.score %>/5
-      </div>
-    </div>
-  <% end %>
-  <div>
-    <%= image_tag memory.main_image_url, width: "300", height: "200" %>
-  </div>
-  <div>
-    <%= image_tag memory.sub_image_url, width: "300", height: "200" %>
-  </div>
-  <div class='ms-auto'>
-    <%= link_to edit_memory_path(memory), id: "button-edit-#{memory.id}" do %>
-      <i class="bi bi-pencil-fill"></i>
-    <% end %>
-    <%= link_to memory_path(memory), id: "button-delete-#{memory.id}", data: { turbo_method: :delete, turbo_confirm: "削除しますか？" } do %>
-      <i class="bi bi-trash-fill"></i>
-    <% end %>
-  </div>
+  <div class="container">
+    <div class="memory-position">
+      <div class="body-style">
+        <div class="mb-4 fst-italic border-bottom">
+          <h3><%= memory.day %></h3>
+        </div>
+        <div class="mb-4 fst-italic border-bottom">
+          <h3><%= memory.title %></h3>
+        </div>
+        <div class="mb-4">
+          <%= memory.body %>
+        </div>
 
-  <% if memory.post.present? %>
-    <div>
-      <%= link_to 'Post詳細', memory_post_path(memory, memory.post), class: 'btn btn-primary' %>
+        <% if memory.score.present? %>
+          <div class="content average-score mb-4">
+            <div class="star-rating mb-2">
+              <div class="star-rating-front" style="width: <%= memory.score * 20 %>%">★★★★★</div>
+              <div class="star-rating-back">★★★★★</div>
+            </div>
+            <div class="average-score-display ml-3 pt-2">
+              <%= memory.score %>/5
+            </div>
+          </div>
+        <% end %>
+
+        <div class='ms-auto mb-3'>
+          <%= link_to edit_memory_path(memory), id: "button-edit-#{memory.id}" do %>
+            <i class="bi bi-pencil-fill"></i>
+          <% end %>
+          <%= link_to memory_path(memory), id: "button-delete-#{memory.id}", data: { turbo_method: :delete, turbo_confirm: "削除しますか？" } do %>
+            <i class="bi bi-trash-fill"></i>
+          <% end %>
+        </div>
+
+        <% if memory.post.present? %>
+          <div>
+            <%= link_to 'Post詳細', memory_post_path(memory, memory.post), class: 'btn btn-primary mb-3' %>
+          </div>
+        <% else %>
+          <div>
+            <%= link_to 'Post作成', new_memory_post_path(memory), class: 'btn btn-primary mb-3' %>
+          </div>
+        <% end %>
+
+        <%= link_to "Back", all_memories_path %>
+      </div>
+
+      <div class="image-box">
+        <div>
+          <div class="image-pozi mx-2">
+            <%= image_tag memory.main_image_url , width: "400", height: "700" %>
+          </div>
+          <div class="image-pozi">
+            <%= image_tag memory.sub_image_url, width: "350", height: "700" %>
+          </div>
+        </div>
+      </div>
     </div>
-  <% else %>
-    <div>
-      <%= link_to 'Post作成', new_memory_post_path(memory), class: 'btn btn-primary' %>
-    </div>
-  <% end %>
+  </div>
 <% end %>
