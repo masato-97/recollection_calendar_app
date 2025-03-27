@@ -1,0 +1,26 @@
+.memory-position {
+  display: flex;
+}
+
+.body-style {
+  box-sizing: border-box;
+  width: 40%;
+  margin: 10px 0px;
+}
+
+.image-box {
+  box-sizing: border-box;
+  width: 60%;
+  margin: 60px 0px;
+  display: flex;
+  justify-content: center;
+  float:left;
+}
+
+.image-pozi {
+  float:left;
+}
+
+.right{
+  float: right;
+}

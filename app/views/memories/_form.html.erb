@@ -27,6 +27,19 @@
   </div>
   <%= f.hidden_field :score, id: "rating-value" %>
 
+  <% if memory.score.present? %>
+    <a>登録済み評価</a>
+    <div class="content average-score mb-3">
+      <div class="star-rating mb-2">
+        <div class="star-rating-front" style="width: <%= memory.score * 20 %>%">★★★★★</div>
+        <div class="star-rating-back">★★★★★</div>
+      </div>
+      <div class="average-score-display ml-3 pt-2">
+        <%= memory.score %>/5
+      </div>
+    </div>
+  <% end %>
+
   <div class="mb-3">
     <%= f.label :main_image %>
     <%= f.file_field :main_image, class: "form-control", accept: 'image/*' %>
@@ -44,7 +57,7 @@
     <%= f.hidden_field :sub_image_cache %>
   </div>
 
-  <% if  memory.main_image.present? %>
+  <% if  memory.sub_image.present? %>
     <a>登録済み画像<a>
     <div class="mb-3"><%= image_tag memory.sub_image_url, width: "300", height: "200" %></div>
   <% end %>

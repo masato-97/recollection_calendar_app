@@ -1,15 +1,20 @@
-<h1>思い出一覧</h1>
-<% @memories.each do |memory| %>
-  <%= memory.day %>
-  <div>
-    <%= link_to memory.title, memory_path(memory) %>
+<div class="container">
+  <section class="py-5 text-center container">
+    <div class="row py-lg-5">
+      <div class="col-lg-6 col-md-8 mx-auto">
+        <h1 class="fw-light">思い出一覧</h1>
+      </div>
+    </div>
+  </section>
+  <div class="row">
+    <div class="col-12">
+      <div class="row row-cols-1 row-cols-md-2 g-4">
+        <% if @memories.present? %>
+          <%= render @memories %>
+        <% else %>
+          <div class="mb-3">掲示板がありません</div>
+        <% end %>
+      </div>
+    </div>
   </div>
-  <div class='ms-auto'>
-    <%= link_to edit_memory_path(memory), id: "button-edit-#{memory.id}" do %>
-      <i class="bi bi-pencil-fill"></i>
-    <% end %>
-    <%= link_to memory_path(memory), id: "button-delete-#{memory.id}", data: { turbo_method: :delete, turbo_confirm: "削除しますか？" } do %>
-      <i class="bi bi-trash-fill"></i>
-    <% end %>
-  </div>
-<% end %>
+</div>
