@@ -9,7 +9,8 @@ Rails.application.routes.draw do
     registrations: "users/registrations",
     sessions: "users/sessions"
   }
-  get "users/profile" => "users#show"
+  get "users/profile", to:  "users#show"
+  delete "users/:id/delete_avatar", to: "users#delete_avatar", as: :delete_avatar
 
   resources :memories, only: %i[index new create show edit update destroy] do
     member do
