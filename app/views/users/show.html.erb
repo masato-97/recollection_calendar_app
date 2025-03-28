@@ -1,41 +1,53 @@
-<h1>プロフィール</h1>
+<div class="container">
+ <h1 class="mb-3 mt-4">プロフィール</h1>
+  <section class="text-center container">
+    <div class="row py-lg-5">
+      <div class="col-lg-6 col-md-8 mx-auto">
+        <% if @user.avatar.attached? %>
+          <%= image_tag @user.avatar, class: "rounded-circle mb-5", alt: "mdo", width: '200', height: '200'  %>
+        <% else %>
+          <%= image_tag "icon.jpg", class: "rounded-circle mb-5", alt: "mdo", width: '200', height: '200' %>
+        <% end %>
 
-<% if @user.avatar.attached? %>
-  <%= image_tag @user.avatar, class: "rounded-circle mb-3", alt: "mdo", width: '100', height: '100'  %>
-<% else %>
-  <%= image_tag "icon.jpg", class: "rounded-circle mb-3", alt: "mdo", width: '100', height: '100' %>
-<% end %>
+        <div class="mb-5">
+          <h1><%= @user.name %></h1>
+        </div>
 
-<h3>ユーザー名</h3>
-<div class="mb-3">
-  <%= @user.name %>
-</div>
+        <div class="mb-5">
+          <h2><%= @user.email %></h2>
+        </div>
 
-<h3>メールアドレス</h3>
-<div class="mb-3">
-  <%= @user.email %>
-</div>
+        <div class="mb-3">
+          <%= link_to 'プロフィールを編集', edit_user_registration_path, class: 'btn btn-primary' %>
+        </div>
 
-<div>
-  <%= link_to 'プロフィール編集', edit_user_registration_path, class: 'btn btn-primary' %>
-</div>
-<% if @user.avatar.attached? %>
-  <div>
-    <%= button_to 'アバター画像を削除', delete_avatar_path(@user), method: :delete, class: 'btn btn-danger mb-3' %>
-  </div>
-<% end %>
-
-<% if @user.avatar.attached? %>
-  <h3>My Post</h3>
-  <% @posts.each do |post| %>
-    <div class="mb-3">
-      <div>
-        <%= link_to post.title, memory_post_path(memory_id: post.memory_id, id: post.id) %>
-      </div>
-
-      <div>
-        <%= post.body %>
+        <div>
+          <% if @user.avatar.attached? %>
+            <%= button_to 'アバター画像を削除', delete_avatar_path(@user), method: :delete, class: 'btn btn-danger mb-3' %>
+          <% end %>
+        </div>
       </div>
     </div>
-  <% end %>
-<% end %>
+  </section>
+
+  <section class="py-5 text-center container">
+    <div class="row py-lg-5">
+      <div class="col-lg-6 col-md-8 mx-auto">
+        <h1 class="fw-light">My Post</h1>
+      </div>
+    </div>
+  </section>
+  <div class="row">
+    <div class="col-12">
+      <div class="row row-cols-1 row-cols-md-2 g-4">
+        <% if @posts.present? %>
+          <%= render "my_post", posts: @posts %>
+        <% else %>
+          <div class="mb-3">
+            <h1>ポストがありません</h1>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
