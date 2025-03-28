@@ -62,7 +62,13 @@
     <div class="mb-3"><%= image_tag memory.sub_image_url, width: "300", height: "200" %></div>
   <% end %>
 
-  <%= f.submit nil, class: "btn btn-primary mb-3" %>
+  <div>
+    <%= f.submit nil, class: "btn btn-primary mb-3" %>
+  </div>
+
+  <div class="mb-3">
+    <%= link_to "< 戻る", :back %>
+  </div>
 <% end %>
 
 <%= javascript_include_tag "rating.js" %>

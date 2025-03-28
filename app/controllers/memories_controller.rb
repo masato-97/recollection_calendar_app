@@ -5,7 +5,7 @@ class MemoriesController < ApplicationController
   def index
     start_date = params.fetch(:start_date, Date.today).to_date
     @memories = Memory.where(user_id: current_user.id, day: start_date.beginning_of_month.beginning_of_week..start_date.end_of_month.end_of_week)
-    @memories_total = Memory.where(user_id: current_user.id, day: start_date.beginning_of_month..start_date.end_of_month)
+    @memories_month = Memory.where(user_id: current_user.id, day: start_date.beginning_of_month..start_date.end_of_month).order(day: :desc)
   end
 
   def new

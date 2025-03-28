@@ -8,6 +8,17 @@
 
 .calendar-title {
   font-size: 2rem;
+  text-decoration: none;
+}
+
+.calendar-action {
+  text-decoration: none;
+  color: #37dc6b;
+}
+
+.calendar-today {
+  text-decoration: none;
+  color: #00ae9d;
 }
 
 .day-style {
@@ -24,15 +35,12 @@
 }
 
 .simple-calendar {
-  position: absolute;
-  width: 50%;
-  top: 8rem;
-  padding-right: 20px;
+  width: 100%;
 
   table {
     -webkit-border-horizontal-spacing: 0px;
     -webkit-border-vertical-spacing: 0px;
-    background-color: rgba(0, 0, 0, 0);
+    background-color: rgb(255, 255, 255);
     border: 1px solid rgb(221, 221, 221);
     border-collapse: collapse;
     box-sizing: border-box;

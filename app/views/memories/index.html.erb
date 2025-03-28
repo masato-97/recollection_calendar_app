@@ -1,9 +1,32 @@
-<div class="position">
-  <div class="total">
-    <h2>今月の思い出の数：<%= @memories_total.count %></h2>
+<div class="position mx-5">
+  <div class="total mx-2">
+    <div class="mb-3 mt-3 fst-italic border-bottom">
+      <h2>今月の思い出：<%= @memories_month.count %></h2>
+    </div>
+
+    <% if @memories.present? %>
+      <div id="carouselExampleIndicators" class="carousel carousel-dark slide slide-posi" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+          <%= render 'slide_button', memories: @memories_month %>
+        </div>
+        <div class="carousel-inner">
+          <%= render 'main_images', memories: @memories_month %>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+    <% else %>
+      <%= render 'no_image' %>
+    <% end %>
   </div>
 
-  <div>
+  <div class="calendar-box mx-2">
     <%= month_calendar events: @memories do |date, memories| %>
       <%= link_to oneday_memory_path(date), class: "day-style" do %>
         <% if @memories.any? { |memory| date == memory.day } %>

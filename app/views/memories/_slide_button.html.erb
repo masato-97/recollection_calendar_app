@@ -1,0 +1,7 @@
+<% memories.each_with_index do |memory, i| %>
+  <% if i == 0 %>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+  <% else %>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="<%= i %>" aria-label="Slide <%= i + 1 %>"></button>
+  <% end %>
+<% end %>
