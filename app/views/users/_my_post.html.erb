@@ -1,0 +1,61 @@
+<% posts.each do |post| %>
+  <div class="col">
+    <div id="post-id-<%= post.id %>">
+      <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative memory-coloe">
+        <div class="col p-4 d-flex flex-column position-static">
+          <% if post.user.avatar.attached? %>
+            <div class="mb-1">
+              <%= image_tag current_user.avatar, class: "rounded-circle", alt: "mdo", width: '30', height: '30'  %> <%= " " %> <span class="name_style"><%= post.user.name %></span>
+            </div>
+          <% else %>
+            <div class="mb-1">
+              <%= image_tag "icon.jpg", class: "rounded-circle", alt: "mdo", width: '30', height: '30' %> <%= " " %> <%= post.user.name %>
+            </div>
+          <% end %>
+
+          <h4 class="mb-1">
+            <%= link_to post.title, memory_post_path(memory_id: post.memory_id, id: post.id) %>
+          </h4>
+
+          <% if post.memory.score.present? %>
+            <div class="content average-score mb-2">
+              <div class="star-rating mb-2">
+                <div class="star-rating-front" style="width: <%= post.memory.score * 20 %>%">★★★★★</div>
+                <div class="star-rating-back">★★★★★</div>
+              </div>
+              <div class="average-score-display ml-3 pt-2">
+                <%= post.memory.score %>/5
+              </div>
+            </div>
+          <% end %>
+
+          <div class="card-text mb-auto">
+            <%= post.body.truncate(43) %>
+          </div>
+
+          <div class="day-pencil-trash-inner">
+            <div class="text-body-secondary">
+              <%= post.created_at.strftime("%Y/%m/%d") %>
+            </div>
+
+            <% if current_user.own?(post) %>
+              <div class='ms-auto'>
+                <%= link_to edit_memory_post_path(memory_id: post.memory_id, id: post.id), id: "button-edit-#{post.id}" do %>
+                  <i class="bi bi-pencil-fill edit-link"></i>
+                <% end %>
+              </div>
+              <div>
+                <%= link_to memory_post_path(memory_id: post.memory_id, id: post.id), id: "button-delete-#{post.id}", data: { turbo_method: :delete, turbo_confirm: "削除しますか？" } do %>
+                  <i class="bi bi-trash-fill edit-link"></i>
+                <% end %>
+              </div>
+            <% end %>
+          </div>
+        </div>
+        <div class="col-auto d-none d-lg-block">
+          <%= link_to image_tag(post.memory.main_image_url, class: "bd-placeholder-img", width: "250", height: "270", xmlns: "http://www.w3.org/2000/svg", role: "img",  preserveAspectRatio: "xMidYMid slice", focusable: "false"), memory_post_path(memory_id: post.memory_id, id: post.id) %>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
