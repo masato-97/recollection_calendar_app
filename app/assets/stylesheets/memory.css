@@ -28,3 +28,7 @@
 .right{
   float: right;
 }
+.edit-link {
+  padding-right: 20px;
+  text-decoration: none;
+}

@@ -29,12 +29,27 @@
 
           <div class='ms-auto'>
             <%= link_to edit_memory_path(memory), id: "button-edit-#{memory.id}" do %>
-              <i class="bi bi-pencil-fill"></i>
-            <% end %>
-            <%= link_to memory_path(memory), id: "button-delete-#{memory.id}", data: { turbo_method: :delete, turbo_confirm: "削除しますか？" } do %>
-              <i class="bi bi-trash-fill"></i>
+              <i class="bi bi-pencil-fill edit-link"></i>
             <% end %>
           </div>
+          <div>
+            <%= link_to memory_path(memory), id: "button-delete-#{memory.id}", data: { turbo_method: :delete, turbo_confirm: "削除しますか？" } do %>
+              <i class="bi bi-trash-fill edit-link"></i>
+            <% end %>
+          </div>
+
+          <% if memory.score.present? %>
+            <% if memory.post.present? %>
+              <div>
+                <%= link_to 'Post詳細', memory_post_path(memory, memory.post), class: 'btn btn-primary' %>
+              </div>
+            <% else %>
+              <div>
+                <%= link_to 'Post作成', new_memory_post_path(memory), class: 'btn btn-primary' %>
+              </div>
+            <% end %>
+          <% end %>
+
         </div>
       </div>
       <div class="col-auto d-none d-lg-block">

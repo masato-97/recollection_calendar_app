@@ -1,23 +1,22 @@
-<h1>post一覧</h1>
-<% @posts.each do |post| %>
-  <div class="mb-3">
-    <div>
-      <%= link_to post.title, memory_post_path(memory_id: post.memory_id, id: post.id) %>
+<div class="container">
+  <section class="py-5 text-center container">
+    <div class="row py-lg-5">
+      <div class="col-lg-6 col-md-8 mx-auto">
+        <h1 class="fw-light">ポスト一覧</h1>
+      </div>
     </div>
-
-    <div>
-      <%= post.body %>
-    </div>
-
-    <% if current_user.own?(post) %>
-      <div class='ms-auto'>
-        <%= link_to edit_memory_post_path(memory_id: post.memory_id, id: post.id), id: "button-edit-#{post.id}" do %>
-          <i class="bi bi-pencil-fill"></i>
-        <% end %>
-        <%= link_to memory_post_path(memory_id: post.memory_id, id: post.id), id: "button-delete-#{post.id}", data: { turbo_method: :delete, turbo_confirm: "削除しますか？" } do %>
-          <i class="bi bi-trash-fill"></i>
+  </section>
+  <div class="row">
+    <div class="col-12">
+      <div class="row row-cols-1 row-cols-md-2 g-4">
+        <% if @posts.present? %>
+          <%= render @posts %>
+        <% else %>
+          <div class="mb-3">
+            <h1>ポストがありません</h1>
+          </div>
         <% end %>
       </div>
-    <% end %>
+    </div>
   </div>
-<% end %>
+</div>

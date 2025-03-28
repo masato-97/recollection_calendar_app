@@ -1,31 +1,57 @@
-<div>
-  <%= @post.title %>
-</div>
-<div>
-  <%= @post.body %>
-</div>
-<div>
-  <%= image_tag @memory.main_image_url, width: "300", height: "200" %> <!-- imageカラムを表示 -->
-</div>
-<div>
-  <% if @memory.score.present? %>
-    <div class="content average-score">
-      <div class="star-rating mb-2">
-        <div class="star-rating-front" style="width: <%= @memory.score * 20 %>%">★★★★★</div>
-        <div class="star-rating-back">★★★★★</div>
+<div class="container">
+  <div class="memory-position">
+    <div class="body-style">
+      <div class="mb-4 border-bottom">
+        <h6><%= image_tag current_user.avatar, class: "rounded-circle", alt: "mdo", width: '48', height: '48'  %> <%= " " %> <span class="name_style"><%= @post.user.name %></span></h6>
       </div>
-      <div class="average-score-display ml-3 pt-2">
-        <%= @memory.score %>/5
+
+      <div class="mb-4 fst-italic border-bottom">
+        <h3><%= @post.title %></h3>
+      </div>
+
+      <div class="pb-4 mb-4 border-bottom">
+        <%= @post.body %>
+      </div>
+
+      <% if @memory.score.present? %>
+        <div class="content average-score mb-5">
+          <div class="star-rating mb-2">
+            <div class="star-rating-front" style="width: <%= @memory.score * 20 %>%">★★★★★</div>
+            <div class="star-rating-back">★★★★★</div>
+          </div>
+          <div class="average-score-display ml-3 pt-2">
+            <%= @memory.score %>/5
+          </div>
+        </div>
+      <% end %>
+
+      <div class="day-pencil-trash-inner mb-4">
+        <div class="text-body-secondary">
+          <%= @post.created_at.strftime("%Y/%m/%d") %>
+        </div>
+
+        <div class='ms-auto'>
+          <%= link_to edit_memory_post_path(@memory, @memory.post), id: "button-edit-#{@post.id}" do %>
+            <i class="bi bi-pencil-fill edit-link"></i>
+          <% end %>
+        </div>
+        <div>
+          <%= link_to memory_post_path(@memory, @memory.post), id: "button-delete-#{@post.id}", data: { turbo_method: :delete, turbo_confirm: "削除しますか？" } do %>
+            <i class="bi bi-trash-fill edit-link"></i>
+          <% end %>
+        </div>
+      </div>
+
+      <%= link_to "< ポスト一覧", posts_path %>
+    </div>
+
+    <div class="image-box">
+      <div id="carouselExampleIndicators" class="carousel carousel-dark slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <%= image_tag @memory.main_image_url, class: "bd-placeholder-img bd-placeholder-img-lg d-block w-100", width: "800", height: "690", xmlns: "http://www.w3.org/2000/svg", role: "img", preserveAspectRatio: "xMidYMid slice", focusable: "false" %>
+        </div>
       </div>
     </div>
-  <% end %>
-</div>
-
-<div class='ms-auto'>
-  <%= link_to edit_memory_post_path(@memory, @memory.post), id: "button-edit-#{@post.id}" do %>
-    <i class="bi bi-pencil-fill"></i>
-  <% end %>
-  <%= link_to memory_post_path(@memory, @memory.post), id: "button-delete-#{@post.id}", data: { turbo_method: :delete, turbo_confirm: "削除しますか？" } do %>
-    <i class="bi bi-trash-fill"></i>
-  <% end %>
+  </div>
 </div>
