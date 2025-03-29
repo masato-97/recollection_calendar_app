@@ -47,23 +47,21 @@
   <div class="mb-3">
     <%= f.label :main_image %>
     <%= f.file_field :main_image, class: "form-control", accept: 'image/*' %>
-    <%= f.hidden_field :main_image_cache %>
   </div>
 
   <% if  memory.main_image.present? %>
     <a>登録済み画像<a>
-    <div class="mb-3"><%= image_tag memory.main_image_url, width: "300", height: "200" %></div>
+    <div class="mb-3"><%= image_tag memory.main_image, width: "300", height: "200" %></div>
   <% end %>
 
   <div class="mb-3">
     <%= f.label :sub_image %>
     <%= f.file_field :sub_image, class: "form-control", accept: 'image/*' %>
-    <%= f.hidden_field :sub_image_cache %>
   </div>
 
   <% if  memory.sub_image.present? %>
     <a>登録済み画像<a>
-    <div class="mb-3"><%= image_tag memory.sub_image_url, width: "300", height: "200" %></div>
+    <div class="mb-3"><%= image_tag memory.sub_image, width: "300", height: "200" %></div>
   <% end %>
 
   <div>

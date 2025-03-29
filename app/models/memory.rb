@@ -6,6 +6,6 @@ class Memory < ApplicationRecord
   belongs_to :user
   has_one :post, dependent: :destroy
 
-  mount_uploader :main_image, MainImageUploader
-  mount_uploader :sub_image, SubImageUploader
+  has_one_attached :main_image
+  has_one_attached :sub_image
 end
