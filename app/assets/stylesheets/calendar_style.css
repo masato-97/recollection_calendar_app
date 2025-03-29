@@ -4,6 +4,7 @@
 
 .calendar-heading {
   text-align: center;
+  margin: 20px 0px;
 }
 
 .calendar-title {
@@ -13,7 +14,7 @@
 
 .calendar-action {
   text-decoration: none;
-  color: #37dc6b;
+  color: #31e068;
 }
 
 .calendar-today {
@@ -27,7 +28,7 @@
 }
 
 .memory-day-color {
-  color: #00ae9d;
+  color: #30c55f;
 }
 
 .day-color {
@@ -92,7 +93,7 @@
   }
 
   .today {
-    background: #37dc6b;
+    background: #00c9b5;
   }
 
   .prev-month {
