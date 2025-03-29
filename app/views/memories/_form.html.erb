@@ -1,16 +1,20 @@
 <%= form_with model: memory do |f| %>
   <div class="mb-3">
-    <%= f.label :day %>
+    <span style="color: red;">＊は必須項目です。</span>
+  </div>
+
+  <div class="mb-3">
+    <%= f.label :day %> <span style="color: red;">*</span>
     <%= f.date_field :day %>
   </div>
 
   <div class="mb-3">
-    <%= f.label :title %>
+    <%= f.label :title %> <span style="color: red;">*</span>
     <%= f.text_field :title, class: "form-control" %>
   </div>
 
   <div class="mb-3">
-    <%= f.label :body %>
+    <%= f.label :body %> <span style="color: red;">*</span>
     <%= f.text_area :body, class: "form-control", rows: "10" %>
   </div>
 

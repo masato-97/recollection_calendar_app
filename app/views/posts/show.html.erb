@@ -2,7 +2,11 @@
   <div class="memory-position">
     <div class="body-style">
       <div class="mb-4 border-bottom">
-        <h6><%= image_tag current_user.avatar, class: "rounded-circle", alt: "mdo", width: '48', height: '48'  %> <%= " " %> <span class="name_style"><%= @post.user.name %></span></h6>
+        <% if current_user.avatar.attached? %>
+          <h6><%= image_tag current_user.avatar, class: "rounded-circle", alt: "mdo", width: '48', height: '48'  %> <%= " " %> <span class="name_style"><%= @post.user.name %></span></h6>
+        <% else %>
+          <h6><%= image_tag "icon.png", class: "rounded-circle", alt: "mdo", width: '48', height: '48'  %> <%= " " %> <span class="name_style"><%= @post.user.name %></span></h6>
+        <% end %>
       </div>
 
       <div class="mb-4 fst-italic border-bottom">
