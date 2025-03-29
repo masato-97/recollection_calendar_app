@@ -72,7 +72,7 @@ jobs:
       - name: Run tests
         env:
           RAILS_ENV: test
-          DATABASE_URL: postgres://recordi:Gv4NqY5rDO5aR2r@recordi-db.flycast:5432/recordi?sslmode=disable
+          DATABASE_URL: postgres://recordi:Gv4NqY5rDO5aR2r@recordi-db.internal:5432/recordi?sslmode=disable
           # REDIS_URL: redis://localhost:6379/0
         run: bin/rails db:test:prepare test test:system
 
