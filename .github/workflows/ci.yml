@@ -72,7 +72,7 @@ jobs:
       - name: Run tests
         env:
           RAILS_ENV: test
-          DATABASE_URL: postgresql://recordi-db.flycast
+          DATABASE_URL: postgres://postgres:UcC1SaqXf5xHe2W@recordi-db.flycast:5432/recordi-db
           # REDIS_URL: redis://localhost:6379/0
         run: bin/rails db:test:prepare test test:system
 
