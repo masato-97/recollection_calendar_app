@@ -68,4 +68,4 @@ gem "simple_calendar", "~> 3.1"
 gem "carrierwave", "~> 3.1", ">= 3.1.1"
 gem "bulma-rails"
 
-gem 'aws-sdk-s3', require: false
+gem "aws-sdk-s3", require: false
