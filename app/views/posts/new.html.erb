@@ -19,7 +19,11 @@
 
       <div class="mb-3">
         <div>※表示される画像（思い出のメイン画像）</div>
-        <%= image_tag @memory.main_image_url, width: "300", height: "200" %> <!-- imageカラムを表示 -->
+        <% if @memory.main_image.present? %>
+          <%= image_tag @memory.main_image, width: "300", height: "200" %>
+        <% else %>
+          <%= image_tag "no_image.png", width: "300", height: "200" %>
+        <% end %>
       </div>
 
       <% if @memory.score.present? %>

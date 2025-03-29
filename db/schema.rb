@@ -51,8 +51,6 @@ ActiveRecord::Schema[8.0].define(version: 2025_03_25_063139) do
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "main_image"
-    t.string "sub_image"
     t.index ["user_id"], name: "index_memories_on_user_id"
   end
 

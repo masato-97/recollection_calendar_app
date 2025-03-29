@@ -52,7 +52,11 @@
         </div>
       </div>
       <div class="col-auto d-none d-lg-block">
-        <%= link_to image_tag(post.memory.main_image_url, class: "bd-placeholder-img", width: "250", height: "270", xmlns: "http://www.w3.org/2000/svg", role: "img",  preserveAspectRatio: "xMidYMid slice", focusable: "false"), memory_post_path(memory_id: post.memory_id, id: post.id) %>
+        <% if post.memory.main_image.present? %>
+          <%= link_to image_tag(post.memory.main_image, class: "bd-placeholder-img", width: "250", height: "270", xmlns: "http://www.w3.org/2000/svg", role: "img",  preserveAspectRatio: "xMidYMid slice", focusable: "false"), memory_post_path(memory_id: post.memory_id, id: post.id) %>
+        <% else %>
+          <%= link_to image_tag("no_image.png", class: "bd-placeholder-img", width: "250", height: "270", xmlns: "http://www.w3.org/2000/svg", role: "img",  preserveAspectRatio: "xMidYMid slice", focusable: "false"), memory_post_path(memory_id: post.memory_id, id: post.id) %>
+        <% end %>
       </div>
     </div>
   </div>

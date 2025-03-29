@@ -66,7 +66,7 @@ class MemoriesController < ApplicationController
   end
 
   def memory_params
-    params.require(:memory).permit(:day, :title, :body, :main_image, :sub_image, :main_image_cache, :sub_image_cache, :score)
+    params.require(:memory).permit(:day, :title, :body, :main_image, :sub_image, :score)
   end
 
   def set_beginning_of_week
