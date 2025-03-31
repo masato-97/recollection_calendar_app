@@ -20,10 +20,12 @@ RUN apt-get update -qq && \
     rm -rf /var/lib/apt/lists /var/cache/apt/archives
 
 # Set production environment
+#AWS_REGION="ap-northeast-1"追加
 ENV RAILS_ENV="production" \
     BUNDLE_DEPLOYMENT="1" \
     BUNDLE_PATH="/usr/local/bundle" \
-    BUNDLE_WITHOUT="development"
+    BUNDLE_WITHOUT="development" \
+    AWS_REGION="ap-northeast-1"
 
 # Throw-away build stage to reduce size of final image
 FROM base AS build
