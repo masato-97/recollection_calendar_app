@@ -34,16 +34,18 @@
           <%= @post.created_at.strftime("%Y/%m/%d") %>
         </div>
 
-        <div class='ms-auto'>
-          <%= link_to edit_memory_post_path(@memory, @memory.post), id: "button-edit-#{@post.id}" do %>
-            <i class="bi bi-pencil-fill edit-link"></i>
-          <% end %>
-        </div>
-        <div>
-          <%= link_to memory_post_path(@memory, @memory.post), id: "button-delete-#{@post.id}", data: { turbo_method: :delete, turbo_confirm: "削除しますか？" } do %>
-            <i class="bi bi-trash-fill edit-link"></i>
-          <% end %>
-        </div>
+        <% if current_user.own?(@post) %>
+          <div class='ms-auto'>
+            <%= link_to edit_memory_post_path(@memory, @memory.post), id: "button-edit-#{@post.id}" do %>
+              <i class="bi bi-pencil-fill edit-link"></i>
+            <% end %>
+          </div>
+          <div>
+            <%= link_to memory_post_path(@memory, @memory.post), id: "button-delete-#{@post.id}", data: { turbo_method: :delete, turbo_confirm: "削除しますか？" } do %>
+              <i class="bi bi-trash-fill edit-link"></i>
+            <% end %>
+          </div>
+        <% end %>
       </div>
 
       <%= link_to "< ポスト一覧", posts_path %>

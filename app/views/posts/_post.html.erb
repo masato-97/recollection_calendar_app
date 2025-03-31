@@ -4,11 +4,11 @@
       <div class="col p-4 d-flex flex-column position-static">
         <% if post.user.avatar.attached? %>
           <div class="mb-1">
-            <%= image_tag current_user.avatar, class: "rounded-circle", alt: "mdo", width: '30', height: '30'  %> <%= " " %> <span class="name_style"><%= post.user.name %></span>
+            <%= image_tag post.user.avatar, class: "rounded-circle", alt: "mdo", width: '30', height: '30'  %> <%= " " %> <span class="name_style"><%= post.user.name %></span>
           </div>
         <% else %>
           <div class="mb-1">
-            <%= image_tag "icon.jpg", class: "rounded-circle", alt: "mdo", width: '30', height: '30' %> <%= " " %> <%= post.user.name %>
+            <%= image_tag "icon.jpg", class: "rounded-circle", alt: "mdo", width: '30', height: '30' %> <%= " " %> <span class="name_style"><%= post.user.name %></span>
           </div>
         <% end %>
 
