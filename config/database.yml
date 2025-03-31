@@ -87,19 +87,18 @@ production:
     username: postgres
     password: <%= ENV["DATABASE_PASSWORD"] %>
     url: <%= ENV["DATABASE_URL"] %>
-    port: 5433
   cache:
     <<: *primary_production
     database: recordi-db_cache
     migrations_paths: db/cache_migrate
-    url: <%= URI.parse(ENV["DATABASE_URL"]).tap { |url| url.path += "_cache" } if ENV["DATABASE_URL"] && Rails.env.production? %>
+    url: <%= URI.parse(ENV["DATABASE_URL"]).tap { |url| url.path += "_cache" } if ENV["DATABASE_URL"] %>
   queue:
     <<: *primary_production
     database: recordi-db_queue
     migrations_paths: db/queue_migrate
-    url: <%= URI.parse(ENV["DATABASE_URL"]).tap { |url| url.path += "_queue" } if ENV["DATABASE_URL"] && Rails.env.production? %>
+    url: <%= URI.parse(ENV["DATABASE_URL"]).tap { |url| url.path += "_queue" } if ENV["DATABASE_URL"] %>
   cable:
     <<: *primary_production
     database: recordi-db_cable
     migrations_paths: db/cable_migrate
-    url: <%= URI.parse(ENV["DATABASE_URL"]).tap { |url| url.path += "_cable" } if ENV["DATABASE_URL"] && Rails.env.production? %>
+    url: <%= URI.parse(ENV["DATABASE_URL"]).tap { |url| url.path += "_cable" } if ENV["DATABASE_URL"] %>

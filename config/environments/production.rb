@@ -1,5 +1,5 @@
 require "active_support/core_ext/integer/time"
-require 'aws-sdk-s3'
+# require "aws-sdk-s3"
 
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
@@ -24,17 +24,6 @@ Rails.application.configure do
 
   # Store uploaded files on the local file system (see config/storage.yml for options).
   config.active_storage.service = :amazon
-
-  # AWS SDK の設定
-  unless ENV['SKIP_AWS'] == 'true'
-    Aws.config.update(
-      region: ENV['AWS_REGION'] || 'ap-northeast-1',  # 必要に応じてデフォルトリージョンを設定
-      credentials: Aws::Credentials.new(
-        ENV['AWS_ACCESS_KEY'],
-        ENV['AWS_SECRET_KEY'],
-      )
-    )
-  end
 
   # Assume all access to the app is happening through a SSL-terminating reverse proxy.
   config.assume_ssl = true
