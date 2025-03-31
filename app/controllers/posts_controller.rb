@@ -26,7 +26,7 @@ class PostsController < ApplicationController
   end
 
   def show
-    @post = current_user.posts.find(params[:id])
+    @post = Post.find(params[:id])
   end
 
   def edit
@@ -53,8 +53,8 @@ class PostsController < ApplicationController
 
   def move_to_signed_in
     unless user_signed_in?
-      # サインインしていないユーザーはログインページが表示される
-      redirect_to "/users/sign_in"
+      # サインインしていないユーザーはトップページが表示される
+      redirect_to root_path
     end
   end
 
