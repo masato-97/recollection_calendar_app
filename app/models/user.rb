@@ -7,7 +7,7 @@ class User < ApplicationRecord
   has_many :memories, dependent: :destroy
   has_many :posts, dependent: :destroy
 
-  has_one_attached :avatar
+  has_one_attached :avatar, service: :amazon # service: :amazon 追加
 
   def own?(object)
     id == object&.user_id
