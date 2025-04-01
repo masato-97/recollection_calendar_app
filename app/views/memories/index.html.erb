@@ -4,7 +4,7 @@
       <h2>今月の思い出：<%= @memories_month.count %></h2>
     </div>
 
-    <% if @memories.present? %>
+    <% if @memories_month.present? %>
       <div id="carouselExampleIndicators" class="carousel carousel-dark slide slide-posi" data-bs-ride="carousel">
         <div class="carousel-indicators">
           <%= render 'slide_button', memories: @memories_month %>

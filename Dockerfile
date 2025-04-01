@@ -21,11 +21,13 @@ RUN apt-get update -qq && \
 
 # Set production environment
 #AWS_REGION="ap-northeast-1"追加
+#AWS_BUCKET="recordi-masato"追加
 ENV RAILS_ENV="production" \
     BUNDLE_DEPLOYMENT="1" \
     BUNDLE_PATH="/usr/local/bundle" \
     BUNDLE_WITHOUT="development" \
-    AWS_REGION="ap-northeast-1"
+    AWS_REGION="ap-northeast-1" \
+    AWS_BUCKET="recordi-masato"
 
 # Throw-away build stage to reduce size of final image
 FROM base AS build
