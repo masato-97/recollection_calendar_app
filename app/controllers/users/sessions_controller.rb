@@ -28,7 +28,7 @@ class Users::SessionsController < Devise::SessionsController
 
   # サインイン後のリダイレクト先を指定する
   def after_sign_in_path_for(resource)
-    all_memories_path
+    memories_path
   end
 
   # サインアウト後のリダイレクト先を指定する

@@ -22,7 +22,7 @@
             <div class='dropdown-item'><%= current_user.name %></div>
             <div class='dropdown-divider'></div>
             <%= link_to "マイページ", users_profile_path, class: "dropdown-item" %>
-            <%= link_to 'ログアウト', destroy_user_session_path, class: "dropdown-item" %>
+            <%= link_to 'ログアウト', destroy_user_session_path, class: "dropdown-item", method: :delete  %>
           </div>
         </div>
       </div>
