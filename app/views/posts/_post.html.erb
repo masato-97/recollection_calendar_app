@@ -37,6 +37,10 @@
             <%= post.created_at.strftime("%Y/%m/%d") %>
           </div>
 
+          <div class='ms-4'>
+            <%= render "favorites/btn", post: post %>
+          </div>
+
           <% if current_user.own?(post) %>
             <div class='ms-auto'>
               <%= link_to edit_memory_post_path(memory_id: post.memory_id, id: post.id), id: "button-edit-#{post.id}" do %>

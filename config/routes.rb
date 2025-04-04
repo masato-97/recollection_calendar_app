@@ -23,8 +23,12 @@ Rails.application.routes.draw do
       get "all"
     end
 
-    resources :posts, only: %i[new create show edit update destroy]
+    resources :posts, only: %i[new create show edit update destroy] do
+      resource :favorites, only: [:create, :destroy]
+    end
   end
 
-  resources :posts, only: %i[index]
+  resources :posts, only: %i[index] do
+    resource :favorites, only: [:create, :destroy]
+  end
 end
