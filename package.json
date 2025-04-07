@@ -2,7 +2,8 @@
   "name": "app",
   "private": true,
   "devDependencies": {
-    "esbuild": "^0.25.0"
+    "esbuild": "^0.25.0",
+    "webpack-dev-server": "^3"
   },
   "scripts": {
     "build": "esbuild app/javascript/*.* --bundle --sourcemap --format=esm --outdir=app/assets/builds --public-path=/assets",
@@ -15,6 +16,7 @@
     "@hotwired/stimulus": "^3.2.2",
     "@hotwired/turbo-rails": "^8.0.12",
     "@popperjs/core": "^2.11.8",
+    "@rails/webpacker": "5.4.4",
     "autoprefixer": "^10.4.20",
     "bootstrap": "^5.3.3",
     "bootstrap-icons": "^1.11.3",
@@ -22,9 +24,8 @@
     "nodemon": "^3.1.9",
     "postcss": "^8.5.1",
     "postcss-cli": "^11.0.0",
-    "sass": "^1.84.0"
-  },
-  "browserslist": [
-    "defaults"
-  ]
+    "sass": "^1.84.0",
+    "webpack": "^4.46.0",
+    "webpack-cli": "^3.3.12"
+  }
 }

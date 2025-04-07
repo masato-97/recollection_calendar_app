@@ -44,7 +44,7 @@ group :development, :test do
   gem "debug", platforms: %i[ mri windows ], require: "debug/prelude"
 
   # Static analysis for security vulnerabilities [https://brakemanscanner.org/]
-  gem "brakeman", require: false
+  gem "brakeman", "~> 7.0", ">= 7.0.2", require: false
 
   # Omakase Ruby styling [https://github.com/rails/rubocop-rails-omakase/]
   gem "rubocop-rails-omakase", require: false
@@ -67,6 +67,9 @@ gem "devise", "~> 4.9", ">= 4.9.4"
 gem "simple_calendar", "~> 3.1"
 gem "carrierwave", "~> 3.1", ">= 3.1.1"
 gem "bulma-rails"
+gem 'bootstrap', '~> 5.3.3'
+gem "jquery-rails"
+gem 'webpacker'
 
 gem "aws-sdk-s3", require: false
 gem "image_processing", "~> 1.2"

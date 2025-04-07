@@ -3,7 +3,7 @@
     <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative memory-coloe">
       <div class="col p-4 d-flex flex-column position-static">
         <h3 class="mb-1">
-          <%= link_to memory.title, memory_path(memory) %>
+          <%= link_to memory.title, memory_path(memory), class: "no-underline" %>
         </h3>
 
         <% if memory.score.present? %>

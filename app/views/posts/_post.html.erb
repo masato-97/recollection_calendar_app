@@ -13,7 +13,7 @@
         <% end %>
 
         <h4 class="mb-1">
-          <%= link_to post.title, memory_post_path(memory_id: post.memory_id, id: post.id) %>
+          <%= link_to post.title, memory_post_path(memory_id: post.memory_id, id: post.id), class: "no-underline" %>
         </h4>
 
         <% if post.memory.score.present? %>
