@@ -18,7 +18,7 @@
       </div>
 
       <% if @memory.score.present? %>
-        <div class="content average-score mb-5">
+        <div class="content average-score mb-3">
           <div class="star-rating mb-2">
             <div class="star-rating-front" style="width: <%= @memory.score * 20 %>%">★★★★★</div>
             <div class="star-rating-back">★★★★★</div>
@@ -28,6 +28,10 @@
           </div>
         </div>
       <% end %>
+
+      <div class="mb-4">
+        <%= render "favorites/favorite_btn", post: @post %>
+      </div>
 
       <div class="day-pencil-trash-inner mb-4">
         <div class="text-body-secondary">
