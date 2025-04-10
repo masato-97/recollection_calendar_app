@@ -1,0 +1,49 @@
+<div class="container">
+  <div class="mb-5 mt-4">
+    <h1>7ヶ月間の思い出の数</h1>
+  </div>
+  <canvas id="myLineChart" class="mb-4"></canvas>
+</div>
+
+<script>
+  var ctx = document.getElementById("myLineChart");
+  var myLineChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels: ['6ヶ月前', '5ヶ月前', '4ヶ月前', '3ヶ月前', '2ヶ月前', '1ヶ月前', '今月'],
+      datasets: [
+        {
+          label: '記録した思い出の数',
+          data: [
+            <%= @six_month_ago_memories.count %>,
+            <%= @five_month_ago_memories.count %>, 
+            <%= @four_month_ago_memories.count %>, 
+            <%= @three_month_ago_memories.count %>, 
+            <%= @two_month_ago_memories.count %>, 
+            <%= @last_month_memories.count %>, 
+            <%= @this_month_memories.count %>
+          ],
+          borderColor: "rgba(0,0,255,1)",
+          backgroundColor: "rgba(0,0,0,0)",
+          tension: 0.4
+        }
+      ],
+    },
+    options: {
+      title: {
+        display: true,
+        text: '7ヶ月間の思い出の比較'
+      },
+      responsive: true,
+      scales: {
+        y:{
+          suggestedMin: 0,
+          suggestedMax: 10
+        },
+        x:{
+          stacked: true
+        },
+      },
+    }
+  });
+</script>
