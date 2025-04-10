@@ -5,7 +5,7 @@ class MemoriesController < ApplicationController
   def index
     start_date = params.fetch(:start_date, Date.today).to_date
     @memories = Memory.where(user_id: current_user.id, day: start_date.beginning_of_month.beginning_of_week..start_date.end_of_month.end_of_week)
-    @memories_month = Memory.where(user_id: current_user.id, day: start_date.beginning_of_month..start_date.end_of_month).order(day: :desc)
+    @memories_month = Memory.memories_this_month(current_user.id, start_date).order(day: :desc)
   end
 
   def new
@@ -54,6 +54,17 @@ class MemoriesController < ApplicationController
     @memory = current_user.memories.find(params[:id])
     @memory.destroy!
     redirect_to all_memories_path
+  end
+
+  def compare
+    start_date = params.fetch(:start_date, Date.today).to_date
+    @this_month_memories = Memory.memories_this_month(current_user.id, start_date)
+    @last_month_memories = Memory.memories_last_month(current_user.id, start_date)
+    @two_month_ago_memories = Memory.memories_2month_ago(current_user.id, start_date)
+    @three_month_ago_memories = Memory.memories_3month_ago(current_user.id, start_date)
+    @four_month_ago_memories = Memory.memories_4month_ago(current_user.id, start_date)
+    @five_month_ago_memories = Memory.memories_5month_ago(current_user.id, start_date)
+    @six_month_ago_memories = Memory.memories_6month_ago(current_user.id, start_date)
   end
 
   private

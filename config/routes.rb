@@ -21,6 +21,7 @@ Rails.application.routes.draw do
     end
     collection do
       get "all"
+      get "compare"
     end
 
     resources :posts, only: %i[new create show edit update destroy]
