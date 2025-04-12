@@ -57,7 +57,7 @@ class MemoriesController < ApplicationController
   def destroy
     @memory = current_user.memories.find(params[:id])
     @memory.destroy!
-    redirect_to all_memories_path, success: '思い出を削除しました'
+    redirect_to all_memories_path, success: "思い出を削除しました"
   end
 
   def compare
