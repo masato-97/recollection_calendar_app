@@ -24,6 +24,17 @@
           </div>
         <% end %>
 
+        <% if memory.tags.present? %>
+          <div class="tag-container mb-4">
+            <% memory.tags.each do |tag| %>
+              <div class="tag">
+                <i class="fa-sharp fa-solid fa-tag"></i>
+                <%=link_to tag.name,search_tag_memories_path(tag_id: tag.id) %>
+              </div>
+            <% end %>
+          </div>
+        <% end %>
+
         <div class="day-pencil-trash-inner mb-3">
           <% if memory.score.present? %>
             <% if memory.post.present? %>

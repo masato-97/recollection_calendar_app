@@ -64,6 +64,11 @@
     <div class="mb-3"><%= image_tag memory.sub_image, width: "300", height: "200" %></div>
   <% end %>
 
+  <div class="mb-3">
+    <%= f.label :tag_names %>
+    <%= f.text_field :tag_names, class: 'form-control', placeholder: ',で区切って入力してください' %>
+  </div>
+
   <div>
     <%= f.submit nil, class: "btn btn-primary mb-3" %>
   </div>
