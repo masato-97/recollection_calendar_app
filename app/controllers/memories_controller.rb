@@ -14,10 +14,10 @@ class MemoriesController < ApplicationController
 
   def create
     @memory = current_user.memories.build(memory_params)
-    if @memory.save_with_tags(tag_names: params.dig(:memory, :tag_names).split(',').uniq)
-      redirect_to memory_path(@memory), success: '思い出を記録しました'
+    if @memory.save_with_tags(tag_names: params.dig(:memory, :tag_names).split(",").uniq)
+      redirect_to memory_path(@memory), success: "思い出を記録しました"
     else
-      flash.now[:danger] = '思い出を記録できませんでした'
+      flash.now[:danger] = "思い出を記録できませんでした"
       render :new
     end
   end
@@ -46,10 +46,10 @@ class MemoriesController < ApplicationController
   def update
     @memory = current_user.memories.find(params[:id])
     @memory.assign_attributes(memory_params)
-    if @memory.save_with_tags(tag_names: params.dig(:memory, :tag_names).split(',').uniq)
-      redirect_to memory_path(@memory), success: '思い出を更新しました'
+    if @memory.save_with_tags(tag_names: params.dig(:memory, :tag_names).split(",").uniq)
+      redirect_to memory_path(@memory), success: "思い出を更新しました"
     else
-      flash.now[:danger] = '思い出を更新できませんでした'
+      flash.now[:danger] = "思い出を更新できませんでした"
       render :edit
     end
   end

@@ -23,7 +23,7 @@ class Memory < ApplicationRecord
 
   def tag_names
     # NOTE: pluckだと新規作成失敗時に値が残らない(返り値がnilになる)
-    tags.map(&:name).join(',')
+    tags.map(&:name).join(",")
   end
 
   scope :memories_this_month, ->(user_id, start_date) {
