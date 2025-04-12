@@ -22,6 +22,7 @@ Rails.application.routes.draw do
     collection do
       get "all"
       get "compare"
+      get "search_tag", to: "memories#search_tag"
     end
 
     resources :posts, only: %i[new create show edit update destroy]

@@ -5,9 +5,26 @@ class Memory < ApplicationRecord
 
   belongs_to :user
   has_one :post, dependent: :destroy
+  has_many :middle_tags, dependent: :destroy
+  has_many :tags, through: :middle_tags
 
   has_one_attached :main_image
   has_one_attached :sub_image
+
+  def save_with_tags(tag_names:)
+    ActiveRecord::Base.transaction do
+      self.tags = tag_names.map { |name| Tag.find_or_initialize_by(name: name.strip) }
+      save!
+    end
+    true
+  rescue StandardError
+    false
+  end
+
+  def tag_names
+    # NOTE: pluckだと新規作成失敗時に値が残らない(返り値がnilになる)
+    tags.map(&:name).join(",")
+  end
 
   scope :memories_this_month, ->(user_id, start_date) {
     where(user_id: user_id, day: start_date.beginning_of_month..start_date.end_of_month)

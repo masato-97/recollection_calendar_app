@@ -13,7 +13,7 @@
 
 .slide-posi {
   position: relative; /* 今の位置を基準 */
-  top: 75px; /* 上から10px */
+  top: 55px; /* 上から10px */
   padding-right: 20px;
 }
 

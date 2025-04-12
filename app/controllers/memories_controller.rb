@@ -6,6 +6,7 @@ class MemoriesController < ApplicationController
     start_date = params.fetch(:start_date, Date.today).to_date
     @memories = Memory.where(user_id: current_user.id, day: start_date.beginning_of_month.beginning_of_week..start_date.end_of_month.end_of_week)
     @memories_month = Memory.memories_this_month(current_user.id, start_date).order(day: :desc)
+    @tag_list = @memories_month.map(&:tags).flatten.uniq
   end
 
   def new
@@ -14,9 +15,10 @@ class MemoriesController < ApplicationController
 
   def create
     @memory = current_user.memories.build(memory_params)
-    if @memory.save
-      redirect_to memory_path(@memory)
+    if @memory.save_with_tags(tag_names: params.dig(:memory, :tag_names).split(",").uniq)
+      redirect_to memory_path(@memory), success: "思い出を記録しました"
     else
+      flash.now[:danger] = "思い出を記録できませんでした"
       render :new
     end
   end
@@ -35,6 +37,7 @@ class MemoriesController < ApplicationController
 
   def all
     @memories = Memory.where(user_id: current_user.id).order(day: :desc)
+    @tag_list = @memories.map(&:tags).flatten.uniq
   end
 
   def edit
@@ -43,17 +46,19 @@ class MemoriesController < ApplicationController
 
   def update
     @memory = current_user.memories.find(params[:id])
-    if @memory.update(memory_params)
-      redirect_to memory_path(@memory)
+    @memory.assign_attributes(memory_params)
+    if @memory.save_with_tags(tag_names: params.dig(:memory, :tag_names).split(",").uniq)
+      redirect_to memory_path(@memory), success: "思い出を更新しました"
     else
-      render :edit, status: :unprocessable_entity
+      flash.now[:danger] = "思い出を更新できませんでした"
+      render :edit
     end
   end
 
   def destroy
     @memory = current_user.memories.find(params[:id])
     @memory.destroy!
-    redirect_to all_memories_path
+    redirect_to all_memories_path, success: "思い出を削除しました"
   end
 
   def compare
@@ -65,6 +70,13 @@ class MemoriesController < ApplicationController
     @four_month_ago_memories = Memory.memories_4month_ago(current_user.id, start_date)
     @five_month_ago_memories = Memory.memories_5month_ago(current_user.id, start_date)
     @six_month_ago_memories = Memory.memories_6month_ago(current_user.id, start_date)
+  end
+
+  def search_tag
+    @memories = Memory.where(user_id: current_user.id).order(day: :desc)
+    @tag_list = @memories.map(&:tags).flatten.uniq
+    @tag = Tag.find(params[:tag_id])
+    @tag_memories = @tag.memories
   end
 
   private

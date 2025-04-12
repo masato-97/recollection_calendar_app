@@ -2,7 +2,7 @@
   <div class="memory-position">
     <div class="body-style">
       <div class="mb-4 fst-italic border-bottom">
-        <h3><%= @memory.day %></h3>
+        <h3><%= @memory.day %> の思い出</h3>
       </div>
       <div class="mb-4 fst-italic border-bottom">
         <h3><%= @memory.title %></h3>
@@ -12,7 +12,7 @@
       </div>
 
       <% if @memory.score.present? %>
-        <div class="content average-score mb-5">
+        <div class="content average-score mb-4">
           <div class="star-rating mb-2">
             <div class="star-rating-front" style="width: <%= @memory.score * 20 %>%">★★★★★</div>
             <div class="star-rating-back">★★★★★</div>
@@ -20,6 +20,17 @@
           <div class="average-score-display ml-3 pt-2">
             <%= @memory.score %>/5
           </div>
+        </div>
+      <% end %>
+
+      <% if @memory.tags.present? %>
+        <div class="tag-container mb-4">
+          <% @memory.tags.each do |tag| %>
+            <div class="tag">
+              <i class="fa-sharp fa-solid fa-tag"></i>
+              <%= link_to tag.name,search_tag_memories_path(tag_id: tag.id) %>
+            </div>
+          <% end %>
         </div>
       <% end %>
 

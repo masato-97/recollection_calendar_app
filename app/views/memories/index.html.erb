@@ -4,6 +4,20 @@
       <h2>今月の思い出の数：<%= @memories_month.count %></h2>
     </div>
 
+    <% if @tag_list.present? %>
+      <div class="tag-container">
+        <% @tag_list.each do |tag|%>
+          <div class="tag">
+            <i class="fa-sharp fa-solid fa-tag"></i>
+            <%= tag.name %>
+            : <%= "#{tag.memories.count}" %>
+          </div>
+        <% end %>
+      </div>
+    <% else %>
+      <br>
+    <% end %>
+
     <% if @memories_month.present? %>
       <div id="carouselExampleIndicators" class="carousel carousel-dark slide slide-posi" data-bs-ride="carousel">
         <div class="carousel-indicators">

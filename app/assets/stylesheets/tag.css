@@ -1,0 +1,11 @@
+.tag-container {
+  display: flex; /* フレックスボックスを使って横並びにする */
+  gap: 13px; /* タグの間隔を調整 */
+  flex-wrap: wrap;
+}
+
+.tag {
+  display: flex; /* アイコンとテキストを横に並べる */
+  align-items: center; /* アイコンとテキストを中央揃えにする */
+  gap: 3px;
+}
