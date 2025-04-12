@@ -6,6 +6,7 @@ class MemoriesController < ApplicationController
     start_date = params.fetch(:start_date, Date.today).to_date
     @memories = Memory.where(user_id: current_user.id, day: start_date.beginning_of_month.beginning_of_week..start_date.end_of_month.end_of_week)
     @memories_month = Memory.memories_this_month(current_user.id, start_date).order(day: :desc)
+    @tag_list = @memories_month.map(&:tags).flatten.uniq
   end
 
   def new
