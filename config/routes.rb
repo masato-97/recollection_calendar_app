@@ -29,6 +29,11 @@ Rails.application.routes.draw do
   end
 
   resources :posts, only: %i[index] do
+    collection do
+      get "search_tag", to: "posts#search_tag"
+      get "search_mypost_tag", to: "posts#search_mypost_tag"
+    end
+
     resource :favorites, only: %i[create destroy]
   end
 end

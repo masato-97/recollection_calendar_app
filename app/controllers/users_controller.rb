@@ -4,6 +4,7 @@ class UsersController < ApplicationController
   def show
     @user = current_user
     @posts = current_user.posts.all
+    @tag_list = @posts.map(&:post_tags).flatten.uniq
   end
 
   def delete_avatar

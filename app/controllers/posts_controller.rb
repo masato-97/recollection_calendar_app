@@ -4,6 +4,7 @@ class PostsController < ApplicationController
 
   def index
     @posts = Post.all
+    @tag_list = PostTag.all
   end
 
   def new
@@ -18,9 +19,10 @@ class PostsController < ApplicationController
     @post = current_user.posts.build(post_params)
     @post.memory = @memory
 
-    if @post.save
-      redirect_to memory_post_path(memory_id: @post.memory_id, id: @post.id)
+    if @post.save_with_post_tags(tag_names: params.dig(:post, :tag_names).split(",").uniq)
+      redirect_to memory_post_path(memory_id: @post.memory_id, id: @post.id), success: "ポストを作成しました"
     else
+      flash.now[:danger] = "ポストを作成できませんでした"
       render :new
     end
   end
@@ -35,18 +37,33 @@ class PostsController < ApplicationController
 
   def update
     @post = current_user.posts.find(params[:id])
+    @post.assign_attributes(post_params)
 
-    if @post.update(post_params)
-      redirect_to memory_post_path(@memory, @memory.post)
+    if @post.save_with_post_tags(tag_names: params.dig(:post, :tag_names).split(",").uniq)
+      redirect_to memory_post_path(@memory, @memory.post), success: "ポストを更新しました"
     else
-      render :edit, status: :unprocessable_entity
+      flash.now[:danger] = "ポストを更新できませんでした"
+      render :edit
     end
   end
 
   def destroy
     @post = current_user.posts.find(params[:id])
     @post.destroy!
-    redirect_to posts_path
+    redirect_to posts_path, success: "ポストを削除しました"
+  end
+
+  def search_tag
+    @tag_list = PostTag.all
+    @tag = PostTag.find(params[:post_tag_id])
+    @tag_posts = @tag.posts
+  end
+
+  def search_mypost_tag
+    @posts = current_user.posts.all
+    @tag_list = @posts.map(&:post_tags).flatten.uniq
+    @tag = PostTag.find(params[:post_tag_id])
+    @tag_posts = @tag.posts
   end
 
   private

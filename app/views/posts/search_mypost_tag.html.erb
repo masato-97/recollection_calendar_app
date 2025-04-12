@@ -2,7 +2,8 @@
   <section class="py-5 text-center container">
     <div class="row py-lg-5">
       <div class="col-lg-6 col-md-8 mx-auto">
-        <h1 class="fw-light">ポスト一覧</h1>
+        <h1 class="fw-light">My Post</h1>
+        <h1 class="fw-light"><i class="fa-sharp fa-solid fa-tag"></i><%=@tag.name%>のポスト一覧</h1>
       </div>
     </div>
   </section>
@@ -13,7 +14,7 @@
       <% @tag_list.each do |tag|%>
         <div class="tag">
           <i class="fa-sharp fa-solid fa-tag"></i>
-          <%= link_to tag.name,search_tag_posts_path(post_tag_id: tag.id) %>
+          <%= link_to tag.name,search_mypost_tag_posts_path(post_tag_id: tag.id) %>
           <%= "(#{tag.posts.count})" %>
         </div>
       <% end %>
@@ -23,13 +24,7 @@
   <div class="row">
     <div class="col-12">
       <div class="row row-cols-1 row-cols-md-2 g-4">
-        <% if @posts.present? %>
-          <%= render @posts %>
-        <% else %>
-          <div class="mb-3">
-            <h1>ポストがありません</h1>
-          </div>
-        <% end %>
+        <%= render @tag_posts %>
       </div>
     </div>
   </div>

@@ -32,6 +32,20 @@
           <%= post.body.truncate(43) %>
         </div>
 
+        <% if post.post_tags.present? %>
+          <div class="tag-container mb-1">
+            <% post.post_tags.first(2).each do |tag| %>
+              <div class="tag">
+                <i class="fa-sharp fa-solid fa-tag"></i>
+                <%= tag.name.truncate(8, omission: '') %>
+              </div>
+            <% end %>
+            <% if post.post_tags.size > 2 %>
+              ...
+            <% end %>
+          </div>
+        <% end %>
+
         <div class="day-pencil-trash-inner">
           <div class="text-body-secondary">
             <%= post.created_at.strftime("%Y/%m/%d") %>
