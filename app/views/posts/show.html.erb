@@ -29,9 +29,20 @@
         </div>
       <% end %>
 
-      <div class="mb-4">
+      <div class="mb-3">
         <%= render "favorites/favorite_btn", post: @post %>
       </div>
+
+      <% if @post.post_tags.present? %>
+        <div class="tag-container mb-3">
+          <% @post.post_tags.each do |tag| %>
+            <div class="tag">
+              <i class="fa-sharp fa-solid fa-tag"></i>
+              <%= link_to tag.name,search_tag_posts_path(post_tag_id: tag.id) %>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
 
       <div class="day-pencil-trash-inner mb-4">
         <div class="text-body-secondary">
@@ -52,7 +63,15 @@
         <% end %>
       </div>
 
-      <%= link_to "< ポスト一覧", posts_path %>
+      <div class="mb-2">
+        <%= link_to "< ポスト一覧", posts_path %>
+      </div>
+      <% if current_user.own?(@post) %>
+        <div class="mb-2">
+          <%= link_to "< My Post一覧", users_profile_path %>
+        </div>
+        <%= link_to "< 思い出へ", memory_path(@memory) %>
+      <% end %>
     </div>
 
     <div class="image-box">

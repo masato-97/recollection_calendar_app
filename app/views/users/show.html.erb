@@ -37,6 +37,20 @@
       </div>
     </div>
   </section>
+
+  タグリスト
+  <% if @tag_list.present? %>
+    <div class="tag-container mb-4">
+      <% @tag_list.each do |tag|%>
+        <div class="tag">
+          <i class="fa-sharp fa-solid fa-tag"></i>
+          <%= link_to tag.name,search_mypost_tag_posts_path(post_tag_id: tag.id) %>
+          <%= "(#{tag.posts.count})" %>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+
   <div class="row">
     <div class="col-12">
       <div class="row row-cols-1 row-cols-md-2 g-4">
