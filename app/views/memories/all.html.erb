@@ -7,8 +7,14 @@
     </div>
   </section>
 
-  タグリスト
+  <div class="row">
+    <div class="col-lg-10 offset-lg-1">
+      <%= render 'memory_search_form', q: @q, url: all_memories_path %>
+    </div>
+  </div>
+
   <% if @tag_list.present? %>
+    タグリスト
     <div class="tag-container mb-4">
       <% @tag_list.each do |tag|%>
         <div class="tag">
