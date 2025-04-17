@@ -23,6 +23,7 @@ Rails.application.routes.draw do
       get "all"
       get "compare"
       get "search_tag", to: "memories#search_tag"
+      get "search"
     end
 
     resources :posts, only: %i[new create show edit update destroy]
@@ -32,6 +33,7 @@ Rails.application.routes.draw do
     collection do
       get "search_tag", to: "posts#search_tag"
       get "search_mypost_tag", to: "posts#search_mypost_tag"
+      get "search"
     end
 
     resource :favorites, only: %i[create destroy]
