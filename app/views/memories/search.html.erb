@@ -1,0 +1,5 @@
+<% @memories.each do |memory| %>
+  <li class="list-group-item list-group-item-action" role="option" data-autocomplete-value="<%= memory.title %>">
+    <%= memory.title%>
+  </li>
+<% end %>

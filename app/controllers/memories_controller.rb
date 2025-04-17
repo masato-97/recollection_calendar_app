@@ -73,6 +73,13 @@ class MemoriesController < ApplicationController
     @six_month_ago_memories = Memory.memories_6month_ago(current_user.id, start_date)
   end
 
+  def search
+    @memories = Memory.where("title like ?", "%#{params[:q]}%")
+    respond_to do |format|
+      format.js
+    end
+  end
+
   def search_tag
     @memories = Memory.where(user_id: current_user.id).order(day: :desc)
     @tag_list = @memories.map(&:tags).flatten.uniq

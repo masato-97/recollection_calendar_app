@@ -54,6 +54,13 @@ class PostsController < ApplicationController
     redirect_to posts_path, success: "ポストを削除しました"
   end
 
+  def search
+    @posts = Post.where("title like ?", "%#{params[:q]}%")
+    respond_to do |format|
+      format.js
+    end
+  end
+
   def search_tag
     @tag_list = PostTag.all
     @tag = PostTag.find(params[:post_tag_id])
