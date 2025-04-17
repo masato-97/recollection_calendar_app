@@ -23,4 +23,12 @@ class Post < ApplicationRecord
     # NOTE: pluckだと新規作成失敗時に値が残らない(返り値がnilになる)
     post_tags.map(&:name).join(",")
   end
+
+  def self.ransackable_attributes(auth_object = nil)
+    [ "body", "created_at", "id", "id_value", "memory_id", "title", "updated_at", "user_id" ]
+  end
+
+  def self.ransackable_associations(auth_object = nil)
+    [ "favorites", "memory", "middle_post_tags", "post_tags", "user" ]
+  end
 end

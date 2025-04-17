@@ -36,7 +36,8 @@ class MemoriesController < ApplicationController
   end
 
   def all
-    @memories = Memory.where(user_id: current_user.id).order(day: :desc)
+    @q = Memory.ransack(params[:q])
+    @memories = @q.result(distinct: true).where(user_id: current_user.id).order(day: :desc)
     @tag_list = @memories.map(&:tags).flatten.uniq
   end
 

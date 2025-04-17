@@ -26,6 +26,14 @@ class Memory < ApplicationRecord
     tags.map(&:name).join(",")
   end
 
+  def self.ransackable_attributes(auth_object = nil)
+    [ "body", "created_at", "day", "id", "id_value", "score", "start_time", "title", "updated_at", "user_id" ]
+  end
+
+  def self.ransackable_associations(auth_object = nil)
+    [ "main_image_attachment", "main_image_blob", "middle_tags", "post", "sub_image_attachment", "sub_image_blob", "tags", "user" ]
+  end
+
   scope :memories_this_month, ->(user_id, start_date) {
     where(user_id: user_id, day: start_date.beginning_of_month..start_date.end_of_month)
   }

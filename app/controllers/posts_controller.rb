@@ -3,8 +3,9 @@ class PostsController < ApplicationController
   before_action :set_memory, only: %i[new create show edit update destroy]
 
   def index
-    @posts = Post.all
-    @tag_list = PostTag.all
+    @q = Post.ransack(params[:q])
+    @posts = @q.result(distinct: true)
+    @tag_list = @posts.map(&:post_tags).flatten.uniq
   end
 
   def new
