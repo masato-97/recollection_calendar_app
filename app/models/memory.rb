@@ -25,13 +25,13 @@ class Memory < ApplicationRecord
     # NOTE: pluckだと新規作成失敗時に値が残らない(返り値がnilになる)
     tags.map(&:name).join(",")
   end
-  
+
   def self.ransackable_attributes(auth_object = nil)
-    ["body", "created_at", "day", "id", "id_value", "score", "start_time", "title", "updated_at", "user_id"]
+    [ "body", "created_at", "day", "id", "id_value", "score", "start_time", "title", "updated_at", "user_id" ]
   end
-  
+
   def self.ransackable_associations(auth_object = nil)
-    ["main_image_attachment", "main_image_blob", "middle_tags", "post", "sub_image_attachment", "sub_image_blob", "tags", "user"]
+    [ "main_image_attachment", "main_image_blob", "middle_tags", "post", "sub_image_attachment", "sub_image_blob", "tags", "user" ]
   end
 
   scope :memories_this_month, ->(user_id, start_date) {

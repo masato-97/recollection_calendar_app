@@ -25,10 +25,10 @@ class Post < ApplicationRecord
   end
 
   def self.ransackable_attributes(auth_object = nil)
-    ["body", "created_at", "id", "id_value", "memory_id", "title", "updated_at", "user_id"]
+    [ "body", "created_at", "id", "id_value", "memory_id", "title", "updated_at", "user_id" ]
   end
 
   def self.ransackable_associations(auth_object = nil)
-    ["favorites", "memory", "middle_post_tags", "post_tags", "user"]
+    [ "favorites", "memory", "middle_post_tags", "post_tags", "user" ]
   end
 end
