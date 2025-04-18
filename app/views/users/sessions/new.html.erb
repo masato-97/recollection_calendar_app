@@ -34,8 +34,12 @@
           </div>
         <% end %>
 
-        <div class="text-right">
+        <div class="text-right mb-2">
           <%= link_to 'Sign up', new_user_registration_path, class: "signup-login-link" %>
+        </div>
+
+        <div class="text-right">
+          <%= link_to 'パスワードをお忘れの方はこちら', new_user_password_path, class: "possword-link" %>
         </div>
       </div>
     </div>

@@ -1,0 +1,40 @@
+<div class="form-container">
+  <div class="row">
+    <div class="col-md-10 col-lg-8 mx-auto">
+      <div class="heading">
+        <h2>Recordi</h2>
+      </div>
+
+      <div class="form-title">
+        <h3>パスワード再設定</h3>
+      </div>
+
+      <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
+        <%= render "devise/shared/error_messages", resource: resource %>
+        <%= f.hidden_field :reset_password_token %>
+
+        <div class="mb-3">
+          <%= f.label :password, "New password", class: "form-label" %>
+          <% if @minimum_password_length %>
+            (<%= @minimum_password_length %> 文字以上)
+          <% end %>
+          <%= f.password_field :password, autofocus: true, autocomplete: "new-password", class: "form-control" %>
+        </div>
+
+        <div class="mb-4">
+          <%= f.label :password_confirmation, "New password (確認用)" %>
+          <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control" %>
+        </div>
+
+        <div class="mb-3">
+          <%= f.submit "パスワード更新", class: "password-form-button" %>
+        </div>
+      <% end %>
+
+      <div class="text-right">
+        <%= render "devise/shared/links" %>
+      </div>
+    </div>
+  </div>
+</div>
+
