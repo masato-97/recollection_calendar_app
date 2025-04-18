@@ -61,7 +61,33 @@
   cursor: pointer;
 }
 
+.password-form-button {
+  width: 100%;
+  color: #0fd850;
+  background-color: #333;
+  transition: .5s;
+  font-size: 17px;
+  outline: none;
+  border: none;
+  height: 45px;
+  border-radius: 5px;
+  align-self: flex-end;
+  cursor: pointer;
+  transition: all ease-in-out .3s;
+}
+
+.password-form-button:hover {
+  transition: all ease-in-out .3s;
+  background-color: #cff947;
+  color: #333;
+  cursor: pointer;
+}
+
 .signup-login-link {
   color: #36C062;
   text-decoration: none;
+}
+
+.possword-link {
+  color: #36C062;
 }
