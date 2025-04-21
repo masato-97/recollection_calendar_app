@@ -74,3 +74,7 @@ gem "aws-sdk-s3", require: false
 gem "image_processing", "~> 1.2"
 gem "mini_magick"
 gem "active_storage_validations"
+
+gem "omniauth"
+gem "omniauth-google-oauth2"
+gem "omniauth-rails_csrf_protection"
