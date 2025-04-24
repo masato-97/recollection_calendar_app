@@ -4,11 +4,11 @@
 # http://en.wikipedia.org/wiki/Cron
 
 # Rails.rootを使用するために必要
-require File.expand_path(File.dirname(__FILE__) + '/environment')
+require File.expand_path(File.dirname(__FILE__) + "/environment")
 
 # cronを実行する環境変数周りの設定
 ENV.each { |k, v| env(k, v) }
-rails_env = ENV['RAILS_ENV'] || :development
+rails_env = ENV["RAILS_ENV"] || :development
 
 # cronを実行する環境変数をセット
 set :environment, rails_env
@@ -31,7 +31,7 @@ set :output, "#{Rails.root}/log/cron.log"
 # end
 
 # every 1.minute do
-  # runner "Batch::RemaindHoliday.remaind_holiday"
+#   runner "Batch::RemaindHoliday.remaind_holiday"
 # end
 
 # Learn more: http://github.com/javan/whenever

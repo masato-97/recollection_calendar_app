@@ -13,10 +13,10 @@ Aws.config.update(
   )
 )
 
-# if ENV["AWS_BUCKET"].nil? || ENV["AWS_BUCKET"].empty?
+if ENV["AWS_BUCKET"].nil? || ENV["AWS_BUCKET"].empty?
   # puts "AWS_BUCKET 環境変数が設定されていません。S3_BUCKET をスキップします。"
-  # S3_BUCKET = nil
-# else
+  S3_BUCKET = nil
+else
   # puts "AWS_BUCKET 環境変数は設定されています。"
-  # S3_BUCKET = Aws::S3::Resource.new.bucket(ENV["AWS_BUCKET"])
-# end
+  S3_BUCKET = Aws::S3::Resource.new.bucket(ENV["AWS_BUCKET"])
+end
