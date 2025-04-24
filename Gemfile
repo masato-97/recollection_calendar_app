@@ -48,6 +48,8 @@ group :development, :test do
 
   # Omakase Ruby styling [https://github.com/rails/rubocop-rails-omakase/]
   gem "rubocop-rails-omakase", require: false
+
+  gem "letter_opener_web"
 end
 
 group :development do
@@ -69,6 +71,7 @@ gem "carrierwave", "~> 3.1", ">= 3.1.1"
 gem "bulma-rails"
 gem "jquery-rails"
 gem "ransack"
+gem "whenever", require: false
 
 gem "aws-sdk-s3", require: false
 gem "image_processing", "~> 1.2"
