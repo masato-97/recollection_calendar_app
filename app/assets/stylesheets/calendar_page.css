@@ -7,13 +7,13 @@
   box-sizing: border-box;
   width: 50%;
   position: relative; /* 今の位置を基準 */
-  top: 50px; /* 上から10px */
+  top: 45px; /* 上から10px */
   align-items: center;
 }
 
 .slide-posi {
   position: relative; /* 今の位置を基準 */
-  top: 55px; /* 上から10px */
+  top: 45px; /* 上から10px */
   padding-right: 20px;
 }
 
