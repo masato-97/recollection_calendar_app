@@ -1,0 +1,32 @@
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 offset-lg-2">
+      <h1 class="mb-3 mt-4">設定</h1>
+      <div class="border-top border-bottom">
+        <h3 class="mb-3 mt-3">リマインダーメール</h3>
+        <div class="mb-2">
+          <% if @reminder %>
+            <% if @reminder.mail_receiving_saturday == true %>
+              <p>土曜日に休日通知メールを受け取る： ON</p>
+            <% else %>
+              <p>土曜日に休日通知メールを受け取る： OFF</p>
+            <% end %>
+
+            <% if @reminder.mail_receiving_sunday == true %>
+              <p>日曜日に休日通知メールを受け取る： ON</p>
+            <% else %>
+              <p>日曜日に休日通知メールを受け取る： OFF</p>
+            <% end %>
+
+            <%= link_to "リマインダーメール設定", edit_user_reminder_path(@user) %>
+          <% else %>
+            <p>土曜日に休日通知メールを受け取る： OFF</p>
+            <p>日曜日に休日通知メールを受け取る： OFF</p>
+
+            <%= link_to "リマインダーメール設定", new_user_reminder_path(@user) %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

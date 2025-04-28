@@ -13,6 +13,11 @@ class UsersController < ApplicationController
     redirect_to users_profile_path
   end
 
+  def set
+    @user = current_user
+    @reminder = @user.reminder
+  end
+
   private
 
   def move_to_signed_in

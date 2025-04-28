@@ -8,7 +8,7 @@ class User < ApplicationRecord
   has_many :memories, dependent: :destroy
   has_many :posts, dependent: :destroy
   has_many :favorites, dependent: :destroy
-
+  has_one :reminder, dependent: :destroy
   has_one_attached :avatar
 
   validates :uid, presence: true, uniqueness: { scope: :provider }, if: -> { uid.present? }
