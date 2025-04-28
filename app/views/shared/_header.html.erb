@@ -2,7 +2,9 @@
   <header>
     <div class="header-inner">
       <div>
-        <h2 class="header-logo">RECORDI</h2>
+        <h2 class="header-logo">
+          <%= link_to 'Recordi', memories_path, class: "header-logo" %>
+        </h2>
         <%= link_to 'calendar', memories_path, class: 'header-link' %>
         <%= link_to 'chart', compare_memories_path, class: 'header-link' %>
         <%= link_to 'memory', all_memories_path, class: 'header-link' %>

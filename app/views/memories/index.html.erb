@@ -5,6 +5,7 @@
     </div>
 
     <% if @tag_list.present? %>
+      - 思い出タグ -
       <div class="tag-container">
         <% @tag_list.each do |tag|%>
           <div class="tag">
@@ -15,6 +16,7 @@
         <% end %>
       </div>
     <% else %>
+      <br>
       <br>
     <% end %>
 
