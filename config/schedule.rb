@@ -30,11 +30,11 @@ set :output, "#{Rails.root}/log/cron.log"
 #   runner "AnotherModel.prune_old_records"
 # end
 
-every :saturday, at: '9:00 am' do
+every :saturday, at: "9:00 am" do
   runner "Batch::RemaindHoliday.remaind_saturday"
 end
 
-every :sunday, at: '9:00 am' do
+every :sunday, at: "9:00 am" do
   runner "Batch::RemaindHoliday.remaind_sunday"
 end
 
