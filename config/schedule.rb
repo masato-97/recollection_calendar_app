@@ -30,8 +30,12 @@ set :output, "#{Rails.root}/log/cron.log"
 #   runner "AnotherModel.prune_old_records"
 # end
 
-# every 1.minute do
-#   runner "Batch::RemaindHoliday.remaind_holiday"
-# end
+every :saturday, at: '9:00 am' do
+  runner "Batch::RemaindHoliday.remaind_saturday"
+end
+
+every :sunday, at: '9:00 am' do
+  runner "Batch::RemaindHoliday.remaind_sunday"
+end
 
 # Learn more: http://github.com/javan/whenever
