@@ -23,15 +23,15 @@
 
         <div>
           <% if @user.avatar.attached? %>
-            <%= button_to 'アバター画像を削除', delete_avatar_path(@user), method: :delete, class: 'btn btn-danger mb-3' %>
+            <%= button_to 'アバター画像を削除', delete_avatar_path(@user), method: :delete, class: 'btn btn-danger' %>
           <% end %>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="py-5 text-center container">
-    <div class="row py-lg-5">
+  <section class="py-4 text-center container">
+    <div class="row py-lg-3">
       <div class="col-lg-6 col-md-8 mx-auto">
         <h1 class="fw-light">My Post</h1>
       </div>

@@ -1,0 +1,28 @@
+ja:
+  activerecord:
+    models:
+      user: ユーザー
+      memory: 思い出
+      post: ポスト
+      tag: タグ
+      post_tag: タグ
+    attributes:
+      user:
+        email: メールアドレス
+        name: 名前
+        password: パスワード
+        password_confirmation: パスワード(確認用)
+        avatar: アバター
+        remember_me: ログイン情報を保持する
+      memory:
+        title: タイトル
+        body: 本文
+        day: 日付
+        main_image: メイン画像
+        sub_image: サブ画像
+        tag_names: タグ
+      post:
+        title: タイトル
+        body: 本文
+        tag_names: タグ
+
