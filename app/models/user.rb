@@ -11,7 +11,7 @@ class User < ApplicationRecord
   has_one :reminder, dependent: :destroy
   has_one_attached :avatar
 
-  validates :name, presence: { message: 'を入力してください' }
+  validates :name, presence: { message: "を入力してください" }
 
   validates :uid, presence: true, uniqueness: { scope: :provider }, if: -> { uid.present? }
 
