@@ -18,8 +18,8 @@ class MemoriesController < ApplicationController
     if @memory.save_with_tags(tag_names: params.dig(:memory, :tag_names).split(",").uniq)
       redirect_to memory_path(@memory), success: "思い出を記録しました"
     else
-      flash.now[:danger] = "思い出を記録できませんでした"
-      render :new
+      flash.now[:danger] = "思い出を記録出来ませんでした"
+      render :new, status: :unprocessable_entity
     end
   end
 
@@ -51,8 +51,8 @@ class MemoriesController < ApplicationController
     if @memory.save_with_tags(tag_names: params.dig(:memory, :tag_names).split(",").uniq)
       redirect_to memory_path(@memory), success: "思い出を更新しました"
     else
-      flash.now[:danger] = "思い出を更新できませんでした"
-      render :edit
+      flash.now[:danger] = "思い出を更新出来ませんでした"
+      render :edit, status: :unprocessable_entity
     end
   end
 

@@ -23,8 +23,8 @@ class PostsController < ApplicationController
     if @post.save_with_post_tags(tag_names: params.dig(:post, :tag_names).split(",").uniq)
       redirect_to memory_post_path(memory_id: @post.memory_id, id: @post.id), success: "ポストを作成しました"
     else
-      flash.now[:danger] = "ポストを作成できませんでした"
-      render :new
+      flash.now[:danger] = "ポストを作成出来ませんでした"
+      render :new, status: :unprocessable_entity
     end
   end
 
@@ -43,8 +43,8 @@ class PostsController < ApplicationController
     if @post.save_with_post_tags(tag_names: params.dig(:post, :tag_names).split(",").uniq)
       redirect_to memory_post_path(@memory, @memory.post), success: "ポストを更新しました"
     else
-      flash.now[:danger] = "ポストを更新できませんでした"
-      render :edit
+      flash.now[:danger] = "ポストを更新出来ませんでした"
+      render :edit, status: :unprocessable_entity
     end
   end
 

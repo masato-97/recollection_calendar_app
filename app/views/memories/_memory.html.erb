@@ -55,11 +55,11 @@
           <% if memory.score.present? %>
             <% if memory.post.present? %>
               <div>
-                <%= link_to 'Post詳細', memory_post_path(memory, memory.post), class: 'btn btn-primary' %>
+                <%= link_to 'ポスト詳細', memory_post_path(memory, memory.post), class: 'btn btn-primary' %>
               </div>
             <% else %>
               <div>
-                <%= link_to 'Post作成', new_memory_post_path(memory), class: 'btn btn-primary' %>
+                <%= link_to 'ポスト作成', new_memory_post_path(memory), class: 'btn btn-primary' %>
               </div>
             <% end %>
           <% end %>

@@ -1,9 +1,13 @@
 <div class="container">
   <div class="row">
     <div class="col-lg-8 offset-lg-2">
-      <h1>post編集</h1>
+      <div class="mb-3 mt-3">
+        <h1>ポスト編集</h1>
+      </div>
 
       <%= form_with model: @post, url: memory_post_path(@memory, @post), local: true do |f| %>
+        <%= render 'shared/error_messages', object: f.object %>
+
         <div class="mb-3">
           <%= f.label :title %>
           <%= f.text_field :title, class: "form-control" %>
@@ -14,35 +18,45 @@
           <%= f.text_area :body, class: "form-control", rows: "10" %>
         </div>
 
-        <div class="mb-3">
+        <div class="mb-4">
           <%= f.label :tag_names %>
           <%= f.text_field :tag_names, class: 'form-control', placeholder: ',で区切って入力してください' %>
         </div>
 
-        <%= f.submit nil, class: "btn btn-primary mb-3" %>
+        <div class="position mb-3">
+          <div  class="image-posi border-end">
+            <div class="mb-1">※表示される画像（思い出のメイン画像）</div>
+            <% if @memory.main_image.present? %>
+              <%= image_tag @memory.main_image, width: "300", height: "200" %>
+            <% else %>
+              <%= image_tag "no_image.png", width: "300", height: "200" %>
+            <% end %>
+          </div>
+
+          <div class="scor-posi">
+            <% if @memory.score.present? %>
+              <div>※表示される評価</div>
+              <div class="content average-score">
+                <div class="star-rating">
+                  <div class="star-rating-front" style="width: <%= @memory.score * 20 %>%">★★★★★</div>
+                  <div class="star-rating-back">★★★★★</div>
+                </div>
+                <div class="average-score-display ml-3 pt-2">
+                  <%= @memory.score %>/5
+                </div>
+              </div>
+            <% end %>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <%= f.submit nil, class: "btn btn-primary" %>
+        </div>
       <% end %>
 
       <div class="mb-3">
-        <div>※表示される画像（思い出のメイン画像）</div>
-        <% if @memory.main_image.present? %>
-          <%= image_tag @memory.main_image, width: "300", height: "200" %>
-        <% else %>
-          <%= image_tag "no_image.png", width: "300", height: "200" %>
-        <% end %>
+        <%= link_to "< 戻る", :back %>
       </div>
-
-      <% if @memory.score.present? %>
-        <div>※表示される評価</div>
-        <div class="content average-score">
-          <div class="star-rating mb-2">
-            <div class="star-rating-front" style="width: <%= @memory.score * 20 %>%">★★★★★</div>
-            <div class="star-rating-back">★★★★★</div>
-          </div>
-          <div class="average-score-display ml-3 pt-2">
-            <%= @memory.score %>/5
-          </div>
-        </div>
-      <% end %>
     </div>
   </div>
 </div>

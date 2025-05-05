@@ -1,4 +1,6 @@
 <%= form_with model: memory do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
+
   <div class="mb-3">
     <span style="color: red;">＊は必須項目です。</span>
   </div>
@@ -69,12 +71,8 @@
     <%= f.text_field :tag_names, class: 'form-control', placeholder: ',で区切って入力してください' %>
   </div>
 
-  <div>
+  <div class="mb-2">
     <%= f.submit nil, class: "btn btn-primary mb-3" %>
-  </div>
-
-  <div class="mb-3">
-    <%= link_to "< 戻る", :back %>
   </div>
 <% end %>
 
