@@ -1,24 +1,24 @@
 <% memories.each_with_index do |memory, i| %>
   <% if i == 0 %>
-    <div class="carousel-item active">
+    <div class="carousel-item active carousel-main-image">
       <% if memory.main_image.present? %>
         <%= image_tag memory.main_image, class: "bd-placeholder-img bd-placeholder-img-lg d-block w-100", width: "800", height: "500", xmlns: "http://www.w3.org/2000/svg", role: "img", preserveAspectRatio: "xMidYMid slice", focusable: "false" %>
       <% else %>
         <%= image_tag "no_image.png", class: "bd-placeholder-img bd-placeholder-img-lg d-block w-100", width: "800", height: "500", xmlns: "http://www.w3.org/2000/svg", role: "img", preserveAspectRatio: "xMidYMid slice", focusable: "false" %>
       <% end %>
-      <div class="carousel-caption d-none d-md-block">
-        <%= link_to memory.day.strftime("%Y/%m/%d"), memory_path(memory), class: "day-box day-style" %>
+      <div class="carousel-caption d-md-block">
+        <%= link_to "#{memory.day.strftime("%Y/%m/%d")} - #{memory.title}", memory_path(memory), class: "day-title-box day-title-style" %>
       </div>
     </div>
   <% else %>
-    <div class="carousel-item">
+    <div class="carousel-item carousel-main-image">
       <% if memory.main_image.present? %>
         <%= image_tag memory.main_image, class: "bd-placeholder-img bd-placeholder-img-lg d-block w-100", width: "800", height: "500", xmlns: "http://www.w3.org/2000/svg", role: "img", preserveAspectRatio: "xMidYMid slice", focusable: "false" %>
       <% else %>
         <%= image_tag "no_image.png", class: "bd-placeholder-img bd-placeholder-img-lg d-block w-100", width: "800", height: "500", xmlns: "http://www.w3.org/2000/svg", role: "img", preserveAspectRatio: "xMidYMid slice", focusable: "false" %>
       <% end %>
-      <div class="carousel-caption d-none d-md-block">
-        <%= link_to memory.day.strftime("%Y/%m/%d"), memory_path(memory), class: "day-box day-style" %>
+      <div class="carousel-caption d-md-block">
+        <%= link_to "#{memory.day.strftime("%Y/%m/%d")} - #{memory.title}", memory_path(memory), class: "day-title-box day-title-style" %>
       </div>
     </div>
   <% end %>

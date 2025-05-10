@@ -1,3 +1,8 @@
+.all-memories-title {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+
 .star-rating {
   position: relative;
   width: 5em;
@@ -24,8 +29,22 @@
   padding-left: 10px;
 }
 
-.day-pencil-trash-inner {
+.day-link-inner {
   display:flex;
   align-items: center;
   justify-content: space-between;
+}
+
+@media (max-width: 1050px) {
+  .all-memories-title {
+    padding-top: 2rem;
+    padding-bottom: 1.5rem;
+  }
+}
+
+@media (max-width: 450px) {
+  .all-memories-title {
+    padding-top: 1.5rem;
+    padding-bottom: 1rem;
+  }
 }

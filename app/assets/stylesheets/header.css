@@ -1,15 +1,20 @@
+.header-style {
+  box-shadow: 0 .125rem .25rem rgba(0, 0, 0, .075);
+}
+
+.top-header-style {
+  box-shadow: 0 .125rem .25rem rgba(46, 229, 157, 0.4);
+}
+
 .header-position {
   position: sticky;
   top: 0;
   width: 100%;
   z-index: 100;
-  background-color: #000000;
 }
 
 .header-inner {
   height: 70px;
-  padding-left: 20px;
-  padding-right: 20px;
   display:flex;
   align-items: center;
   justify-content: space-between;
@@ -23,14 +28,27 @@
   font-weight: 700;
   text-decoration: none;
   display: inline;
+  padding-right: 50px;
 }
 
 .header-link {
   color: #ffffff;
-  font-size: 1.8rem;
+  font-size: 1.2rem;
   font-weight: 400;
   text-decoration: none;
-  padding-left: 70px;
+  margin-left: 40px;
+}
+
+.signin-btn {
+  margin-left: 1.5rem;
+}
+
+.top-header-link {
+  color: #3cd36c;
+  font-size: 1.2rem;
+  font-weight: 400;
+  text-decoration: none;
+  padding-left: 1.5rem;
 }
 
 .icons {
@@ -41,10 +59,16 @@
 .set-icon {
   color: #ffffff;
   font-size: 1.7em;
+  padding-right: 60px;
+  padding-left: 60px;
 }
 
 .user-icon {
-  padding-left: 40px;
+  padding-left: 60px;
+}
+
+.user-icon-name {
+  color: #ffffff;
 }
 
 .dropdown-toggle::after {

@@ -1,24 +1,24 @@
-<div class="position mx-5">
-  <div class="total mx-2">
-    <div class="mb-3 mt-3 fst-italic border-bottom">
-      <h2>今月の思い出の数：<%= @memories_month.count %></h2>
-    </div>
-
-    <% if @tag_list.present? %>
-      - 思い出タグ -
-      <div class="tag-container">
-        <% @tag_list.each do |tag|%>
-          <div class="tag">
-            <i class="fa-sharp fa-solid fa-tag"></i>
-            <%= tag.name %>
-            : <%= "#{tag.memories.count}" %>
+<div class="position">
+  <div class="calendar-box">
+    <%= month_calendar events: @memories do |date, memories| %>
+      <%= link_to oneday_memory_path(date), class: "day-style" do %>
+        <% if @memories.any? { |memory| date == memory.day } %>
+          <div class="memory-day-color">
+            <%= date.day %>
+          </div>
+        <% else %>
+          <div class="day-color">
+            <%= date.day %>
           </div>
         <% end %>
-      </div>
-    <% else %>
-      <br>
-      <br>
+      <% end%>
     <% end %>
+  </div>
+
+  <div class="total-box">
+    <div>
+      <h2>今月の思い出</h2>
+    </div>
 
     <% if @memories_month.present? %>
       <div id="carouselExampleIndicators" class="carousel carousel-dark slide slide-posi" data-bs-ride="carousel">
@@ -40,21 +40,23 @@
     <% else %>
       <%= render 'no_image' %>
     <% end %>
-  </div>
+  
+    <div class="mb-3 mt-3 border-top border-bottom">
+      <div class="mb-2 mt-2 total">
+        <span>今月の思い出の数：<%= @memories_month.count %></span>
+      </div>
+    </div>
 
-  <div class="calendar-box mx-2">
-    <%= month_calendar events: @memories do |date, memories| %>
-      <%= link_to oneday_memory_path(date), class: "day-style" do %>
-        <% if @memories.any? { |memory| date == memory.day } %>
-          <div class="memory-day-color">
-            <%= date.day %>
-          </div>
-        <% else %>
-          <div class="day-color">
-            <%= date.day %>
+    <% if @tag_list.present? %>
+      - 今月の思い出タグ -
+      <div class="tag-container">
+        <% @tag_list.each do |tag|%>
+          <div class="tag">
+            <i class="fa-sharp fa-solid fa-tag"></i>
+            <%= tag.name %>
           </div>
         <% end %>
-      <% end%>
+      </div>
     <% end %>
   </div>
 </div>

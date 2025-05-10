@@ -1,6 +1,6 @@
 .tag-container {
   display: flex; /* フレックスボックスを使って横並びにする */
-  gap: 13px; /* タグの間隔を調整 */
+  gap: 10px; /* タグの間隔を調整 */
   flex-wrap: wrap;
 }
 

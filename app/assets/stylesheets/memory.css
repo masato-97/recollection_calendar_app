@@ -1,15 +1,47 @@
-.memory-position {
-  display: flex;
-}
-
+/* 思い出一覧　*/
 .memory-coloe {
   background-color: #ffff;
+}
+
+.title-limit {
+  width: 100%;
+  text-overflow: ellipsis;
+  display: -webkit-box; /* ベンダープレフィックスの表示設定 */
+  display: box; /* 標準プロパティの表示設定（ただし、非推奨） */
+  -webkit-box-orient: vertical; /* ベンダープレフィックスの方向設定 */
+  box-orient: vertical; /* 標準プロパティの方向設定（ただし、非推奨） */
+  -webkit-line-clamp: 1; /* 行数を3行に制限 */
+  line-clamp: 1; /* 標準プロパティ（ただし、ほとんどのブラウザではサポートされていない） */
+  overflow: hidden; /* オーバーフローを隠す */
+  line-break: anywhere;
+}
+
+.body-limit {
+  width: 100%;
+  text-overflow: ellipsis;
+  display: -webkit-box; /* ベンダープレフィックスの表示設定 */
+  display: box; /* 標準プロパティの表示設定（ただし、非推奨） */
+  -webkit-box-orient: vertical; /* ベンダープレフィックスの方向設定 */
+  box-orient: vertical; /* 標準プロパティの方向設定（ただし、非推奨） */
+  -webkit-line-clamp: 2; /* 行数を3行に制限 */
+  line-clamp: 2; /* 標準プロパティ（ただし、ほとんどのブラウザではサポートされていない） */
+  overflow: hidden; /* オーバーフローを隠す */
+  line-break: anywhere;
+}
+
+/* 思い出詳細　*/
+.memory-position {
+  display: flex;
 }
 
 .body-style {
   box-sizing: border-box;
   width: 40%;
   margin: 60px 0px;
+}
+
+.title-body-limit-show {
+  line-break: anywhere;
 }
 
 .image-box {
@@ -31,4 +63,36 @@
 .edit-link {
   padding-right: 20px;
   text-decoration: none;
+}
+
+@media (max-width: 1050px) {
+  .memory-position {
+    display: grid;
+  }
+
+  .body-style {
+    width: 100%;
+    margin: 20px 0px;
+  }
+
+  .image-box {
+    width: 100%;
+    text-align: center;
+    margin: 10px 0px;
+    padding-left: 0px;
+  }
+
+  .slide-posi {
+    position: relative; /* 今の位置を基準 */
+  }
+
+  .carousel-show-image img {
+    height: 600px;
+  }
+}
+
+@media (max-width: 450px) {
+  .carousel-show-image img {
+    height: auto;
+  }
 }

@@ -1,40 +1,42 @@
-<div class="header-position">
-  <header>
-    <div class="header-inner">
-      <div>
-        <h2 class="header-logo">
-          <%= link_to 'Recordi', memories_path, class: "header-logo" %>
-        </h2>
-        <%= link_to 'calendar', memories_path, class: 'header-link' %>
-        <%= link_to 'chart', compare_memories_path, class: 'header-link' %>
-        <%= link_to 'memory', all_memories_path, class: 'header-link' %>
-        <%= link_to 'new memory', new_memory_path, class: 'header-link' %>
-        <%= link_to 'post', posts_path, class: 'header-link' %>
-      </div>
+<header class="sticky-top header-style" >
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="header-logo" href="<%= memories_path %>">Recordi</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
 
-      <div class="icons">
-        <a class="icon-link set-icon" href="/users/setting">
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-gear-fill" viewBox="0 0 16 16">
-            <path d="M9.405 1.05c-.413-1.4-2.397-1.4-2.81 0l-.1.34a1.464 1.464 0 0 1-2.105.872l-.31-.17c-1.283-.698-2.686.705-1.987 1.987l.169.311c.446.82.023 1.841-.872 2.105l-.34.1c-1.4.413-1.4 2.397 0 2.81l.34.1a1.464 1.464 0 0 1 .872 2.105l-.17.31c-.698 1.283.705 2.686 1.987 1.987l.311-.169a1.464 1.464 0 0 1 2.105.872l.1.34c.413 1.4 2.397 1.4 2.81 0l.1-.34a1.464 1.464 0 0 1 2.105-.872l.31.17c1.283.698 2.686-.705 1.987-1.987l-.169-.311a1.464 1.464 0 0 1 .872-2.105l.34-.1c1.4-.413 1.4-2.397 0-2.81l-.34-.1a1.464 1.464 0 0 1-.872-2.105l.17-.31c.698-1.283-.705-2.686-1.987-1.987l-.311.169a1.464 1.464 0 0 1-2.105-.872zM8 10.93a2.929 2.929 0 1 1 0-5.86 2.929 2.929 0 0 1 0 5.858z"/>
-          </svg>
-        </a>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav me-auto mb-2 mb-md-0">
+          <li class="nav-item header-link">
+            <a class="nav-link <%= 'active' if current_page?(memories_path) %>" href="<%= memories_path %>"><%= t('header.calendar') %></a>
+          </li>
+          <li class="nav-item header-link">
+            <a class="nav-link <%= 'active' if current_page?(all_memories_path) %>" href="<%= all_memories_path %>"><%= t('header.memory') %></a>
+          </li>
+          <li class="nav-item header-link">
+            <a class="nav-link <%= 'active' if current_page?(new_memory_path) %>" href="<%= new_memory_path %>"><%= t('header.new_memory') %></a>
+          </li>
+          <li class="nav-item header-link">
+            <a class="nav-link <%= 'active' if current_page?(posts_path) %>" href="<%= posts_path %>"><%= t('header.post') %></a>
+          </li>
+        </ul>
 
         <div class='dropdown user-icon'>
           <%= link_to '#', class: "d-block link-body-emphasis text-decoration-none show", data: { bs_toggle: 'dropdown' }, aria: { expanded: 'true' } do %>
             <% if current_user.avatar.attached? %>
-              <%= image_tag current_user.avatar, class: "rounded-circle", alt: "mdo", width: '45', height: '45'  %>
+              <%= image_tag current_user.avatar, class: "rounded-circle", alt: "mdo", width: '45', height: '45'  %><span class="user-icon-name ms-1"><%= current_user.name %></span>
             <% else %>
-              <%= image_tag "icon.png", class: "rounded-circle", width: '45', height: '45' %>
+              <%= image_tag "icon.png", class: "rounded-circle", width: '45', height: '45' %> <%= " " %> <span class="user-icon-name"><%= current_user.name %></span>
             <% end %>
           <% end %>
-          <div class='dropdown-menu'>
-            <div class='dropdown-item'><%= current_user.name %></div>
-            <div class='dropdown-divider'></div>
-            <%= link_to "マイページ", users_profile_path, class: "dropdown-item" %>
-            <%= link_to 'ログアウト', destroy_user_session_path, class: "dropdown-item", method: :delete  %>
+          <div class='dropdown-menu dropdown-menu-dark'>
+            <%= link_to t('header.my_page'), users_profile_path, class: "dropdown-item" %>
+            <%= link_to t('header.setting'), users_setting_path, class: "dropdown-item" %>
+            <%= link_to t('header.logout'), destroy_user_session_path, class: "dropdown-item", method: :delete  %>
           </div>
         </div>
       </div>
     </div>
-  </header>
-</div>
+  </nav>
+</header>

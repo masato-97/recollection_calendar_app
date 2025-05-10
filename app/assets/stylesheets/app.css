@@ -1,7 +1,15 @@
+.background {
+  background-color: #f3f3f3;
+}
+
 body {
   min-height: 100vh; 
 }
 
 .no-underline {
   text-decoration: none;
+}
+
+footer{
+  width: 100%;
 }

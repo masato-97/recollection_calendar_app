@@ -1,13 +1,15 @@
-<div class="col">
+<div class="col mb-4">
   <div id="memory-id-<%= memory.id %>">
-    <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative memory-coloe">
+    <div class="row g-0 border rounded overflow-hidden flex-md-row shadow-sm h-md-250 position-relative memory-coloe">
       <div class="col p-4 d-flex flex-column position-static">
-        <h3 class="mb-1">
-          <%= link_to memory.title, memory_path(memory), class: "no-underline" %>
-        </h3>
+        <div class="title-wrapper">
+          <h4 class="mb-1 border-bottom title-limit">
+            <%= memory.title %>
+          </h4>
+        </div>
 
         <% if memory.score.present? %>
-          <div class="content average-score mb-2">
+          <div class="content average-score mb-auto">
             <div class="star-rating mb-2">
               <div class="star-rating-front" style="width: <%= memory.score * 20 %>%">★★★★★</div>
               <div class="star-rating-back">★★★★★</div>
@@ -16,61 +18,47 @@
               <%= memory.score %>/5
             </div>
           </div>
+        <% else %>
+          <br>
         <% end %>
 
-        <div class="card-text mb-auto">
-          <%= memory.body.truncate(43) %>
-        </div>
+        <p class="card-text mb-auto body-limit">
+          <%= memory.body %>
+        </p>
 
         <% if memory.tags.present? %>
           <div class="tag-container">
-            <% memory.tags.first(2).each do |tag| %>
+            <% memory.tags.first(3).each do |tag| %>
               <div class="tag">
                 <i class="fa-sharp fa-solid fa-tag"></i>
                 <%= tag.name.truncate(8, omission: '') %>
               </div>
             <% end %>
-            <% if memory.tags.size > 2 %>
+            <% if memory.tags.size > 3 %>
               ...
             <% end %>
           </div>
+        <% else %>
+          <br>
         <% end %>
 
-        <div class="day-pencil-trash-inner">
+        <div class="day-link-inner">
           <div class="text-body-secondary">
             <%= memory.day.strftime("%Y/%m/%d") %>
           </div>
-
-          <div class='ms-auto'>
-            <%= link_to edit_memory_path(memory), id: "button-edit-#{memory.id}" do %>
-              <i class="bi bi-pencil-fill edit-link"></i>
-            <% end %>
-          </div>
-          <div>
-            <%= link_to memory_path(memory), id: "button-delete-#{memory.id}", data: { turbo_method: :delete, turbo_confirm: "削除しますか？" } do %>
-              <i class="bi bi-trash-fill edit-link"></i>
-            <% end %>
-          </div>
-
-          <% if memory.score.present? %>
-            <% if memory.post.present? %>
-              <div>
-                <%= link_to 'ポスト詳細', memory_post_path(memory, memory.post), class: 'btn btn-primary' %>
-              </div>
-            <% else %>
-              <div>
-                <%= link_to 'ポスト作成', new_memory_post_path(memory), class: 'btn btn-primary' %>
-              </div>
-            <% end %>
-          <% end %>
-
+          <a href="/memories/<%= memory.id %>" class="icon-link gap-1 icon-link-hover stretched-link">
+            思い出詳細
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+              <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708"/>
+            </svg>
+          </a>
         </div>
       </div>
       <div class="col-auto d-none d-lg-block">
         <% if memory.main_image.present? %>
-          <%= link_to image_tag(memory.main_image, class: "bd-placeholder-img", width: "250", height: "250", xmlns: "http://www.w3.org/2000/svg", role: "img",  preserveAspectRatio: "xMidYMid slice", focusable: "false"), memory_path(memory) %>
+          <%= link_to image_tag(memory.main_image, class: "bd-placeholder-img", width: "200", height: "250", xmlns: "http://www.w3.org/2000/svg", role: "img",  preserveAspectRatio: "xMidYMid slice", focusable: "false"), memory_path(memory) %>
         <% else %>
-          <%= link_to image_tag("no_image.png", class: "bd-placeholder-img", width: "250", height: "250", xmlns: "http://www.w3.org/2000/svg", role: "img",  preserveAspectRatio: "xMidYMid slice", focusable: "false"), memory_path(memory) %>
+          <%= link_to image_tag("no_image.png", class: "bd-placeholder-img", width: "200", height: "250", xmlns: "http://www.w3.org/2000/svg", role: "img",  preserveAspectRatio: "xMidYMid slice", focusable: "false"), memory_path(memory) %>
         <% end %>
       </div>
     </div>
