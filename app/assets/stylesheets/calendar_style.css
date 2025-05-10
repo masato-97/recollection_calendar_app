@@ -1,10 +1,6 @@
-.background {
-  background-color: #f3f3f3;
-}
-
 .calendar-heading {
   text-align: center;
-  margin: 20px 0px;
+  margin: 30px 0px 10px 0px;
 }
 
 .calendar-title {
@@ -19,7 +15,7 @@
 
 .calendar-today {
   text-decoration: none;
-  color: #00ae9d;
+  color: #00b8a5;
 }
 
 .day-style {
@@ -28,7 +24,7 @@
 }
 
 .memory-day-color {
-  color: #00c9b5;
+  color: #00b8a8;
 }
 
 .day-color {
@@ -42,7 +38,7 @@
     -webkit-border-horizontal-spacing: 0px;
     -webkit-border-vertical-spacing: 0px;
     background-color: rgb(255, 255, 255);
-    border: 1px solid rgb(221, 221, 221);
+    /* border: 1px solid rgb(221, 221, 221); カレンダーの枠*/
     border-collapse: collapse;
     box-sizing: border-box;
     max-width: 100%;
@@ -62,46 +58,45 @@
     padding: 6px;
     border-bottom: 2px solid rgb(221, 221, 221);
     border-collapse: collapse;
-    border-left: 1px solid rgb(221, 221, 221);
-    border-right: 1px solid rgb(221, 221, 221);
     border-top: 0px none rgb(51, 51, 51);
     box-sizing: border-box;
     text-align: center;
   }
 
   td {
-    padding: 6px;
-    width: 10%;
-
-    border: 1px solid #ddd;
-    border-top-color: rgb(221, 221, 221);
-    border-top-style: solid;
-    border-top-width: 1px;
-    border-right-color: rgb(221, 221, 221);
-    border-right-style: solid;
-    border-right-width: 1px;
+    height: 100px;
+    /* border: 1px solid #ddd; */
+    /* border-top-color: rgb(221, 221, 221); */
+    /* border-top-style: solid; */
+    /* border-top-width: 1px; */
+    /* border-right-color: rgb(221, 221, 221); */
+    /* border-right-style: solid; */
+    /* border-right-width: 1px; */
     border-bottom-color: rgb(221, 221, 221);
     border-bottom-style: solid;
     border-bottom-width: 1px;
-    border-left-color: rgb(221, 221, 221);
-    border-left-style: solid;
-    border-left-width: 1px;
+    /* border-left-color: rgb(221, 221, 221); */
+    /* border-left-style: solid; */
+    /* border-left-width: 1px; */
   }
 
   .day {
-    height: 90px;
+    width: 100px;
   }
 
   .today {
-    background: #3cf172;
+    background: #61ce81;
+    border-radius: 50%;
   }
 
-  .prev-month {
+  .prev-month a {
     background: #ddd;
+    display: none;
   }
 
-  .next-month {
+  .next-month a {
     background: #ddd;
+    display: none;
   }
 }
 
@@ -129,4 +124,30 @@
 
 .fs10 {
   font-size: 20px;
+}
+
+@media (max-width: 1050px) {
+  .calendar-heading {
+    margin: 20px 0px 10px 0px;
+  }
+}
+
+@media (max-width: 450px) {
+  .calendar-heading {
+    margin: 10px 0px 5px 0px;
+  }
+
+  td {
+    height: 70px;
+  }
+
+  .calendar-title {
+    font-size: 1.5rem;
+    text-decoration: none;
+  }
+
+  .day-style {
+    text-decoration: none;
+    font-size: 1.2rem;
+  }
 }

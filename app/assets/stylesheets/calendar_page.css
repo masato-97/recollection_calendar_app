@@ -1,37 +1,103 @@
 .position {
   display: flex;
-  align-items: stretch;
+  margin-right: 3rem !important;
+  margin-left: 3rem !important;
 }
 
-.total {
+.total-box {
   box-sizing: border-box;
   width: 50%;
-  position: relative; /* 今の位置を基準 */
-  top: 45px; /* 上から10px */
+  margin: 50px 0px 20px 0px;
   align-items: center;
+  margin-right: 0.25rem !important;
+  margin-left: 0.5rem !important;
 }
 
 .slide-posi {
   position: relative; /* 今の位置を基準 */
-  top: 45px; /* 上から10px */
-  padding-right: 20px;
+}
+
+.total {
+  font-size: 20px;
 }
 
 .calendar-box {
   box-sizing: border-box;
   width: 50%;
-  display: flex;
-  align-items: center;position: relative; /* 今の位置を基準 */
-  top: 90px; /* 上から10px */
+  margin: 0px 0px 20px 0px;
+  margin-right: 0.5rem !important;
+  margin-left: 0.25rem !important;
 }
 
-.day-box {
+.day-title-box {
   border-radius: 0.5em;
   padding: 3px;
+  line-break: anywhere;
 }
 
-.day-style {
+.day-title-style {
   background-color: rgb(0 0 0 / 0.5);
   color: #fff;
   text-decoration: none;
+  font-size: 20px;
+}
+
+@media (max-width: 1050px) {
+  .position {
+    display: grid;
+    margin-right: 0rem !important;
+    margin-left: 0rem !important;
+  }
+
+  .total-box {
+    width: 100%;
+    margin: 30px 0px 20px 0px;
+    margin-right: 0rem !important;
+    margin-left: 0rem !important;
+  }
+
+  .calendar-box {
+    width: 100%;
+    margin: 0px 0px 0px 0px;
+    margin-right: 0rem !important;
+    margin-left: 0rem !important;
+  }
+
+  .slide-posi {
+    position: relative; /* 今の位置を基準 */
+  }
+
+  .carousel-main-image img {
+    height: 500px;
+  }
+}
+
+@media (max-width: 450px) {
+  .position {
+    display: grid;
+    margin-right: 0rem !important;
+    margin-left: 0rem !important;
+  }
+
+  .total-box {
+    width: 100%;
+    margin: 20px 0px 20px 0px;
+    margin-right: 0rem !important;
+    margin-left: 0rem !important;
+  }
+
+  .calendar-box {
+    width: 100%;
+    margin: 0px 0px 0px 0px;
+    margin-right: 0rem !important;
+    margin-left: 0rem !important;
+  }
+
+  .slide-posi {
+    position: relative; /* 今の位置を基準 */
+  }
+
+  .carousel-main-image img {
+    height: 250px;
+  }
 }

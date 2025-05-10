@@ -1,0 +1,22 @@
+<header class="sticky-top top-header-style" >
+  <nav class="navbar navbar-expand-lg bg-body-tertiary rounded">
+    <div class="container-fluid">
+      <a class="header-logo" href="<%= memories_path %>">Recordi</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse d-lg-flex justify-content-lg-end" id="navbarNav">
+        <ul class="navbar-nav mb-2 mb-md-0">
+          <li class="nav-item top-header-link">
+            <a class="nav-link link-secondary <%= 'active' if current_page?(new_user_session_path) %>" href="<%= new_user_session_path %>"><%= t('header.recordi') %></a>
+          </li>
+          <li class="nav-item top-header-link">
+            <a class="nav-link <%= 'active' if current_page?(new_user_session_path) %>" href="<%= new_user_session_path %>"><%= t('header.login') %></a>
+          </li>
+        </ul>
+        <a class="btn btn-success signin-btn" href="<%= new_user_registration_path %>" role="button"><%= t('header.signin') %></a>
+      </div>
+    </div>
+  </nav>
+</header>

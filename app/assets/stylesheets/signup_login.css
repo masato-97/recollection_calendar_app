@@ -27,7 +27,7 @@
   letter-spacing: .5em;
   text-align: center;
   padding-top: 1em;
-  padding-bottom: 3em;
+  padding-bottom: 1.5em;
   text-shadow: inset -1px -1px 1px #36C062;
 }
 
@@ -36,7 +36,7 @@
   text-align: center;
   font-size: 1.5rem;
   line-height: 2rem;
-  font-weight: 700;
+  font-weight: 200px;
 }
 
 .form-button {
@@ -89,4 +89,13 @@
 
 .possword-link {
   color: #36C062;
+}
+
+@media (max-width: 450px) {
+  .form-container {
+    width: auto;
+    border: 0;
+    box-shadow: 0px 0px 0px 0px rgba(46, 229, 157, 0.4);
+    top: 0;
+  }
 }

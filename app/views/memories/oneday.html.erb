@@ -1,114 +1,117 @@
-<% @memories.each do |memory| %>
-  <div class="container">
-    <div class="memory-position">
-      <div class="body-style">
-        <div class="mb-4 fst-italic border-bottom">
-          <h3><%= memory.day %></h3>
-        </div>
-        <div class="mb-4 fst-italic border-bottom">
-          <h3><%= memory.title %></h3>
-        </div>
-        <div class="mb-4">
-          <%= memory.body %>
-        </div>
-
-        <% if memory.score.present? %>
-          <div class="content average-score mb-4">
-            <div class="star-rating mb-2">
-              <div class="star-rating-front" style="width: <%= memory.score * 20 %>%">★★★★★</div>
-              <div class="star-rating-back">★★★★★</div>
-            </div>
-            <div class="average-score-display ml-3 pt-2">
-              <%= memory.score %>/5
-            </div>
+<div>
+  <% @memories.each do |memory| %>
+    <div class="container">
+      <div class="memory-position border-bottom">
+        <div class="body-style">
+          <div class="mb-4 fst-italic border-bottom">
+            <h3><%= memory.day %></h3>
           </div>
-        <% end %>
+          <div class="mb-4 fst-italic border-bottom title-body-limit-show">
+            <h3><%= memory.title %></h3>
+          </div>
+          <div class="pb-4 mb-3 border-bottom title-body-limit-show">
+            <%= memory.body %>
+          </div>
 
-        <% if memory.tags.present? %>
-          <div class="tag-container mb-4">
-            <% memory.tags.each do |tag| %>
-              <div class="tag">
-                <i class="fa-sharp fa-solid fa-tag"></i>
-                <%= link_to tag.name,search_tag_memories_path(tag_id: tag.id) %>
+          <% if memory.score.present? %>
+            <div class="content average-score pb-3 mb-3 border-bottom">
+              <div class="star-rating mb-2">
+                <div class="star-rating-front" style="width: <%= memory.score * 20 %>%">★★★★★</div>
+                <div class="star-rating-back">★★★★★</div>
               </div>
-            <% end %>
-          </div>
-        <% end %>
+              <div class="average-score-display ml-3 pt-2">
+                <%= memory.score %>/5
+              </div>
+            </div>
+          <% end %>
 
-        <div class="day-pencil-trash-inner mb-3">
+          <% if memory.tags.present? %>
+            <div class="tag-container pb-3 mb-4 border-bottom">
+              <% memory.tags.each do |tag| %>
+                <div class="tag">
+                  <i class="fa-sharp fa-solid fa-tag"></i>
+                  <%= link_to tag.name,search_tag_memories_path(tag_id: tag.id) %>
+                </div>
+              <% end %>
+            </div>
+          <% end %>
+
+          <div class="d-flex mb-3">
+            <div>
+              <%= link_to edit_memory_path(memory), id: "button-edit-#{memory.id}" do %>
+                <i class="bi bi-pencil-fill edit-link"></i>
+              <% end %>
+            </div>
+            <div class="ms-2">
+              <%= link_to memory_path(memory), id: "button-delete-#{memory.id}", data: { turbo_method: :delete, turbo_confirm: "削除しますか？" } do %>
+                <i class="bi bi-trash-fill edit-link"></i>
+              <% end %>
+            </div>
+          </div>
+
           <% if memory.score.present? %>
             <% if memory.post.present? %>
               <div>
-                <%= link_to 'Post詳細', memory_post_path(memory, memory.post), class: 'btn btn-primary mb-3' %>
+                <%= link_to 'ポスト詳細', memory_post_path(memory, memory.post), class: 'btn btn-primary mb-3' %>
               </div>
             <% else %>
               <div>
-                <%= link_to 'Post作成', new_memory_post_path(memory), class: 'btn btn-primary mb-3' %>
+                <%= link_to 'ポスト作成', new_memory_post_path(memory), class: 'btn btn-primary mb-1' %>
               </div>
+              <div class="mb-3">※ポストを作成すると、この思い出を他のユーザーに共有することができます。</div>
             <% end %>
           <% end %>
 
-          <div class='ms-auto'>
-            <%= link_to edit_memory_path(memory), id: "button-edit-#{memory.id}" do %>
-              <i class="bi bi-pencil-fill edit-link"></i>
-            <% end %>
-          </div>
-          <div>
-            <%= link_to memory_path(memory), id: "button-delete-#{memory.id}", data: { turbo_method: :delete, turbo_confirm: "削除しますか？" } do %>
-              <i class="bi bi-trash-fill edit-link"></i>
-            <% end %>
-          </div>
+          <% if memory.score.blank?  %>
+            <div class="mb-3">※評価を登録すると、この思い出をポストとして他のユーザーに共有することができます。</div>
+          <% end %>
+
+          <%= link_to "< カレンダー", memories_path %>
         </div>
 
-        <% if memory.score.blank?  %>
-          <div class="mb-3">※評価を登録するとポストを作成できます。</div>
-        <% end %>
-
-        <%= link_to "< カレンダーページ", memories_path %>
-      </div>
-
-      <% if memory.sub_image.present? %>
-      <div class="image-box">
-        <div id="carouselExampleIndicators" class="carousel carousel-dark slide" data-bs-ride="carousel">
-        <div class="carousel-indicators">
-          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-        </div>
-        <div class="carousel-inner">
-          <div class="carousel-item active">
-            <% if memory.main_image.present? %>
-              <%= image_tag memory.main_image, class: "bd-placeholder-img bd-placeholder-img-lg d-block w-100", width: "800", height: "690", xmlns: "http://www.w3.org/2000/svg", role: "img", preserveAspectRatio: "xMidYMid slice", focusable: "false" %>
-            <% else %>
-              <%= image_tag "no_image.png", class: "bd-placeholder-img bd-placeholder-img-lg d-block w-100", width: "800", height: "690", xmlns: "http://www.w3.org/2000/svg", role: "img", preserveAspectRatio: "xMidYMid slice", focusable: "false" %>
-            <% end %>
+        <% if memory.sub_image.present? %>
+        <div class="image-box">
+          <div id="carouselExampleIndicators" class="carousel carousel-dark slide" data-bs-ride="carousel">
+          <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
           </div>
-          <div class="carousel-item">
-            <%= image_tag memory.sub_image, class: "bd-placeholder-img bd-placeholder-img-lg d-block w-100", width: "800", height: "690", xmlns: "http://www.w3.org/2000/svg", role: "img", preserveAspectRatio: "xMidYMid slice", focusable: "false" %>
+          <div class="carousel-inner">
+            <div class="carousel-item active carousel-show-image">
+              <% if memory.main_image.present? %>
+                <%= image_tag memory.main_image, class: "bd-placeholder-img bd-placeholder-img-lg d-block w-100", width: "800", height: "690", xmlns: "http://www.w3.org/2000/svg", role: "img", preserveAspectRatio: "xMidYMid slice", focusable: "false" %>
+              <% else %>
+                <%= image_tag "no_image.png", class: "bd-placeholder-img bd-placeholder-img-lg d-block w-100", width: "800", height: "690", xmlns: "http://www.w3.org/2000/svg", role: "img", preserveAspectRatio: "xMidYMid slice", focusable: "false" %>
+              <% end %>
+            </div>
+            <div class="carousel-item  carousel-show-image">
+              <%= image_tag memory.sub_image, class: "bd-placeholder-img bd-placeholder-img-lg d-block w-100", width: "800", height: "690", xmlns: "http://www.w3.org/2000/svg", role: "img", preserveAspectRatio: "xMidYMid slice", focusable: "false" %>
+            </div>
           </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
         </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Next</span>
-        </button>
-      </div>
-    <% else %>
-      <div class="image-box">
-        <div id="carouselExampleIndicators" class="carousel carousel-dark slide" data-bs-ride="carousel">
-        <div class="carousel-inner">
-          <div class="carousel-item active">
-            <% if memory.main_image.present? %>
-              <%= image_tag memory.main_image, class: "bd-placeholder-img bd-placeholder-img-lg d-block w-100", width: "800", height: "690", xmlns: "http://www.w3.org/2000/svg", role: "img", preserveAspectRatio: "xMidYMid slice", focusable: "false" %>
-            <% else %>
-              <%= image_tag "no_image.png", class: "bd-placeholder-img bd-placeholder-img-lg d-block w-100", width: "800", height: "690", xmlns: "http://www.w3.org/2000/svg", role: "img", preserveAspectRatio: "xMidYMid slice", focusable: "false" %>
-            <% end %>
+      <% else %>
+        <div class="image-box">
+          <div id="carouselExampleIndicators" class="carousel carousel-dark slide" data-bs-ride="carousel">
+          <div class="carousel-inner">
+            <div class="carousel-item active carousel-show-image">
+              <% if memory.main_image.present? %>
+                <%= image_tag memory.main_image, class: "bd-placeholder-img bd-placeholder-img-lg d-block w-100", width: "800", height: "690", xmlns: "http://www.w3.org/2000/svg", role: "img", preserveAspectRatio: "xMidYMid slice", focusable: "false" %>
+              <% else %>
+                <%= image_tag "no_image.png", class: "bd-placeholder-img bd-placeholder-img-lg d-block w-100", width: "800", height: "690", xmlns: "http://www.w3.org/2000/svg", role: "img", preserveAspectRatio: "xMidYMid slice", focusable: "false" %>
+              <% end %>
+            </div>
           </div>
         </div>
+      <% end %>
       </div>
-    <% end %>
     </div>
-  </div>
-<% end %>
+  <% end %>
+</div>

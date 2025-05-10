@@ -1,43 +1,41 @@
-<body class="background-2">
-  <div class="form-container">
-    <div class="row">
-      <div class="col-md-10 col-lg-8 mx-auto">
-        <div class="heading">
-          <h2>Recordi</h2>
+<div class="form-container">
+  <div class="row">
+    <div class="col-md-10 col-lg-8 mx-auto">
+      <div class="heading">
+        <h2>Recordi</h2>
+      </div>
+
+      <div class="form-title">
+        <h2><%= t('user_sessions.login') %></h2>
+      </div>
+
+      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+        <div class="mb-3">
+          <%= f.label :email, class: "form-label" %>
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
         </div>
 
-        <div class="form-title">
-          <h2>Log in</h2>
+        <div class="mb-3">
+          <%= f.label :password %>
+          <%= f.password_field :password, autocomplete: "current-password", class: "form-control" %>
         </div>
 
-        <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+        <!--ログイン情報を保存する-->
+        <% if devise_mapping.rememberable? %>
           <div class="mb-3">
-            <%= f.label :email, class: "form-label" %>
-            <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
-          </div>
-
-          <div class="mb-3">
-            <%= f.label :password %>
-            <%= f.password_field :password, autocomplete: "current-password", class: "form-control" %>
-          </div>
-
-          <!--ログイン情報を保存する-->
-          <% if devise_mapping.rememberable? %>
-            <div class="mb-3">
-              <%= f.check_box :remember_me %>
-              <%= f.label :remember_me %>
-            </div>
-          <% end %>
-
-          <div class="mb-3">
-            <%= f.submit "Log in", class: "form-button" %>
+            <%= f.check_box :remember_me %>
+            <%= f.label :remember_me %>
           </div>
         <% end %>
 
-        <div class="text-right">
-          <%= render "devise/shared/links" %>
+        <div class="mb-3">
+          <%= f.submit "Log in", class: "form-button" %>
         </div>
+      <% end %>
+
+      <div class="text-right">
+        <%= render "devise/shared/links" %>
       </div>
     </div>
   </div>
-</body>
+</div>

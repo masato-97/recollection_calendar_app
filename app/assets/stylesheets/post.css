@@ -1,5 +1,17 @@
+.user-style {
+  display:flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.edit-delete-style {
+  display:flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
 .name_style {
-  font-size: 1.4em;
+  font-size: 1.2em;
 }
 
 .image-posi {
@@ -8,4 +20,8 @@
 
 .scor-posi {
   padding-left: 20px;
+}
+
+.heart-btn {
+  font-size: 20px;
 }

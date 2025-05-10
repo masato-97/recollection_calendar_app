@@ -1,9 +1,12 @@
 <div class="container">
-  <section class="py-5 text-center container">
-    <div class="row py-lg-5">
+  <section class="text-center container">
+    <div class="row all-memories-title">
       <div class="col-lg-6 col-md-8 mx-auto">
         <h1 class="fw-light">思い出一覧</h1>
       </div>
+    </div>
+    <div class="mb-3">
+      <a class="btn btn-outline-primary" href="<%= compare_memories_path %>" role="button">７ヶ月間の思い出の数を比較</a>
     </div>
   </section>
 
@@ -25,18 +28,15 @@
       <% end %>
     </div>
   <% end %>
-
-  <div class="row">
-    <div class="col-12">
-      <div class="row row-cols-1 row-cols-md-2 g-4">
-        <% if @memories.present? %>
-          <%= render @memories %>
-        <% else %>
-          <div class="mb-3">
-            <h1>思い出がありません</h1>
-          </div>
-        <% end %>
+</div>
+<div class="container">
+  <div class="row row-cols-1 row-cols-md-2">
+    <% if @memories.present? %>
+      <%= render @memories %>
+    <% else %>
+      <div class="mb-3">
+        <h1>思い出がありません</h1>
       </div>
-    </div>
+    <% end %>
   </div>
 </div>
