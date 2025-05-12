@@ -1,0 +1,43 @@
+.how-title {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+
+.how-title-2 {
+  border-bottom: 3px solid #18e08377;
+  display: inline-block;
+}
+
+.how-title-3 {
+  font-weight: 800;
+  font-size: 20px;
+}
+
+.how-title-4 {
+  color: #18e08377;
+  font-weight: 800;
+  font-size: 20px;
+}
+
+.how-text {
+  font-weight: 580;
+  line-height: 2;
+}
+
+.how-text-bottom {
+  margin-bottom: 5rem;
+}
+
+@media (max-width: 1050px) {
+  .how-title {
+    padding-top: 2rem;
+    padding-bottom: 1.5rem;
+  }
+}
+
+@media (max-width: 450px) {
+  .how-title {
+    padding-top: 1.5rem;
+    padding-bottom: 1rem;
+  }
+}

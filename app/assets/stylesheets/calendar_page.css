@@ -7,7 +7,7 @@
 .total-box {
   box-sizing: border-box;
   width: 50%;
-  margin: 50px 0px 20px 0px;
+  margin: 110px 0px 20px 0px;
   align-items: center;
   margin-right: 0.25rem !important;
   margin-left: 0.5rem !important;
@@ -39,7 +39,7 @@
   background-color: rgb(0 0 0 / 0.5);
   color: #fff;
   text-decoration: none;
-  font-size: 20px;
+  font-size: 22px;
 }
 
 @media (max-width: 1050px) {
@@ -99,5 +99,9 @@
 
   .carousel-main-image img {
     height: 250px;
+  }
+
+  .day-title-style {
+    font-size: 15px;
   }
 }

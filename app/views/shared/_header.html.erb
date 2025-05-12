@@ -1,5 +1,5 @@
 <header class="sticky-top header-style" >
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container-fluid">
       <a class="header-logo" href="<%= memories_path %>">Recordi</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -30,9 +30,10 @@
               <%= image_tag "icon.png", class: "rounded-circle", width: '45', height: '45' %> <%= " " %> <span class="user-icon-name"><%= current_user.name %></span>
             <% end %>
           <% end %>
-          <div class='dropdown-menu dropdown-menu-dark'>
+          <div class='dropdown-menu'>
             <%= link_to t('header.my_page'), users_profile_path, class: "dropdown-item" %>
             <%= link_to t('header.setting'), users_setting_path, class: "dropdown-item" %>
+            <%= link_to t('header.recordi'), how_to_use_path, class: "dropdown-item" %>
             <%= link_to t('header.logout'), destroy_user_session_path, class: "dropdown-item", method: :delete  %>
           </div>
         </div>

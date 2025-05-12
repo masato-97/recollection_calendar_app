@@ -10,9 +10,9 @@ ja:
     recordi: Recordiの使い方
     calendar: カレンダー
     memory: 思い出
-    new_memory: 思い出登録
+    new_memory: 思い出を記録
     post: ポスト
-    my_page: マイページ
+    my_page: プロフィール
     setting: 設定
     logout: ログアウト
   user_sessions:

@@ -1,0 +1,18 @@
+.avatar-size {
+  width: 200px;
+  height: 200px;
+}
+
+@media (max-width: 900px) {
+  .avatar-size {
+    width: 150px;
+    height: 150px;
+  }
+}
+
+@media (max-width: 450px) {
+  .avatar-size {
+    width: 115px;
+    height: 115px;
+  }
+}

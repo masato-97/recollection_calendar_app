@@ -1,9 +1,9 @@
 .header-style {
-  box-shadow: 0 .125rem .25rem rgba(0, 0, 0, .075);
+  box-shadow: 0 .155rem .25rem #2ee59d66;
 }
 
 .top-header-style {
-  box-shadow: 0 .125rem .25rem rgba(46, 229, 157, 0.4);
+  box-shadow: 0 .155rem .25rem #2ee59d66;
 }
 
 .header-position {
@@ -68,7 +68,7 @@
 }
 
 .user-icon-name {
-  color: #ffffff;
+  color: #000000;
 }
 
 .dropdown-toggle::after {

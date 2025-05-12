@@ -16,7 +16,7 @@
   border: 1px solid #36C062;
   box-shadow: 0px 0px 50px -15px rgba(46, 229, 157, 0.4);
   position: relative;
-  top: 7em;
+  top: 3em;
 }
 
 .heading {
@@ -34,9 +34,6 @@
 .form-title {
   color: #000000;
   text-align: center;
-  font-size: 1.5rem;
-  line-height: 2rem;
-  font-weight: 200px;
 }
 
 .form-button {
@@ -89,6 +86,11 @@
 
 .possword-link {
   color: #36C062;
+  text-align: center;
+}
+
+.google-link {
+  text-align: center;
 }
 
 @media (max-width: 450px) {
