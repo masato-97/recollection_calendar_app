@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   # root "posts#index"
 
   root "top#index"
+  get "how_to_use", to: "top#how_to_use"
+
   devise_for :users, controllers: {
     registrations: "users/registrations",
     sessions: "users/sessions",

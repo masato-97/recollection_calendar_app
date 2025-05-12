@@ -10,12 +10,12 @@
 
 .calendar-action {
   text-decoration: none;
-  color: #31e068;
+  color: #2ee59c;
 }
 
 .calendar-today {
   text-decoration: none;
-  color: #00b8a5;
+  color: #00b881;
 }
 
 .day-style {
@@ -24,7 +24,7 @@
 }
 
 .memory-day-color {
-  color: #00b8a8;
+  color: #2cbd5a;
 }
 
 .day-color {
@@ -85,7 +85,7 @@
   }
 
   .today {
-    background: #61ce81;
+    background: #18c98e9d;
     border-radius: 50%;
   }
 

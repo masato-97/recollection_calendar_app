@@ -16,10 +16,6 @@
   </div>
 
   <div class="total-box">
-    <div>
-      <h2>今月の思い出</h2>
-    </div>
-
     <% if @memories_month.present? %>
       <div id="carouselExampleIndicators" class="carousel carousel-dark slide slide-posi" data-bs-ride="carousel">
         <div class="carousel-indicators">
@@ -43,12 +39,12 @@
   
     <div class="mb-3 mt-3 border-top border-bottom">
       <div class="mb-2 mt-2 total">
-        <span>今月の思い出の数：<%= @memories_month.count %></span>
+        <span>思い出の数：<%= @memories_month.count %></span>
       </div>
     </div>
 
     <% if @tag_list.present? %>
-      - 今月の思い出タグ -
+      - 思い出タグ -
       <div class="tag-container">
         <% @tag_list.each do |tag|%>
           <div class="tag">

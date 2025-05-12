@@ -4,7 +4,7 @@
     <div class="row py-lg-5">
       <div class="col-lg-6 col-md-8 mx-auto">
         <% if @user.avatar.attached? %>
-          <%= image_tag @user.avatar, class: "rounded-circle mb-5", width: '200', height: '200'  %>
+          <%= image_tag @user.avatar, class: "rounded-circle mb-5 avatar-size" %>
         <% else %>
           <%= image_tag "icon.png", class: "rounded-circle mb-5", width: '200', height: '200' %>
         <% end %>
@@ -33,7 +33,7 @@
   <section class="text-center container mt-3 border-top">
     <div class="row py-lg-3">
       <div class="col-lg-6 col-md-8 mx-auto">
-        <h1 class="fw-light mt-3">My Post</h1>
+        <h1 class="fw-light mt-3">ポスト</h1>
       </div>
     </div>
   </section>
