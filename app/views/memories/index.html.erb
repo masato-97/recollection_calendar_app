@@ -34,7 +34,11 @@
         </button>
       </div>
     <% else %>
-      <%= render 'no_image' %>
+      <div id="carouselExampleIndicators" class="carousel carousel-dark slide slide-posi" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <%= render 'no_image' %>
+        </div>
+      </div>
     <% end %>
   
     <div class="mb-3 mt-3 border-top border-bottom">
