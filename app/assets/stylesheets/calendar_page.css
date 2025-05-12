@@ -17,6 +17,12 @@
   position: relative; /* 今の位置を基準 */
 }
 
+.image-text {
+  text-anchor: middle;
+  text-align: center;
+  font-size: 3rem;
+}
+
 .total {
   font-size: 20px;
 }

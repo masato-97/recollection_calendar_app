@@ -6,7 +6,7 @@
       </div>
 
       <div class="form-title">
-        <h3>パスワードリセット</h3>
+        <h3 class="fw-bold">パスワードリセット</h3>
       </div>
       <p>登録時に使ったメールアドレスを入力してください。<br>パスワードをリセットするためのURLを送信します。</p>
 
@@ -22,13 +22,6 @@
           <%= f.submit "送信", class: "password-form-button"  %>
         </div>
       <% end %>
-
-      <div class="text-right mb-2">
-        <%= link_to 'Log in', new_user_session_path, class: "signup-login-link" %>
-      </div>
-      <div class="text-right">
-        <%= link_to 'Sign up', new_user_registration_path, class: "signup-login-link" %>
-      </div>
     </div>
   </div>
 </div>
