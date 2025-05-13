@@ -1,0 +1,20 @@
+<div class="container p-5">
+  <div class="text-center mb-4">
+    <div class="row how-title">
+      <div class="col-lg-6 col-md-8 mx-auto">
+        <h2 class="fw-bold">お問い合わせありがとうございました。</h2><br>
+        <span>今後とも当アプリケーションをどうぞよろしくお願い申し上げます。</span>
+      </div>
+    </div>
+
+    <% if user_signed_in? %>
+      <div class="mb-3 mt-3">
+        <p><a href="<%= users_setting_path %>" class="link-dark link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">< 設定・その他へ戻る</a></p>
+      </div>
+    <% else %>
+      <div class="mb-3 mt-3">
+        <p><a href="<%= root_path %>" class="link-dark link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">< トップ</a></p>
+      </div>
+    <% end %>
+  </div>
+</div>

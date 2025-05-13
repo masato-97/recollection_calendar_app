@@ -4,20 +4,20 @@
     <div class="row py-lg-5">
       <div class="col-lg-6 col-md-8 mx-auto">
         <% if @user.avatar.attached? %>
-          <%= image_tag @user.avatar, class: "rounded-circle mb-5 avatar-size" %>
+          <%= image_tag @user.avatar, class: "rounded-circle pf-bottom avatar-size" %>
         <% else %>
-          <%= image_tag "icon.png", class: "rounded-circle mb-5", width: '200', height: '200' %>
+          <%= image_tag "icon.png", class: "rounded-circle pf-bottom avatar-size" %>
         <% end %>
 
-        <div class="mb-5">
+        <div class="pf-bottom">
           <h1><%= @user.name %></h1>
         </div>
 
-        <div class="mb-5">
+        <div class="pf-bottom-2">
           <h2><%= @user.email %></h2>
         </div>
 
-        <div class="mb-3">
+        <div class="pf-bottom-3">
           <%= link_to 'プロフィールを編集', edit_user_registration_path, class: 'btn btn-primary' %>
         </div>
 
@@ -51,9 +51,8 @@
     </div>
   <% end %>
 
-  <div class="row">
-    <div class="col-12">
-      <div class="row row-cols-1 row-cols-md-2 g-4">
+  <div class="container">
+    <div class="row row-cols-1 row-cols-md-2">
         <% if @posts.present? %>
           <%= render "my_post", posts: @posts %>
         <% else %>

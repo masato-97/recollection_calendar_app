@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   devise_scope :user do
     get "/users/sign_out" => "devise/sessions#destroy"
   end
+
   get "users/profile", to: "users#show"
   get "users/setting", to: "users#set"
   delete "users/:id/delete_avatar", to: "users#delete_avatar", as: :delete_avatar
@@ -46,5 +47,13 @@ Rails.application.routes.draw do
     end
 
     resource :favorites, only: %i[create destroy]
+  end
+
+  namespace :public do
+    resources :inquiries, only: [:new, :create] do
+      collection do
+        get "done"
+      end
+    end
   end
 end

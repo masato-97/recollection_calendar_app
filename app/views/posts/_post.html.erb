@@ -3,12 +3,12 @@
     <div class="row g-0 border-top border-end border-start rounded-top shadow-sm overflow-hidden flex-md-row h-md-250 position-relative memory-coloe">
       <div class="col p-4 d-flex flex-column position-static">
         <% if post.user.avatar.attached? %>
-          <div class="mb-2 pb-1 user-style">
+          <div class="mb-1 pb-1 user-style">
             <%= image_tag post.user.avatar, class: "rounded-circle", alt: "mdo", width: '40', height: '40'  %><span class="name_style title-limit ms-1"><%= post.user.name %></span>
           </div>
         <% else %>
-          <div class="mb-2 pb-1 user-style">
-            <%= image_tag "icon.jpg", class: "rounded-circle", alt: "mdo", width: '40', height: '40' %><span class="name_style title-limit ms-1"><%= post.user.name %></span>
+          <div class="mb-1 pb-1 user-style">
+            <%= image_tag "icon.png", class: "rounded-circle", alt: "mdo", width: '40', height: '40' %><span class="name_style title-limit ms-1"><%= post.user.name %></span>
           </div>
         <% end %>
 
@@ -28,12 +28,12 @@
           </div>
         <% end %>
 
-        <div class="card-text mb-auto body-limit">
+        <div class="card-text mb-auto mt-1 body-limit">
           <%= post.body %>
         </div>
 
         <% if post.post_tags.present? %>
-          <div class="tag-container">
+          <div class="tag-container mt-1">
             <% post.post_tags.first(3).each do |tag| %>
               <div class="tag">
                 <i class="fa-sharp fa-solid fa-tag"></i>
@@ -46,7 +46,7 @@
           </div>
         <% end %>
 
-        <a href="/memories/<%= post.memory_id %>/posts/<%= post.id %>" class="icon-link gap-1 icon-link-hover stretched-link">
+        <a href="/memories/<%= post.memory_id %>/posts/<%= post.id %>" class="icon-link gap-1 icon-link-hover stretched-link mt-2">
           ポスト詳細
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
             <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708"/>
@@ -61,6 +61,7 @@
         <% end %>
       </div>
     </div>
+
     <div class="border-bottom border-end border-start rounded-bottom shadow-sm memory-coloe">
       <div class="post-bottom-style px-4 py-1">
         <div class="text-body-secondary me-4">
