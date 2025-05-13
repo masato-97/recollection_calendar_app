@@ -6,7 +6,7 @@
       </div>
 
       <div class="form-title">
-        <h3 class="fw-bold">パスワード再設定</h3>
+        <h3 class="fw-bold"><%= t('user_sessions.password_edit') %></h3>
       </div>
 
       <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
@@ -14,7 +14,7 @@
         <%= f.hidden_field :reset_password_token %>
 
         <div class="mb-3">
-          <%= f.label :password, "New password", class: "form-label" %>
+          <%= f.label :password, class: "form-label" %>
           <% if @minimum_password_length %>
             (<%= @minimum_password_length %> 文字以上)
           <% end %>
@@ -22,12 +22,12 @@
         </div>
 
         <div class="mb-4">
-          <%= f.label :password_confirmation, "New password (確認用)" %>
+          <%= f.label :password_confirmation %>
           <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control" %>
         </div>
 
         <div class="mb-3">
-          <%= f.submit "登録", class: "password-form-button" %>
+          <%= f.submit t('user_sessions.signin_password_edit'), class: "password-form-button" %>
         </div>
       <% end %>
     </div>

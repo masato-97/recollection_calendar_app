@@ -1,0 +1,36 @@
+<div class="container-fluid light-blue-container">
+  <div class="row">
+    <div class="col-md-8 offset-md-2">
+      <h2 class="mb-4 mt-5">お問い合わせ</h2>
+
+      <%= form_with model: @inquiry, url: public_inquiries_path do |f| %>
+        <%= render 'shared/error_messages', object: f.object %>
+
+        <div class="mb-3">
+          <%= f.label :email %><span class="text-danger">*</span>
+          <%= f.email_field :email, class: 'form-control', placeholder: "例)sample@example.com" %>
+        </div>
+
+        <div class="mb-3">
+          <%= f.label :subject %><span class="text-danger">*</span>
+          <%= f.text_area :subject, class: 'form-control' %>
+        </div>
+
+        <div class="mb-4">
+          <%= f.label :message %><span class="text-danger">*</span>
+          <%= f.text_area :message, size: '10x10', class: 'form-control' %>
+        </div>
+
+        <div class="mb-4 d-grid gap-2 col-2">
+          <%= f.submit t('user_sessions.send'), class: "btn btn-success" %>
+        </div>
+      <% end %>
+
+      <% if user_signed_in? %>
+        <div class="mb-3 mt-3">
+          <p><a href="<%= users_setting_path %>" class="link-dark link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">< 戻る</a></p>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

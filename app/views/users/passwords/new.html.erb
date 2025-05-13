@@ -6,7 +6,7 @@
       </div>
 
       <div class="form-title">
-        <h3 class="fw-bold">パスワードリセット</h3>
+        <h3 class="fw-bold"><%= t('user_sessions.password_reset') %></h3>
       </div>
       <p>登録時に使ったメールアドレスを入力してください。<br>パスワードをリセットするためのURLを送信します。</p>
 
@@ -19,7 +19,7 @@
         </div>
 
         <div class="mb-3">
-          <%= f.submit "送信", class: "password-form-button"  %>
+          <%= f.submit t('user_sessions.send'), class: "password-form-button"  %>
         </div>
       <% end %>
     </div>

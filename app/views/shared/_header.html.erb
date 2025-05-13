@@ -1,4 +1,4 @@
-<header class="sticky-top header-style" >
+<header class="header-style" >
   <nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container-fluid">
       <a class="header-logo" href="<%= memories_path %>">Recordi</a>
@@ -31,9 +31,8 @@
             <% end %>
           <% end %>
           <div class='dropdown-menu'>
-            <%= link_to t('header.my_page'), users_profile_path, class: "dropdown-item" %>
-            <%= link_to t('header.setting'), users_setting_path, class: "dropdown-item" %>
-            <%= link_to t('header.recordi'), how_to_use_path, class: "dropdown-item" %>
+            <%= link_to t('header.my_page'), users_profile_path, class: "dropdown-item mb-1" %>
+            <%= link_to t('header.setting'), users_setting_path, class: "dropdown-item mb-1" %>
             <%= link_to t('header.logout'), destroy_user_session_path, class: "dropdown-item", method: :delete  %>
           </div>
         </div>

@@ -1,9 +1,9 @@
 <div class="container">
   <div class="row">
     <div class="col-lg-8 offset-lg-2">
-      <h1 class="mb-3 mt-4">設定</h1>
+      <h2 class="mb-4 mt-5">設定・その他</h2>
       <div class="border-top border-bottom">
-        <h3 class="mb-3 mt-3">リマインダーメール</h3>
+        <h4 class="mb-3 mt-3">リマインダーメール</h4>
         <div class="mb-2">
           <% if @reminder %>
             <% if @reminder.mail_receiving_saturday == true %>
@@ -18,13 +18,25 @@
               <p>日曜日に休日通知メールを受け取る： OFF</p>
             <% end %>
 
-            <%= link_to "リマインダーメール設定", edit_user_reminder_path(@user) %>
+            <a class="btn btn-outline-primary rounded-pill" href="<%= edit_user_reminder_path(@user) %>">リマインダーメール設定 ＞</a>
           <% else %>
             <p>土曜日に休日通知メールを受け取る： OFF</p>
             <p>日曜日に休日通知メールを受け取る： OFF</p>
 
-            <%= link_to "リマインダーメール設定", new_user_reminder_path(@user) %>
+            <a class="btn btn-outline-primary rounded-pill" href="<%= new_user_reminder_path(@user) %>">リマインダーメール設定 ＞</a>
           <% end %>
+        </div>
+      </div>
+
+      <div class="border-bottom">
+        <h4 class="mb-3 mt-4">ヘルプ</h4>
+
+        <div class="mb-3 mt-3">
+          <p><a href="<%= how_to_use_path %>" class="link-dark link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover"><%= t('header.recordi') %></a></p>
+        </div>
+
+        <div class="mb-3 mt-3">
+          <p><a href="<%= new_public_inquiry_path %>" class="link-dark link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">お問い合わせ</a></p>
         </div>
       </div>
     </div>

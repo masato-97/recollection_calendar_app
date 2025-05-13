@@ -8,13 +8,18 @@ ja:
     login: ログイン
     signin: アカウント登録
     recordi: Recordiの使い方
+    inquiry: お問い合わせ
     calendar: カレンダー
     memory: 思い出
     new_memory: 思い出を記録
     post: ポスト
     my_page: プロフィール
-    setting: 設定
+    setting: 設定・その他
     logout: ログアウト
   user_sessions:
     login: ログイン
     signin: アカウント登録
+    signin_password_edit: 登録
+    password_reset: パスワードリセット
+    send: 送信
+    password_edit: パスワード再設定

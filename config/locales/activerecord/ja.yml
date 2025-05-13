@@ -25,4 +25,7 @@ ja:
         title: タイトル
         body: 本文
         tag_names: タグ
-
+      inquiry:
+        email: メールアドレス
+        subject: 件名
+        message: 詳細
