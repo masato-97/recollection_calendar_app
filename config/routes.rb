@@ -50,7 +50,7 @@ Rails.application.routes.draw do
   end
 
   namespace :public do
-    resources :inquiries, only: [:new, :create] do
+    resources :inquiries, only: %i[new create] do
       collection do
         get "done"
       end
