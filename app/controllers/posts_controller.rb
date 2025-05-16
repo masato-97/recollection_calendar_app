@@ -4,7 +4,7 @@ class PostsController < ApplicationController
 
   def index
     @q = Post.ransack(params[:q])
-    @posts = @q.result(distinct: true)
+    @posts = @q.result(distinct: true).order(created_at: :desc)
     @tag_list = @posts.map(&:post_tags).flatten.uniq
   end
 

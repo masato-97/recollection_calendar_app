@@ -1,9 +1,15 @@
 <div class="col mb-4">
   <div id="memory-id-<%= memory.id %>">
-    <div class="row g-0 border rounded overflow-hidden flex-md-row shadow-sm h-md-250 position-relative memory-coloe">
-      <div class="col p-4 d-flex flex-column position-static">
+    <% if memory.main_image.present? %>
+      <%= link_to image_tag(memory.main_image, class: "bd-placeholder-img rounded-top border-top border-end border-start", width: "100%", height: "245", xmlns: "http://www.w3.org/2000/svg", role: "img",  preserveAspectRatio: "xMidYMid slice", focusable: "false"), memory_path(memory) %>
+    <% else %>
+      <%= link_to image_tag("no_image.png", class: "bd-placeholder-img rounded-top border-top border-end border-start", width: "100%", height: "245", xmlns: "http://www.w3.org/2000/svg", role: "img",  preserveAspectRatio: "xMidYMid slice", focusable: "false"), memory_path(memory) %>
+    <% end %>
+
+    <div class="g-0 rounded-bottom border-end border-start shadow-sm overflow-hidden flex-md-row h-md-250 position-relative memory-coloe memory-style">
+      <div class="col memory-p d-flex flex-column position-static">
         <div class="title-wrapper">
-          <h4 class="mb-auto border-bottom title-limit">
+          <h4 class="mb-auto pb-1 border-bottom title-limit">
             <%= memory.title %>
           </h4>
         </div>
@@ -53,13 +59,6 @@
             </svg>
           </a>
         </div>
-      </div>
-      <div class="col-auto d-none d-lg-block">
-        <% if memory.main_image.present? %>
-          <%= link_to image_tag(memory.main_image, class: "bd-placeholder-img", width: "200", height: "250", xmlns: "http://www.w3.org/2000/svg", role: "img",  preserveAspectRatio: "xMidYMid slice", focusable: "false"), memory_path(memory) %>
-        <% else %>
-          <%= link_to image_tag("no_image.png", class: "bd-placeholder-img", width: "200", height: "250", xmlns: "http://www.w3.org/2000/svg", role: "img",  preserveAspectRatio: "xMidYMid slice", focusable: "false"), memory_path(memory) %>
-        <% end %>
       </div>
     </div>
   </div>

@@ -1,10 +1,11 @@
 <% if current_user.already_favorited?(post) %>
-  <%= link_to post_favorites_path(post), data: { "turbo-method": :delete }, class: "no-underline" do %>
+  <%= link_to post_favorites_path(post), data: { "turbo-method": :delete }, class: "no-underline", remote: true do %>
     <i class="fas fa-heart" style="color: red;"></i>
+    <span style="color: black;"><%= post.favorites.count %></span>
   <% end %>
 <% else %>
-  <%= link_to post_favorites_path(post), data: { "turbo-method": :post }, class: "no-underline" do %>
+  <%= link_to post_favorites_path(post), data: { "turbo-method": :post }, class: "no-underline", remote: true do %>
     <i class="far fa-heart" style="color: red;"></i>
+    <span style="color: black;"><%= post.favorites.count %></span>
   <% end %>
 <% end %>
-<%= post.favorites.count %>

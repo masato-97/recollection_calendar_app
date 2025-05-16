@@ -1,3 +1,13 @@
+.post-style {
+  height: 255px;
+}
+
+.post-p {
+  padding-top: 0.7rem;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
 .post-shadow {
   box-shadow: 0 .155rem .25rem #2ee59d66;
 }
@@ -33,4 +43,10 @@
 
 .heart-btn {
   font-size: 20px;
+}
+
+@media (max-width: 450px) {
+  .post-style {
+    height: auto;
+  }
 }
