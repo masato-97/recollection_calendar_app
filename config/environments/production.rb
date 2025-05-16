@@ -59,14 +59,14 @@ Rails.application.configure do
   config.action_mailer.raise_delivery_errors = true
 
   # Set host to be used by links generated in mailer templates.
-  config.action_mailer.default_url_options = { host: "https://recordi.fly.dev", protocol: "https" }
+  config.action_mailer.default_url_options = { host: "https://recordi.jp", protocol: "https" }
   config.action_mailer.delivery_method = :smtp
 
   # Specify outgoing SMTP server. Remember to add smtp/* credentials via rails credentials:edit.
   config.action_mailer.smtp_settings = {
     port: 587,
-    address: "smtp.gmail.com",
-    domain: "gmail.com",
+    address: "mail1018.onamae.ne.jp",
+    domain: "ne.jp",
     user_name: ENV["MAIL_USER_NAME"],
     password: ENV["MAIL_PASSWORD"],
     authentication: :plain,
