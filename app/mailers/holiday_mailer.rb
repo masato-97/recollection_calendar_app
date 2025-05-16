@@ -5,7 +5,10 @@ class HolidayMailer < ApplicationMailer
   #   en.holiday_mailer.holiday_notification.subject
   #
   def holiday_notification(user)
-    @url = "https://recordi.fly.dev"
-    mail(to: user.email, subject: "【Recordi】休日通知メール")
+    @url = "https://recordi.jp/memories/new"
+    mail(
+      to: email_address_with_name(@user.email, @user.name),
+      subject: "【休日通知】思い出を残しましょう！"
+    )
   end
 end
