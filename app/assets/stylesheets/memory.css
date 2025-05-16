@@ -3,6 +3,17 @@
   background-color: #ffff;
 }
 
+.memory-style {
+  height: 231px;
+}
+
+.memory-p {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
 .title-limit {
   width: 100%;
   text-overflow: ellipsis;
@@ -23,8 +34,8 @@
   display: box; /* 標準プロパティの表示設定（ただし、非推奨） */
   -webkit-box-orient: vertical; /* ベンダープレフィックスの方向設定 */
   box-orient: vertical; /* 標準プロパティの方向設定（ただし、非推奨） */
-  -webkit-line-clamp: 2; /* 行数を3行に制限 */
-  line-clamp: 2; /* 標準プロパティ（ただし、ほとんどのブラウザではサポートされていない） */
+  -webkit-line-clamp: 3; /* 行数を3行に制限 */
+  line-clamp: 3; /* 標準プロパティ（ただし、ほとんどのブラウザではサポートされていない） */
   overflow: hidden; /* オーバーフローを隠す */
   line-break: anywhere;
 }
@@ -93,6 +104,10 @@
 
 @media (max-width: 450px) {
   .carousel-show-image img {
+    height: auto;
+  }
+
+  .memory-style {
     height: auto;
   }
 }

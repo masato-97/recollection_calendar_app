@@ -26,15 +26,13 @@
     </div>
   <% end %>
 
-  <div class="container">
-    <div class="row row-cols-1 row-cols-md-2">
-      <% if @posts.present? %>
-        <%= render @posts %>
-      <% else %>
-        <div class="mb-3">
-          <h1>ポストがありません</h1>
-        </div>
-      <% end %>
-    </div>
+  <div class="row row-cols-1 row-cols-md-3">
+    <% if @posts.present? %>
+      <%= render @posts %>
+    <% else %>
+      <div class="mb-3">
+        <h1>ポストがありません</h1>
+      </div>
+    <% end %>
   </div>
 </div>
