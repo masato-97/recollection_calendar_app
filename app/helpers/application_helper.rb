@@ -9,7 +9,7 @@ module ApplicationHelper
       keywords: "思い出,旅行,料理,グルメ,映画,本,漫画,レビュー,共有",
       canonical: "https://recordi.jp",
       separator: "|",
-      og:{
+      og: {
         site_name: :site,
         title: :title,
         description: :description,
