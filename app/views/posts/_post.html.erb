@@ -18,12 +18,12 @@
           </div>
         <% end %>
 
-        <h4 class="mb-auto pb-1 border-bottom title-limit">
+        <h4 class="mb-1 border-bottom title-limit">
           <%= post.title %>
         </h4>
 
         <% if post.memory.score.present? %>
-          <div class="content average-score mb-auto">
+          <div class="content average-score mb-1">
             <div class="star-rating mb-2">
               <div class="star-rating-front" style="width: <%= post.memory.score * 20 %>%">★★★★★</div>
               <div class="star-rating-back">★★★★★</div>
@@ -34,7 +34,7 @@
           </div>
         <% end %>
 
-        <div class="card-text mb-auto mt-1 body-limit">
+        <div class="card-text mb-1 mt-1 body-limit">
           <%= post.body %>
         </div>
 
@@ -52,7 +52,7 @@
           </div>
         <% end %>
 
-        <a href="/memories/<%= post.memory_id %>/posts/<%= post.id %>" class="icon-link gap-1 icon-link-hover stretched-link mb-1">
+        <a href="/memories/<%= post.memory_id %>/posts/<%= post.id %>" class="icon-link gap-1 icon-link-hover stretched-link mt-1 mb-1">
           ポスト詳細
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
             <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708"/>
@@ -68,7 +68,9 @@
         </div>
 
         <div class="mb-auto heart-btn">
-          <%= render "favorites/favorite_btn", post: post %>
+          <div id="favorite_post_<%= post.id %>">
+            <%= render "favorites/favorite_btn", post: post %>
+          </div>
         </div>
       </div>
     </div>
