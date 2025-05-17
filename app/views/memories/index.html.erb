@@ -54,6 +54,7 @@
           <div class="tag">
             <i class="fa-sharp fa-solid fa-tag"></i>
             <%= tag.name %>
+            <%= "(#{tag.memories.memories_this_month(current_user.id, params.fetch(:start_date, Date.today).to_date).count})" %>
           </div>
         <% end %>
       </div>

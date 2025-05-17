@@ -71,7 +71,7 @@ class PostsController < ApplicationController
     @posts = current_user.posts.all
     @tag_list = @posts.map(&:post_tags).flatten.uniq
     @tag = PostTag.find(params[:post_tag_id])
-    @tag_posts = @tag.posts
+    @tag_posts = @tag.posts.where(user_id: current_user.id)
   end
 
   private

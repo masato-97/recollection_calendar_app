@@ -30,10 +30,10 @@
     </div>
   </section>
 
-  <section class="text-center container mt-3 border-top">
+  <section class="text-center container mt-3 border-top border-success">
     <div class="row py-lg-3">
       <div class="col-lg-6 col-md-8 mx-auto">
-        <h1 class="fw-light mt-3">ポスト</h1>
+        <h1 class="fw-light mt-3"><%= current_user.name %>のポスト</h1>
       </div>
     </div>
   </section>
@@ -44,23 +44,20 @@
       <% @tag_list.each do |tag|%>
         <div class="tag">
           <i class="fa-sharp fa-solid fa-tag"></i>
-          <%= link_to tag.name,search_mypost_tag_posts_path(post_tag_id: tag.id) %>
-          <%= "(#{tag.posts.count})" %>
+          <%= link_to tag.name, search_mypost_tag_posts_path(post_tag_id: tag.id) %>
+          <%= "(#{tag.posts.where(user_id: current_user.id).count})" %>
         </div>
       <% end %>
     </div>
   <% end %>
 
-  <div class="container">
-    <div class="row row-cols-1 row-cols-md-2">
-        <% if @posts.present? %>
-          <%= render "my_post", posts: @posts %>
-        <% else %>
-          <div class="mb-3">
-            <h1>ポストがありません</h1>
-          </div>
-        <% end %>
+  <div class="row row-cols-1 row-cols-md-3">
+    <% if @posts.present? %>
+      <%= render "my_post", posts: @posts %>
+    <% else %>
+      <div class="mb-3">
+        <h1>ポストがありません</h1>
       </div>
-    </div>
+    <% end %>
   </div>
 </div>

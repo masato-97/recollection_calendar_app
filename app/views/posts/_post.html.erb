@@ -35,7 +35,7 @@
         <% end %>
 
         <div class="card-text mb-1 mt-1 body-limit">
-          <%= post.body %>
+          <%= safe_join(post.body.split("\n"),tag(:br)) %>
         </div>
 
         <% if post.post_tags.present? %>

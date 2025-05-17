@@ -1,7 +1,7 @@
 <div>
   <% @memories.each do |memory| %>
     <div class="container">
-      <div class="memory-position border-bottom">
+      <div class="memory-position border-bottom border-success mb-2">
         <div class="body-style">
           <div class="mb-4 fst-italic border-bottom">
             <h3><%= memory.day %></h3>
@@ -10,7 +10,7 @@
             <h3><%= memory.title %></h3>
           </div>
           <div class="pb-4 mb-3 border-bottom title-body-limit-show">
-            <%= memory.body %>
+            <%= safe_join(memory.body.split("\n"),tag(:br)) %>
           </div>
 
           <% if memory.score.present? %>

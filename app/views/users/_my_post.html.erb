@@ -1,24 +1,30 @@
 <% posts.each do |post| %>
   <div class="col mb-4">
     <div id="post-id-<%= post.id %>">
-      <div class="row g-0 border-top border-end border-start rounded-top shadow-sm overflow-hidden flex-md-row h-md-250 position-relative memory-coloe">
-        <div class="col p-4 d-flex flex-column position-static">
+      <% if post.memory.main_image.present? %>
+        <%= link_to image_tag(post.memory.main_image, class: "bd-placeholder-img rounded-top border-top border-end border-start", width: "100%", height: "250", xmlns: "http://www.w3.org/2000/svg", role: "img",  preserveAspectRatio: "xMidYMid slice", focusable: "false"), memory_post_path(memory_id: post.memory_id, id: post.id) %>
+      <% else %>
+        <%= link_to image_tag("no_image.png", class: "bd-placeholder-img rounded-top border-top border-end border-start", width: "100%", height: "250", xmlns: "http://www.w3.org/2000/svg", role: "img",  preserveAspectRatio: "xMidYMid slice", focusable: "false"), memory_post_path(memory_id: post.memory_id, id: post.id) %>
+      <% end %>
+
+      <div class="g-0 border-end border-start shadow-sm overflow-hidden flex-md-row h-md-250 position-relative memory-coloe post-style">
+        <div class="col post-p flex-column position-static">
           <% if post.user.avatar.attached? %>
             <div class="mb-1 pb-1 user-style">
-              <%= image_tag post.user.avatar, class: "rounded-circle", alt: "mdo", width: '40', height: '40'  %><span class="name_style title-limit ms-1"><%= post.user.name %></span>
+              <%= image_tag post.user.avatar, class: "rounded-circle", alt: "mdo", width: '35', height: '35'  %><span class="name_style title-limit ms-1"><%= post.user.name %></span>
             </div>
           <% else %>
             <div class="mb-1 pb-1 user-style">
-              <%= image_tag "icon.png", class: "rounded-circle", alt: "mdo", width: '40', height: '40' %><span class="name_style title-limit ms-1"><%= post.user.name %></span>
+              <%= image_tag "icon.png", class: "rounded-circle", alt: "mdo", width: '35', height: '35' %><span class="name_style title-limit ms-1"><%= post.user.name %></span>
             </div>
           <% end %>
 
-          <h4 class="mb-auto pb-1 border-bottom title-limit">
+          <h4 class="mb-1 border-bottom title-limit">
             <%= post.title %>
           </h4>
 
           <% if post.memory.score.present? %>
-            <div class="content average-score mb-auto">
+            <div class="content average-score mb-1">
               <div class="star-rating mb-2">
                 <div class="star-rating-front" style="width: <%= post.memory.score * 20 %>%">★★★★★</div>
                 <div class="star-rating-back">★★★★★</div>
@@ -29,8 +35,8 @@
             </div>
           <% end %>
 
-          <div class="card-text mb-auto mt-1 body-limit">
-            <%= post.body %>
+          <div class="card-text mb-1 mt-1 body-limit">
+            <%= safe_join(post.body.split("\n"),tag(:br)) %>
           </div>
 
           <% if post.post_tags.present? %>
@@ -47,19 +53,12 @@
             </div>
           <% end %>
 
-          <a href="/memories/<%= post.memory_id %>/posts/<%= post.id %>" class="icon-link gap-1 icon-link-hover stretched-link mt-2">
+          <a href="/memories/<%= post.memory_id %>/posts/<%= post.id %>" class="icon-link gap-1 icon-link-hover stretched-link mt-1 mb-1">
             ポスト詳細
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
               <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708"/>
             </svg>
           </a>
-        </div>
-        <div class="col-auto d-none d-lg-block">
-          <% if post.memory.main_image.present? %>
-            <%= link_to image_tag(post.memory.main_image, class: "bd-placeholder-img", width: "220", height: "300", xmlns: "http://www.w3.org/2000/svg", role: "img",  preserveAspectRatio: "xMidYMid slice", focusable: "false"), memory_post_path(memory_id: post.memory_id, id: post.id) %>
-          <% else %>
-            <%= link_to image_tag("no_image.png", class: "bd-placeholder-img", width: "220", height: "300", xmlns: "http://www.w3.org/2000/svg", role: "img",  preserveAspectRatio: "xMidYMid slice", focusable: "false"), memory_post_path(memory_id: post.memory_id, id: post.id) %>
-          <% end %>
         </div>
       </div>
 
@@ -70,7 +69,9 @@
           </div>
 
           <div class="mb-auto heart-btn">
-            <%= render "favorites/favorite_btn", post: post %>
+            <div id="favorite_post_<%= post.id %>">
+              <%= render "favorites/favorite_btn", post: post %>
+            </div>
           </div>
         </div>
       </div>

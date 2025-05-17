@@ -14,7 +14,7 @@
       </div>
 
       <div class="pb-4 mb-3 border-bottom">
-        <%= @post.body %>
+        <%= safe_join(@post.body.split("\n"),tag(:br)) %>
       </div>
 
       <% if @memory.score.present? %>

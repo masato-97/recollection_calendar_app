@@ -8,7 +8,7 @@
         <h3><%= @memory.title %></h3>
       </div>
       <div class="pb-4 mb-3 border-bottom title-body-limit-show">
-        <%= @memory.body %>
+        <%= safe_join(@memory.body.split("\n"),tag(:br)) %>
       </div>
 
       <% if @memory.score.present? %>

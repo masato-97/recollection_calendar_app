@@ -1,9 +1,10 @@
 <div class="container">
-  <section class="py-5 text-center container">
-    <div class="row py-lg-5">
+  <section class="text-center container">
+    <div class="row all-memories-title">
       <div class="col-lg-6 col-md-8 mx-auto">
-        <h1 class="fw-light">My Post</h1>
-        <h1 class="fw-light"><i class="fa-sharp fa-solid fa-tag"></i><%=@tag.name%>のポスト一覧</h1>
+        <h1 class="fw-light border-bottom border-success pb-1"><%= current_user.name %>のポスト</h1>
+
+        <h1 class="fw-light pt-3">【<i class="fa-sharp fa-solid fa-tag"></i><%= @tag.name %>】のポスト一覧</h1>
       </div>
     </div>
   </section>
@@ -15,17 +16,13 @@
         <div class="tag">
           <i class="fa-sharp fa-solid fa-tag"></i>
           <%= link_to tag.name,search_mypost_tag_posts_path(post_tag_id: tag.id) %>
-          <%= "(#{tag.posts.count})" %>
+          <%= "(#{tag.posts.where(user_id: current_user.id).count})" %>
         </div>
       <% end %>
     </div>
   <% end %>
 
-  <div class="row">
-    <div class="col-12">
-      <div class="row row-cols-1 row-cols-md-2 g-4">
-        <%= render @tag_posts %>
-      </div>
-    </div>
+  <div class="row row-cols-1 row-cols-md-3">
+    <%= render @tag_posts %>
   </div>
 </div>
