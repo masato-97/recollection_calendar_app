@@ -30,7 +30,9 @@
       <% end %>
 
       <div class="pb-3 mb-3 border-bottom heart-btn">
-        <%= render "favorites/favorite_btn", post: @post %>
+        <div id="favorite_post_<%= @post.id %>">
+          <%= render "favorites/favorite_btn", post: @post %>
+        </div>
       </div>
 
       <% if @post.post_tags.present? %>

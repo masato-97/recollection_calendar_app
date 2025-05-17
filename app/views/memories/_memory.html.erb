@@ -9,13 +9,13 @@
     <div class="g-0 rounded-bottom border-end border-start shadow-sm overflow-hidden flex-md-row h-md-250 position-relative memory-coloe memory-style">
       <div class="col memory-p d-flex flex-column position-static">
         <div class="title-wrapper">
-          <h4 class="mb-auto pb-1 border-bottom title-limit">
+          <h4 class="mb-1 border-bottom title-limit">
             <%= memory.title %>
           </h4>
         </div>
 
         <% if memory.score.present? %>
-          <div class="content average-score mb-auto">
+          <div class="content average-score mb-1">
             <div class="star-rating mb-2">
               <div class="star-rating-front" style="width: <%= memory.score * 20 %>%">★★★★★</div>
               <div class="star-rating-back">★★★★★</div>
@@ -24,11 +24,9 @@
               <%= memory.score %>/5
             </div>
           </div>
-        <% else %>
-          <br>
         <% end %>
 
-        <p class="card-text mb-auto mt-1 body-limit">
+        <p class="card-text mb-1 mt-1 body-limit">
           <%= memory.body %>
         </p>
 

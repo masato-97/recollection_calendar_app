@@ -74,6 +74,7 @@ gem "ransack"
 gem "whenever", require: false
 gem "rails-i18n"
 gem "devise-i18n"
+gem "meta-tags"
 
 gem "aws-sdk-s3", require: false
 gem "image_processing", "~> 1.2"
