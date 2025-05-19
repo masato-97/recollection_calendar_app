@@ -8,7 +8,7 @@
         <h3><%= @memory.title %></h3>
       </div>
       <div class="pb-4 mb-3 border-bottom title-body-limit-show">
-        <%= @memory.body %>
+        <%= safe_join(@memory.body.split("\n"),tag(:br)) %>
       </div>
 
       <% if @memory.score.present? %>
@@ -27,34 +27,42 @@
         <div class="tag-container pb-3 mb-4 border-bottom">
           <% @memory.tags.each do |tag| %>
             <div class="tag">
-              <i class="fa-sharp fa-solid fa-tag"></i>
+              <i class="bi bi-tag-fill"></i>
               <%= link_to tag.name,search_tag_memories_path(tag_id: tag.id) %>
             </div>
           <% end %>
         </div>
       <% end %>
 
-      <div class="d-flex mb-3">
+      <div class="d-flex mb-4">
         <div>
-          <%= link_to edit_memory_path(@memory), id: "button-edit-#{@memory.id}" do %>
-            <i class="bi bi-pencil-fill edit-link"></i>
-          <% end %>
+          <a class="btn btn-outline-primary btn-sm" href="<%= edit_memory_path(@memory) %>" role="button">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+              <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+              <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5z"/>
+            </svg>
+            編集
+          </a>
         </div>
-        <div class="ms-2">
-          <%= link_to memory_path(@memory), id: "button-delete-#{@memory.id}", data: { turbo_method: :delete, turbo_confirm: "削除しますか？" } do %>
-            <i class="bi bi-trash-fill edit-link"></i>
-          <% end %>
+        <div class="ms-3">
+          <a class="btn btn-outline-danger btn-sm" href="<%= memory_path(@memory) %>" data-turbo-method="delete" data-turbo-confirm="削除しますか？" role="button">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+              <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0z"/>
+              <path d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4zM2.5 3h11V2h-11z"/>
+            </svg>
+            削除
+          </a>
         </div>
       </div>
 
       <% if @memory.score.present? %>
         <% if @memory.post.present? %>
           <div>
-            <%= link_to 'ポスト詳細', memory_post_path(@memory, @memory.post), class: 'btn btn-primary mb-3' %>
+            <%= link_to 'ポスト詳細', memory_post_path(@memory, @memory.post), class: 'btn btn-success mb-3' %>
           </div>
         <% else %>
           <div>
-            <%= link_to 'ポストを作成', new_memory_post_path(@memory), class: 'btn btn-primary mb-1' %>
+            <%= link_to 'ポストを作成', new_memory_post_path(@memory), class: 'btn btn-success mb-1' %>
           </div>
           <div class="mb-3">※ポストを作成すると、この思い出を他のユーザーに共有することができます。</div>
         <% end %>

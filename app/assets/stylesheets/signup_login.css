@@ -7,6 +7,11 @@
   padding: 50px 0;
 }
 
+.session-style {
+  padding-top: 3rem;
+  padding-bottom: 2rem;
+}
+
 .form-container {
   width: 550px;
   border-radius: 0.75rem;
@@ -15,8 +20,6 @@
   background-color: #f3f3f3;
   border: 1px solid #36C062;
   box-shadow: 0px 0px 50px -15px rgba(46, 229, 157, 0.4);
-  position: relative;
-  top: 3em;
 }
 
 .heading {
@@ -99,5 +102,10 @@
     border: 0;
     box-shadow: 0px 0px 0px 0px rgba(46, 229, 157, 0.4);
     top: 0;
+  }
+
+  .session-style {
+    padding-top: 0rem;
+    padding-bottom: 0.5rem;
   }
 }

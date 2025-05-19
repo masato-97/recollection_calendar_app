@@ -50,6 +50,8 @@ group :development, :test do
   gem "rubocop-rails-omakase", require: false
 
   gem "letter_opener_web"
+  gem "rspec-rails"
+  gem "factory_bot_rails"
 end
 
 group :development do
@@ -61,6 +63,7 @@ group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
   gem "capybara"
   gem "selenium-webdriver"
+  gem "webdrivers"
 end
 
 gem "dockerfile-rails", ">= 1.7", group: :development

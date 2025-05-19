@@ -28,7 +28,7 @@ class MemoriesController < ApplicationController
   end
 
   def oneday
-    @memories  = Memory.where(day: params[:id])
+    @memories  = Memory.where(user_id: current_user.id, day: params[:id])
 
     if @memories.empty?
       redirect_to new_memory_path

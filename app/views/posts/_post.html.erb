@@ -35,14 +35,14 @@
         <% end %>
 
         <div class="card-text mb-1 mt-1 body-limit">
-          <%= post.body %>
+          <%= safe_join(post.body.split("\n"),tag(:br)) %>
         </div>
 
         <% if post.post_tags.present? %>
           <div class="tag-container mt-1">
             <% post.post_tags.first(3).each do |tag| %>
               <div class="tag">
-                <i class="fa-sharp fa-solid fa-tag"></i>
+                <i class="bi bi-tag-fill"></i>
                 <%= tag.name.truncate(8, omission: '') %>
               </div>
             <% end %>

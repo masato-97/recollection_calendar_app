@@ -27,14 +27,14 @@
         <% end %>
 
         <p class="card-text mb-1 mt-1 body-limit">
-          <%= memory.body %>
+          <%= safe_join(memory.body.split("\n"),tag(:br)) %>
         </p>
 
         <% if memory.tags.present? %>
           <div class="tag-container mt-1">
             <% memory.tags.first(3).each do |tag| %>
               <div class="tag">
-                <i class="fa-sharp fa-solid fa-tag"></i>
+                <i class="bi bi-tag-fill"></i>
                 <%= tag.name.truncate(8, omission: '') %>
               </div>
             <% end %>
