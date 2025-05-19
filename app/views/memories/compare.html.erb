@@ -1,9 +1,14 @@
 <div class="container">
-  <div class="mb-3 mt-4">
-    <h1>7ヶ月間の思い出の数</h1>
-  </div>
+  <section class="text-center container">
+    <div class="row compare-title">
+      <div class="col-lg-6 col-md-8 mx-auto">
+        <h1 class="fw-light">7ヶ月間の思い出の数</h1>
+      </div>
+    </div>
+  </section>
+
   <div class="mb-2">
-    <%= link_to "< 思い出一覧", all_memories_path %>
+    <%= link_to "＜ 戻る", all_memories_path, class: "link-dark link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" %>
   </div>
   <canvas id="myLineChart" class="mb-1"></canvas>
 </div>

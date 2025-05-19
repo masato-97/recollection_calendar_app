@@ -19,6 +19,7 @@ Rails.application.routes.draw do
 
   get "users/profile", to: "users#show"
   get "users/setting", to: "users#set"
+  get "users/favorite_posts", to: "users#favorites"
   delete "users/:id/delete_avatar", to: "users#delete_avatar", as: :delete_avatar
 
   resources :users do

@@ -5,7 +5,7 @@
   <% end %>
 <% else %>
   <%= link_to post_favorites_path(post), class: "no-underline", data: { "turbo-method": :post } do %>
-    <i class="far fa-heart" style="color: red;"></i>
+    <i class="far fa-heart" style="color: gray;"></i>
     <span style="color: black;"><%= post.favorites.count %></span>
   <% end %>
 <% end %>

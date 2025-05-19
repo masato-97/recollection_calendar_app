@@ -73,15 +73,15 @@
         </div>
       <% end %>
 
-      <div class="mb-3">
-        <%= link_to "< ポスト一覧", posts_path %>
-      </div>
       <% if current_user.own?(@post) %>
         <div class="mb-3">
-          <%= link_to "< 自分のポスト一覧", users_profile_path %>
+          <%= link_to "＜ このポストの思い出詳細", memory_path(@memory), class: "link-dark link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" %>
         </div>
-        <%= link_to "< このポストの思い出詳細", memory_path(@memory) %>
       <% end %>
+
+      <div class="mb-2">
+        <%= link_to "＜ 戻る", "javascript:history.back()", class: "link-dark link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" %>
+      </div>
     </div>
 
     <div class="image-box">

@@ -1,0 +1,23 @@
+<div class="container">
+  <section class="text-center container">
+    <div class="row all-memories-title">
+      <div class="col-lg-6 col-md-8 mx-auto">
+        <h1 class="fw-light">いいねしたポスト</h1>
+      </div>
+    </div>
+  </section>
+
+  <div class="mb-4">
+    <%= link_to "＜ 戻る", "javascript:history.back()", class: "link-dark link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" %>
+  </div>
+
+  <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3">
+    <% if @favorite_posts.present? %>
+      <%= render "favorite_posts", posts: @favorite_posts %>
+    <% else %>
+      <div class="mb-3">
+        <h1>いいねしたポストがありません</h1>
+      </div>
+    <% end %>
+  </div>
+</div>

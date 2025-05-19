@@ -25,9 +25,9 @@
         <div class='dropdown user-icon'>
           <%= link_to '#', class: "d-block link-body-emphasis text-decoration-none show", data: { bs_toggle: 'dropdown' }, aria: { expanded: 'true' } do %>
             <% if current_user.avatar.attached? %>
-              <%= image_tag current_user.avatar, class: "rounded-circle", alt: "mdo", width: '45', height: '45'  %><span class="user-icon-name ms-1"><%= current_user.name %></span>
+              <%= image_tag current_user.avatar, class: "rounded-circle", alt: "mdo", width: '45', height: '45' %><span class="user-icon-name ms-1"><%= current_user.name %></span>
             <% else %>
-              <%= image_tag "icon.png", class: "rounded-circle", width: '45', height: '45' %> <%= " " %> <span class="user-icon-name"><%= current_user.name %></span>
+              <%= image_tag "icon.png", class: "rounded-circle", width: '45', height: '45' %><span class="user-icon-name ms-1"><%= current_user.name %></span>
             <% end %>
           <% end %>
           <div class='dropdown-menu'>

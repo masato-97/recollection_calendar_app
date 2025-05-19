@@ -18,6 +18,12 @@ class UsersController < ApplicationController
     @reminder = @user.reminder
   end
 
+  def favorites
+    @user = current_user
+    favorites = Favorite.where(user_id: @user.id).pluck(:post_id)
+    @favorite_posts = Post.find(favorites)
+  end
+
   private
 
   def move_to_signed_in

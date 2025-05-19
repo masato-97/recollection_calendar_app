@@ -71,9 +71,8 @@ RSpec.describe "Posts", type: :system do
           expect(page).to have_content post.created_at.strftime("%Y/%m/%d")
           expect(page).to have_link("編集")
           expect(page).to have_link("削除")
-          expect(page).to have_link("ポスト一覧")
-          expect(page).to have_link("自分のポスト一覧")
           expect(page).to have_link("このポストの思い出詳細")
+          expect(page).to have_link("戻る")
         end
       end
 
@@ -88,7 +87,7 @@ RSpec.describe "Posts", type: :system do
           expect(page).to have_content other_user_post.body
           expect(page).to have_content other_user_mamory.score
           expect(page).to have_content other_user_post.created_at.strftime("%Y/%m/%d")
-          expect(page).to have_link("ポスト一覧")
+          expect(page).to have_link("戻る")
         end
       end
     end
@@ -109,9 +108,8 @@ RSpec.describe "Posts", type: :system do
           expect(page).to have_content post.created_at.strftime("%Y/%m/%d")
           expect(page).to have_link("編集")
           expect(page).to have_link("削除")
-          expect(page).to have_link("ポスト一覧")
-          expect(page).to have_link("自分のポスト一覧")
           expect(page).to have_link("このポストの思い出詳細")
+          expect(page).to have_link("戻る")
         end
       end
 
