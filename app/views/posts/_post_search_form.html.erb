@@ -1,6 +1,6 @@
 <%= search_form_for q, url: url do |f| %>
   <div class="input-group mb-3">
-    <div data-controller="autocomplete" data-autocomplete-url-value="/memories/search" class="me-1 flex-grow-1">
+    <div data-controller="autocomplete" data-autocomplete-url-value="/posts/search" class="me-1 flex-grow-1">
       <%= f.search_field :title_or_body_cont, data: { autocomplete_target: 'input' }, class: 'form-control', placeholder: "検索ワード" %>
       <ul class="list-group" data-autocomplete-target="results"></ul>
     </div>

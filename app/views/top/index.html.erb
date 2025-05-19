@@ -35,8 +35,8 @@
       </div>
 
       <div id="button-container" class="button">
-        <a class="signup-margin mb-4" href="/users/sign_up"><%= t('user_sessions.signin') %></a>
-        <a class="login-margin mb-4" href="/users/sign_in"><%= t('user_sessions.login') %></a>
+        <a class="signup-margin mb-4" href="<%= new_user_registration_path %>"><%= t('user_sessions.signin') %></a>
+        <a class="login-margin mb-4" href="<%= new_user_session_path %>"><%= t('user_sessions.login') %></a>
       </div>
     </div>
   </body>

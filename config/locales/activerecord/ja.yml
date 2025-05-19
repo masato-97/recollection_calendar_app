@@ -11,7 +11,7 @@ ja:
         email: メールアドレス
         name: 名前
         password: パスワード
-        password_confirmation: パスワード(確認用)
+        password_confirmation: パスワード（確認用）
         avatar: アバター
         remember_me: ログイン情報を保持する
       memory:
@@ -20,11 +20,11 @@ ja:
         day: 日付
         main_image: メイン画像
         sub_image: サブ画像
-        tag_names: タグ
+        tag_names: タグ（ ,で区切って入力してください ）
       post:
         title: タイトル
         body: 本文
-        tag_names: タグ
+        tag_names: タグ（ ,で区切って入力してください ）
       inquiry:
         email: メールアドレス
         subject: 件名

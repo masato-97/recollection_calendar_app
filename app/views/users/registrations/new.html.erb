@@ -33,7 +33,7 @@
           <div class="mb-3">
             <%= f.label :password %>
             <% if @minimum_password_length %>
-              (<%= @minimum_password_length %> 文字以上)
+              （<%= @minimum_password_length %> 文字以上）
             <% end %>
             <%= f.password_field :password, autocomplete: "new-password", class: "form-control" %>
           </div>

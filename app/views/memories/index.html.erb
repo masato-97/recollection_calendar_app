@@ -52,7 +52,7 @@
       <div class="tag-container">
         <% @tag_list.each do |tag|%>
           <div class="tag">
-            <i class="fa-sharp fa-solid fa-tag"></i>
+            <i class="bi bi-tag-fill"></i>
             <%= tag.name %>
             <%= "(#{tag.memories.memories_this_month(current_user.id, params.fetch(:start_date, Date.today).to_date).count})" %>
           </div>

@@ -42,7 +42,7 @@
           <div class="tag-container mt-1">
             <% post.post_tags.first(3).each do |tag| %>
               <div class="tag">
-                <i class="fa-sharp fa-solid fa-tag"></i>
+                <i class="bi bi-tag-fill"></i>
                 <%= tag.name.truncate(8, omission: '') %>
               </div>
             <% end %>
