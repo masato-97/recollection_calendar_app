@@ -144,7 +144,7 @@ RSpec.describe "Memories", type: :system do
           expect(page).to have_link("編集")
           expect(page).to have_link("削除")
           expect(page).to have_content "※評価を登録すると、この思い出をポストとして他のユーザーに共有することができます。"
-          expect(page).to have_link("思い出一覧")
+          expect(page).to have_link("戻る")
         end
       end
 
@@ -173,7 +173,7 @@ RSpec.describe "Memories", type: :system do
           expect(page).to have_link("編集")
           expect(page).to have_link("削除")
           expect(page).to have_content "※評価を登録すると、この思い出をポストとして他のユーザーに共有することができます。"
-          expect(page).to have_link("思い出一覧")
+          expect(page).to have_link("戻る")
         end
       end
 
@@ -189,7 +189,7 @@ RSpec.describe "Memories", type: :system do
           expect(page).to have_link("削除")
           expect(page).to have_link("ポストを作成")
           expect(page).to have_content "※ポストを作成すると、この思い出を他のユーザーに共有することができます。"
-          expect(page).to have_link("思い出一覧")
+          expect(page).to have_link("戻る")
         end
       end
 
@@ -205,7 +205,7 @@ RSpec.describe "Memories", type: :system do
           expect(page).to have_link("編集")
           expect(page).to have_link("削除")
           expect(page).to have_link("ポスト詳細")
-          expect(page).to have_link("思い出一覧")
+          expect(page).to have_link("戻る")
         end
       end
     end
@@ -225,7 +225,7 @@ RSpec.describe "Memories", type: :system do
           expect(page).to have_content "updated_body"
           expect(page).to have_link("編集")
           expect(page).to have_link("削除")
-          expect(page).to have_link("思い出一覧")
+          expect(page).to have_link("戻る")
         end
       end
 
@@ -268,7 +268,7 @@ RSpec.describe "Memories", type: :system do
           (1..6).each do |number|
             expect(page).to have_content "#{number}ヶ月前"
           end
-          expect(page).to have_link("思い出一覧")
+          expect(page).to have_link("戻る")
         end
       end
     end

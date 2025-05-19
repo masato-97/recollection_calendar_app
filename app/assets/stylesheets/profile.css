@@ -1,3 +1,8 @@
+.pf-style {
+  padding-top: 3rem;
+  padding-bottom: 1rem;
+}
+
 .avatar-size {
   width: 200px;
   height: 200px;
@@ -16,6 +21,11 @@
 }
 
 @media (max-width: 1050px) {
+  .pf-style {
+    padding-top: 2rem;
+    padding-bottom: 0.5rem;
+  }
+
   .avatar-size {
     width: 150px;
     height: 150px;
@@ -26,6 +36,11 @@
 }
 
 @media (max-width: 450px) {
+  .pf-style {
+    padding-top: 0rem;
+    padding-bottom: 0rem;
+  }
+
   .avatar-size {
     width: 90px;
     height: 90px;

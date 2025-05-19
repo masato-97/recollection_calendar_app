@@ -74,7 +74,9 @@
             <div class="mb-3">※評価を登録すると、この思い出をポストとして他のユーザーに共有することができます。</div>
           <% end %>
 
-          <%= link_to "< カレンダー", memories_path %>
+          <div class="mb-2">
+            <%= link_to "＜ 戻る", "javascript:history.back()", class: "link-dark link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" %>
+          </div>
         </div>
 
         <% if memory.sub_image.present? %>

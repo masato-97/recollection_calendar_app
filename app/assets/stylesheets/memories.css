@@ -3,6 +3,10 @@
   padding-bottom: 3rem;
 }
 
+.compare-title {
+  padding-top: 2rem;
+}
+
 .star-rating {
   position: relative;
   width: 5em;

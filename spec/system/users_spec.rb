@@ -103,6 +103,7 @@ RSpec.describe "Users", type: :system do
           expect(page).to have_content user.name
           expect(page).to have_content user.email
           expect(page).to have_link("プロフィールを編集")
+          expect(page).to have_link("いいねしたポスト")
           expect(page).to have_content "title"
           expect(page).to have_content "body"
           expect(page).to have_link("ポスト詳細")
