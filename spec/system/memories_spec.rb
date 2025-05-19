@@ -17,7 +17,7 @@ RSpec.describe "Memories", type: :system do
           expect(current_path).to eq root_path
         end
       end
-      
+
       context "思い出一覧ページにアクセスした場合" do
         it "思い出一覧ページへのアクセスが失敗する" do
           visit all_memories_path
