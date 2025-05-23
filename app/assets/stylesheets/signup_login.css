@@ -23,15 +23,9 @@
 }
 
 .heading {
-  font-family: 'Times New Roman';
-  padding-left: 0.8em;
-  color: #36C062;
-  background-color: transparent;
-  letter-spacing: .5em;
   text-align: center;
-  padding-top: 1em;
-  padding-bottom: 1.5em;
-  text-shadow: inset -1px -1px 1px #36C062;
+  padding-top: 0.5em;
+  padding-bottom: 2em;
 }
 
 .form-title {

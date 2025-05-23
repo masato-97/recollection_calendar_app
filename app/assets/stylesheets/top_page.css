@@ -1,13 +1,5 @@
 .top-app-name {
-  font-family: 'Times New Roman';
-  width: 100%;
-  text-align: center;
-  margin: 90px 0px 80px 0px;
-}
-
-.app-name-text {
-  font-size: 6rem;
-  color: #36C062;
+  margin: 60px 0px 80px 0px;
 }
 
 .app-name-text-sub {
@@ -94,11 +86,7 @@
 
 @media (max-width: 1050px) {
   .top-app-name {
-    margin: 80px 0px 60px 0px;
-  }
-
-  .app-name-text {
-    font-size: 4.7rem;
+    margin: 70px 0px 60px 0px;
   }
 
   .button a {
@@ -119,11 +107,7 @@
 
 @media (max-width: 450px) {
   .top-app-name {
-    margin: 50px 0px 50px 0px;
-  }
-
-  .app-name-text {
-    font-size: 3rem;
+    margin: 40px 0px 50px 0px;
   }
 
   .top-body-box {

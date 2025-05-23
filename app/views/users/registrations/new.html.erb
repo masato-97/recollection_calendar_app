@@ -1,13 +1,14 @@
+<% content_for(:title, t('.title')) %>
 <div class="session-style">
   <div class="form-container">
     <div class="row">
       <div class="col-md-10 col-lg-8 mx-auto">
         <div class="heading">
-          <h2>Recordi</h2>
+          <%= image_tag "Recordi_2.png", width: "200", alt: "mdo" %>
         </div>
 
         <div class="form-title">
-          <h3 class="fw-bold"><%= t('user_sessions.signin') %></h3>
+          <h3 class="fw-bold"><%= t('.title') %></h3>
         </div>
 
         <% if flash[:alert] %>

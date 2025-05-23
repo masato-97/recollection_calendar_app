@@ -1,27 +1,30 @@
-<div class="form-container">
-  <div class="row">
-    <div class="col-md-10 col-lg-8 mx-auto">
-      <div class="heading">
-        <h2>Recordi</h2>
-      </div>
-
-      <div class="form-title">
-        <h3 class="fw-bold"><%= t('user_sessions.password_reset') %></h3>
-      </div>
-      <p>登録時に使ったメールアドレスを入力してください。<br>パスワードをリセットするためのURLを送信します。</p>
-
-      <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-        <%= render "devise/shared/error_messages", resource: resource %>
-
-        <div class="mb-4">
-          <%= f.label :email, class: "form-label" %>
-          <%= f.email_field :email, autofocus: true, placeholder: "例)sample@example.com", autocomplete: "email", class: "form-control"  %>
+<% content_for(:title, t('.title')) %>
+<div class="session-style">
+  <div class="form-container">
+    <div class="row">
+      <div class="col-md-10 col-lg-8 mx-auto">
+        <div class="heading">
+          <%= image_tag "Recordi_2.png", width: "200", alt: "mdo" %>
         </div>
 
-        <div class="mb-3">
-          <%= f.submit t('user_sessions.send'), class: "password-form-button"  %>
+        <div class="form-title">
+          <h3 class="fw-bold"><%= t('.title') %></h3>
         </div>
-      <% end %>
+        <p>登録時に使ったメールアドレスを入力してください。<br>パスワードをリセットするためのURLを送信します。</p>
+
+        <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+          <%= render "devise/shared/error_messages", resource: resource %>
+
+          <div class="mb-4">
+            <%= f.label :email, class: "form-label" %>
+            <%= f.email_field :email, autofocus: true, placeholder: "例)sample@example.com", autocomplete: "email", class: "form-control"  %>
+          </div>
+
+          <div class="mb-3">
+            <%= f.submit t('.send'), class: "password-form-button"  %>
+          </div>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>

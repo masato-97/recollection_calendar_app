@@ -18,10 +18,56 @@ ja:
     my_page: プロフィール
     setting: 設定・その他
     logout: ログアウト
-  user_sessions:
-    login: ログイン
-    signin: アカウント登録
-    signin_password_edit: 登録
-    password_reset: パスワードリセット
-    send: 送信
-    password_edit: パスワード再設定
+  users:
+    sessions:
+      new:
+        title: ログイン
+        login: ログイン
+        password_forget: パスワードをお忘れの方はこちら
+    registrations:
+      new:
+        title: アカウント登録
+        signin: アカウント登録
+    passwords:
+      new:
+        title: パスワードリセット
+        send: 送信
+      edit:
+        title: パスワード再設定
+        password_edit: 登録
+    show:
+      title: プロフィール
+    favorites:
+      title: いいねしたポスト
+    set:
+      title: 設定・その他
+  memories:
+    index:
+      title: カレンダー
+    all:
+      title: 思い出一覧
+    search_tag:
+      title: 思い出一覧
+    new:
+      title: 思い出を記録
+    edit:
+      title: 思い出編集
+    show:
+      title: 思い出詳細
+    oneday:
+      title: 思い出詳細
+    compare:
+      title: 7ヶ月間の思い出の数
+  posts:
+    index:
+      title: ポスト一覧
+    search_tag:
+      title: ポスト一覧
+    search_mypost_tag:
+      title: ポスト一覧
+    new:
+      title: ポスト作成
+    edit:
+      title: ポスト編集
+    show:
+      title: ポスト詳細
