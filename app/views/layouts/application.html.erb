@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html class="h-100">
   <head>
-    <title><%= content_for(:title) || "Recordi" %></title>
+    <title><%= page_title(yield(:title)) %></title>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="mobile-web-app-capable" content="yes">
     <%= csrf_meta_tags %>
@@ -14,8 +14,9 @@
     <%# Enable PWA manifest for installable apps (make sure to enable in config/routes.rb too!) %>
     <%#= tag.link rel: "manifest", href: pwa_manifest_path(format: :json) %>
 
-    <link href="<%= image_path("favicon.ico") %>" rel="shortcut icon" type="image/x-icon" />
-    <link rel="apple-touch-icon" href="/icon.png">
+    <%= favicon_link_tag("favicon.ico") %>
+    <%= favicon_link_tag "apple-touch-icon.png", rel: "apple-touch-icon", type: "image/png" %>
+    <%= favicon_link_tag "android-touch-icon.png", rel: "android-touch-icon", type: "image/png" %>
 
     <%# Includes all stylesheet files in app/assets/stylesheets %>
     <%= stylesheet_link_tag :app, "data-turbo-track": "reload" %>
@@ -26,6 +27,16 @@
 
     <script src="https://kit.fontawesome.com/82992bbf5c.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-0G7527XDB0"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-0G7527XDB0');
+    </script>
   </head>
 
   <body class="background d-flex flex-column h-100">

@@ -1,13 +1,14 @@
+<% content_for(:title, t('.title')) %>
 <div class="session-style">
   <div class="form-container">
     <div class="row">
       <div class="col-md-10 col-lg-8 mx-auto">
         <div class="heading">
-          <h2>Recordi</h2>
+          <%= image_tag "Recordi_2.png", width: "200", alt: "mdo" %>
         </div>
 
         <div class="form-title">
-          <h3 class="fw-bold"><%= t('user_sessions.login') %></h3>
+          <h3 class="fw-bold"><%= t('.title') %></h3>
         </div>
 
         <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
@@ -30,11 +31,11 @@
           <% end %>
 
           <div class="mb-4 possword-link">
-            <%= link_to "パスワードをお忘れの方はこちら", new_password_path(resource_name), class: "possword-link" %><br />
+            <%= link_to t('.password_forget'), new_password_path(resource_name), class: "possword-link" %><br />
           </div>
 
           <div class="mb-4">
-            <%= f.submit t('user_sessions.login'), class: "form-button" %>
+            <%= f.submit t('.login'), class: "form-button" %>
           </div>
         <% end %>
 

@@ -1,8 +1,9 @@
+<% content_for(:title, t('.title')) %>
 <div class="container">
   <div class="row">
     <div class="col-lg-8 offset-lg-2">
       <div class="mb-3 mt-4">
-        <h1>思い出を記録</h1>
+        <h1><%= t('.title') %></h1>
       </div>
       <%= render 'form', memory: @memory %>
     </div>

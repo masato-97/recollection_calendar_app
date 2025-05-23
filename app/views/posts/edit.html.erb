@@ -1,8 +1,9 @@
+<% content_for(:title, t('.title')) %>
 <div class="container">
   <div class="row">
     <div class="col-lg-8 offset-lg-2">
       <div class="mb-3 mt-3">
-        <h1>ポスト編集</h1>
+        <h1><%= t('.title') %></h1>
       </div>
 
       <%= form_with model: @post, url: memory_post_path(@memory, @post), local: true do |f| %>
