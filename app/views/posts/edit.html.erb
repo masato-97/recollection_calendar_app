@@ -22,11 +22,11 @@
 
         <div class="mb-4">
           <%= f.label :tag_names %>
-          <%= f.text_field :tag_names, class: 'form-control', placeholder: ',で区切って入力してください' %>
+          <%= f.text_field :tag_names, class: 'form-control', placeholder: '例）旅行,レコルディ,Recordi' %>
         </div>
 
-        <div class="position mb-3">
-          <div  class="image-posi border-end">
+        <div class="image-scoa mb-3">
+          <div  class="image-posi">
             <div class="mb-1">※表示される画像（思い出のメイン画像）</div>
             <% if @memory.main_image.present? %>
               <%= image_tag @memory.main_image, width: "300", height: "200" %>
@@ -57,7 +57,7 @@
       <% end %>
 
       <div class="mb-3">
-        <%= link_to "< 戻る", :back %>
+        <%= link_to "< 戻る", :back, class: "link-dark link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" %>
       </div>
     </div>
   </div>

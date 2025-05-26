@@ -31,6 +31,9 @@
     <h2 class="fw-bold how-title-2">メニュー</h2><br>
     <p class="how-text">メニューは画面上部に表示されます。表示されていない場合は、画面右上の「 ≡ 」をタップするとメニューが表示されます。<br>
     メニューには、「カレンダー」「思い出」「思い出を記録」「ポスト」「ユーザーアイコン・ユーザーネーム」の５つの項目があります。</p>
+
+    <%= image_tag("header.png", class: "how-image-3 border border-secondary mb-3") %>
+    <%= image_tag("header_2.png", class: "how-image-2 border border-secondary") %>
   </div>
 </div>
 
@@ -39,6 +42,8 @@
     <h2 class="fw-bold how-title-2">思い出を記録する</h2><br>
     <p class="how-text">メニューの「思い出を記録」またはカレンダーの日数をタップまたはクリックすると、思い出を記録する画面が表示されます。<br>
     必須項目とその他の項目を入力後、「登録」をタップまたはクリックしてください。</p>
+
+    <%= image_tag("new_memory.png", class: "how-image border border-secondary") %>
   </div>
 </div>
 
@@ -60,6 +65,9 @@
     <span class="how-title-4">|</span>
     <span class="how-title-3">タグリスト</span>
     <p class="how-text">思い出に設定したタグの一覧が表示されます。タグの名前をタップまたはクリックすると、そのタグを設定した思い出が表示されます。</p>
+
+    <%= image_tag("memories.png", class: "how-image border border-secondary mb-3") %>
+    <%= image_tag("memories_2.png", class: "how-image-2 border border-secondary") %>
   </div>
 </div>
 
@@ -67,6 +75,10 @@
   <div class="how-text-bottom">
     <h2 class="fw-bold how-title-2">カレンダー</h2><br>
     <p class="how-text">メニューの「カレンダー」をタップまたはクリックすると、カレンダー、思い出の画像、思い出の数、思い出タグが表示されます。</p>
+
+    <%= image_tag("calendar.png", class: "how-image border border-secondary mb-3") %>
+    <%= image_tag("calendar_2.png", class: "how-image-2 border border-secondary mb-4") %>
+    <br>
 
     <span class="how-title-4">|</span>
     <span class="how-title-3">カレンダー</span>
@@ -101,9 +113,15 @@
     <span class="how-title-3">2.「ポストを作成」をタップまたはクリック</span>
     <p class="how-text">思い出詳細画面の「ポストを作成」をタップまたはクリックしてください。また、「ポストを作成」がない場合はその思い出に評価を追加すると「ポストを作成」が表示されます。</p>
 
+    <%= image_tag("memory.png", class: "how-image border border-secondary mb-3") %>
+    <%= image_tag("memory_2.png", class: "how-image-2 border border-secondary mb-4") %>
+    <br>
+
     <span class="how-title-4">|</span>
     <span class="how-title-3">3. ポスト作成画面</span>
     <p class="how-text">ポスト作成画面が表示されたらタイトルと本文を入力し「登録」をタップまたはクリックしてください。タグの登録は自由です。</p>
+
+    <%= image_tag("new_post.png", class: "how-image border border-secondary") %>
   </div>
 </div>
 
@@ -124,6 +142,9 @@
     <span class="how-title-4">|</span>
     <span class="how-title-3">いいね</span>
     <p class="how-text">ポストに表示されている「ハートマーク」をタップまたはクリックするとそのポストに「いいね」することができます。</p>
+
+    <%= image_tag("posts.png", class: "how-image border border-secondary mb-3") %>
+    <%= image_tag("posts_2.png", class: "how-image-2 border border-secondary") %>
   </div>
 </div>
 
@@ -131,21 +152,30 @@
   <div class="how-text-bottom">
     <h2 class="fw-bold how-title-2">ユーザーアイコン・ユーザーネーム</h2><br>
     <p class="how-text">メニューの「ユーザーアイコン・ユーザーネーム」をタップまたはクリックすると、ドロップダウンメニューが表示されます。<br>
-    ドロップダウンメニューには、「プロフィール」「設定」「Recordiの使い方」「ログアウト」の４つの項目があります。</p>
+    ドロップダウンメニューには、「プロフィール」「設定・その他」「ログアウト」の３つの項目があります。</p>
+
+    <%= image_tag("header_3.png", class: "how-image-3 border border-secondary mb-3") %>
+    <%= image_tag("header_4.png", class: "how-image-2 border border-secondary mb-4") %>
+    <br>
 
     <span class="how-title-4">|</span>
     <span class="how-title-3">プロフィール</span>
     <p class="how-text">「プロフィール」をタップまたはクリックすると、プロフィール画面を表示します。<br>
-    プロフィール画面ではプロフィールと作成したポストが表示され、「プロフィールを編集」をタップまたはクリックするとユーザーの名前とアバター画像を変更できます。</p>
+    プロフィール画面ではプロフィールと作成したポストが表示され、「プロフィールを編集」をタップまたはクリックするとユーザーの名前とアバター画像を変更できます。<br>
+    「いいねしたポスト」をタップまたはクリックするといいねしたポストの一覧が表示されます。</p>
+
+    <%= image_tag("profile.png", class: "how-image border border-secondary mb-3") %>
+    <%= image_tag("profile_2.png", class: "how-image-2 border border-secondary mb-4") %>
+    <br>
 
     <span class="how-title-4">|</span>
-    <span class="how-title-3">設定</span>
-    <p class="how-text">「設定」をタップまたはクリックすると、設定画面を表示します。<br>
-    設定画面ではリマインダーメールの受信設定を変更できます。</p>
+    <span class="how-title-3">設定・その他</span>
+    <p class="how-text">「設定・その他」をタップまたはクリックすると、リマインダーメールとヘルプが表示されます。<br>
+    リマインダーメールではリマインダーメールの受信設定を変更できます。</p>
 
-    <span class="how-title-4">|</span>
-    <span class="how-title-3">Recordiの使い方</span>
-    <p class="how-text">「Recordiの使い方」をタップまたはクリックすると、基本操作ガイドを表示します。</p>
+    <%= image_tag("set.png", class: "how-image border border-secondary mb-3") %>
+    <%= image_tag("set_2.png", class: "how-image-2 border border-secondary mb-4") %>
+    <br>
 
     <span class="how-title-4">|</span>
     <span class="how-title-3">ログアウト</span>
