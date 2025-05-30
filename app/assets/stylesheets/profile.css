@@ -8,6 +8,10 @@
   height: 200px;
 }
 
+.avatar-style{
+  object-fit: cover;
+}
+
 .pf-bottom {
   margin-bottom: 2rem;
 }

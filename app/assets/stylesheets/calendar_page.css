@@ -16,6 +16,11 @@
   position: relative; /* 今の位置を基準 */
 }
 
+.carousel-main-image img {
+  object-fit: contain;
+  height: 535px;
+}
+
 .image-text {
   text-anchor: middle;
   text-align: center;
@@ -75,7 +80,7 @@
   }
 
   .carousel-main-image img {
-    height: 500px;
+    height: 550px;
   }
 }
 
@@ -103,7 +108,7 @@
   }
 
   .carousel-main-image img {
-    height: 250px;
+    height: 290px;
   }
 
   .day-title-style {

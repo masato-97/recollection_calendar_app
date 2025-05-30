@@ -62,7 +62,8 @@ class PostsController < ApplicationController
   end
 
   def search_tag
-    @tag_list = PostTag.all
+    @posts=Post.order(created_at: :desc)
+    @tag_list = @posts.map(&:post_tags).flatten.uniq
     @tag = PostTag.find(params[:post_tag_id])
     @tag_posts = @tag.posts
   end

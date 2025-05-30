@@ -3,6 +3,10 @@
   padding-bottom: 3rem;
 }
 
+.main-image-style {
+  object-fit: cover;
+}
+
 .compare-title {
   padding-top: 2rem;
 }
