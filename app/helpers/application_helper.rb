@@ -15,7 +15,7 @@ module ApplicationHelper
       canonical: "https://recordi.jp",
       separator: " - ",
       icon: [
-        { href: image_url("apple-touch-icon.png"), rel: "apple-touch-icon", type: "image/png" },
+        { href: image_url("apple-touch-icon.png"), rel: "apple-touch-icon", type: "image/png" }
       ],
 
       og: {
@@ -25,7 +25,7 @@ module ApplicationHelper
         type: "website",
         url: "https://recordi.jp",
         image: image_url("ogp.png"),
-        local: "ja-JP",
+        local: "ja-JP"
       },
       twitter: {
         card: "summary_large_image",
