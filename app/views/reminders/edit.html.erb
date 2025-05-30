@@ -1,8 +1,10 @@
+<% content_for(:title, t('.title')) %>
+<% set_meta_tags title: t('.title') %>
 <div class="container">
   <div class="row">
     <div class="col-lg-8 offset-lg-2">
       <div class="mb-3 mt-3">
-        <h1>リマインダーメール設定</h1>
+        <h1><%= t('.title') %></h1>
       </div>
       <%= form_with model: [@user, @reminder], url: user_reminder_path(@user), method: :patch, local: true do |f| %>
         <div class="mb-3 form-check form-switch">
@@ -17,6 +19,10 @@
 
         <%= f.submit "更新", class: "btn btn-primary mb-3" %>
       <% end %>
+
+      <div class="mb-3 mt-3">
+        <p><a href="<%= users_setting_path %>" class="link-dark link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">< 戻る</a></p>
+      </div>
     </div>
   </div>
 </div>

@@ -1,4 +1,5 @@
 <% content_for(:title, t('.title')) %>
+<% set_meta_tags title: t('.title') %>
 <div class="session-style">
   <div class="form-container">
     <div class="row">
@@ -17,7 +18,7 @@
 
           <div class="mb-4">
             <%= f.label :email, class: "form-label" %>
-            <%= f.email_field :email, autofocus: true, placeholder: "例)sample@example.com", autocomplete: "email", class: "form-control"  %>
+            <%= f.email_field :email, autofocus: true, placeholder: "例）sample@example.com", autocomplete: "email", class: "form-control"  %>
           </div>
 
           <div class="mb-3">

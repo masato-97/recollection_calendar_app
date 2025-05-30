@@ -64,7 +64,6 @@
   }
 
   td {
-    height: 100px;
     /* border: 1px solid #ddd; */
     /* border-top-color: rgb(221, 221, 221); */
     /* border-top-style: solid; */
@@ -81,7 +80,7 @@
   }
 
   .day {
-    width: 100px;
+    height: 110px;
   }
 
   .today {
@@ -137,8 +136,8 @@
     margin: 10px 0px 5px 0px;
   }
 
-  td {
-    height: 70px;
+  .day {
+    height: 60px !important;
   }
 
   .calendar-title {

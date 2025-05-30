@@ -33,8 +33,13 @@
   font-size: 1.2em;
 }
 
+.image-scoa {
+  display: flex;
+}
+
 .image-posi {
   padding-right: 20px;
+  border-right: var(--bs-border-width) var(--bs-border-style) var(--bs-border-color);
 }
 
 .scor-posi {
@@ -48,5 +53,19 @@
 @media (max-width: 450px) {
   .post-style {
     height: auto;
+  }
+
+  .image-scoa {
+    display: block;
+  }
+
+  .image-posi {
+    padding-right: 0px;
+    border-right: none;
+    margin-bottom: 1rem;
+  }
+
+  .scor-posi {
+    padding-left: 0px;
   }
 }

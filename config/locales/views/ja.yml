@@ -28,6 +28,8 @@ ja:
       new:
         title: アカウント登録
         signin: アカウント登録
+      edit:
+        title: プロフィール編集
     passwords:
       new:
         title: パスワードリセット
@@ -71,3 +73,18 @@ ja:
       title: ポスト編集
     show:
       title: ポスト詳細
+  reminders:
+    new:
+      title: リマインダーメール設定
+    edit:
+      title: リマインダーメール設定
+  public:
+    inquiries:
+      new:
+        title: お問い合わせ
+        send: 送信
+  top:
+    index:
+      title: Recordi
+    how_to_use:
+      title: Recordiの使い方

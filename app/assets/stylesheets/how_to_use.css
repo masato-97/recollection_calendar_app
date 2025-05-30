@@ -24,6 +24,18 @@
   line-height: 2;
 }
 
+.how-image {
+  width: 80%;
+}
+
+.how-image-2 {
+  width: 30%;
+}
+
+.how-image-3 {
+  width: 100%;
+}
+
 .how-text-bottom {
   margin-bottom: 5rem;
 }
@@ -33,11 +45,27 @@
     padding-top: 2rem;
     padding-bottom: 1.5rem;
   }
+
+  .how-image {
+    width: 80%;
+  }
+
+  .how-image-2 {
+    width: 60%;
+  }
 }
 
 @media (max-width: 450px) {
   .how-title {
     padding-top: 1.5rem;
     padding-bottom: 1rem;
+  }
+
+  .how-image {
+    width: 100%;
+  }
+
+  .how-image-2 {
+    width: 100%;
   }
 }

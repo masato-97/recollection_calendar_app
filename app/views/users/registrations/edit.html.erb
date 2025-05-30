@@ -1,8 +1,10 @@
+<% content_for(:title, t('.title')) %>
+<% set_meta_tags title: t('.title') %>
 <div class="container">
   <div class="row">
     <div class="col-lg-8 offset-lg-2">
       <div class="mb-4 mt-4">
-        <h1>プロフィール編集</h1>
+        <h1><%= t('.title') %></h1>
       </div>
 
       <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>

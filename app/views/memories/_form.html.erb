@@ -51,7 +51,7 @@
     <%= f.file_field :main_image, class: "form-control", accept: 'image/*' %>
   </div>
 
-  <% if  memory.main_image.present? %>
+  <% if memory.persisted? && memory.main_image.present? %>
     <a>登録済み画像<a>
     <div class="mb-3"><%= image_tag memory.main_image, width: "300", height: "200" %></div>
   <% end %>
@@ -61,19 +61,17 @@
     <%= f.file_field :sub_image, class: "form-control", accept: 'image/*' %>
   </div>
 
-  <% if  memory.sub_image.present? %>
+  <% if memory.persisted? && memory.sub_image.present? %>
     <a>登録済み画像<a>
     <div class="mb-3"><%= image_tag memory.sub_image, width: "300", height: "200" %></div>
   <% end %>
 
   <div class="mb-3">
     <%= f.label :tag_names %>
-    <%= f.text_field :tag_names, class: 'form-control', placeholder: ',で区切って入力してください' %>
+    <%= f.text_field :tag_names, class: 'form-control', placeholder: '例）旅行,レコルディ,Recordi' %>
   </div>
 
-  <div class="mb-3">
-    <%= f.submit nil, class: "btn btn-primary mb-3" %>
-  </div>
+  <%= f.submit nil, class: "btn btn-primary mb-3" %>
 <% end %>
 
 <%= javascript_include_tag "rating.js" %>
