@@ -29,9 +29,9 @@
           <div  class="image-posi">
             <div class="mb-1">※表示される画像（思い出のメイン画像）</div>
             <% if @memory.main_image.present? %>
-              <%= image_tag @memory.main_image, width: "300", height: "200" %>
+              <%= image_tag @memory.main_image, width: "250" %>
             <% else %>
-              <%= image_tag "no_image.png", width: "300", height: "200" %>
+              <%= image_tag "no_image.png", width: "250" %>
             <% end %>
           </div>
 

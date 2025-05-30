@@ -5,9 +5,9 @@
     <div class="row pf-style">
       <div class="col-lg-6 col-md-8 mx-auto">
         <% if @user.avatar.attached? %>
-          <%= image_tag @user.avatar, class: "rounded-circle pf-bottom avatar-size" %>
+          <%= image_tag @user.avatar, class: "rounded-circle pf-bottom avatar-size avatar-style" %>
         <% else %>
-          <%= image_tag "icon.png", class: "rounded-circle pf-bottom avatar-size" %>
+          <%= image_tag "icon.png", class: "rounded-circle pf-bottom avatar-size avatar-style" %>
         <% end %>
 
         <div class="pf-bottom">

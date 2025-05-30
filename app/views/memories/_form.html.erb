@@ -48,22 +48,32 @@
 
   <div class="mb-3">
     <%= f.label :main_image %>
-    <%= f.file_field :main_image, class: "form-control", accept: 'image/*' %>
+    <%= f.file_field :main_image, onchange: "mainImage(this);", class: "form-control", accept: 'image/*' %>
+  </div>
+
+  <div id="main_image" style="display:none;" class="mb-4" >
+    <span>選択したメイン画像</span><br />
+    <img id="main_image_preview" width="250">
   </div>
 
   <% if memory.persisted? && memory.main_image.present? %>
-    <a>登録済み画像<a>
-    <div class="mb-3"><%= image_tag memory.main_image, width: "300", height: "200" %></div>
+    <a>登録済みメイン画像<a>
+    <div class="mb-4"><%= image_tag memory.main_image, width: "250" %></div>
   <% end %>
 
   <div class="mb-3">
     <%= f.label :sub_image %>
-    <%= f.file_field :sub_image, class: "form-control", accept: 'image/*' %>
+    <%= f.file_field :sub_image, onchange: "subImage(this);", class: "form-control", accept: 'image/*' %>
+  </div>
+
+  <div id="sub_image" style="display:none;" class="mb-4" >
+    <span>選択したサブ画像</span><br />
+    <img id="sub_image_preview" width="250">
   </div>
 
   <% if memory.persisted? && memory.sub_image.present? %>
-    <a>登録済み画像<a>
-    <div class="mb-3"><%= image_tag memory.sub_image, width: "300", height: "200" %></div>
+    <a>登録済みサブ画像<a>
+    <div class="mb-4"><%= image_tag memory.sub_image, width: "250" %></div>
   <% end %>
 
   <div class="mb-3">
@@ -75,3 +85,35 @@
 <% end %>
 
 <%= javascript_include_tag "rating.js" %>
+
+<script>
+  function mainImage(obj){
+    var fileReader = new FileReader();
+    var avatarDiv = document.getElementById('main_image');
+
+    if (obj.files && obj.files[0]) {
+      fileReader.onload = (function() {
+        document.getElementById('main_image_preview').src = fileReader.result; // プレビューに画像を設定
+        avatarDiv.style.display = 'block'; // プレビューを表示
+      });
+      fileReader.readAsDataURL(obj.files[0]); // 画像ファイルを読み込む
+    } else {
+      avatarDiv.style.display = 'none'; // 画像が選択されていない場合は非表示
+    }
+  }
+
+  function subImage(obj){
+    var fileReader = new FileReader();
+    var avatarDiv = document.getElementById('sub_image');
+
+    if (obj.files && obj.files[0]) {
+      fileReader.onload = (function() {
+        document.getElementById('sub_image_preview').src = fileReader.result; // プレビューに画像を設定
+        avatarDiv.style.display = 'block'; // プレビューを表示
+      });
+      fileReader.readAsDataURL(obj.files[0]); // 画像ファイルを読み込む
+    } else {
+      avatarDiv.style.display = 'none'; // 画像が選択されていない場合は非表示
+    }
+  }
+</script>

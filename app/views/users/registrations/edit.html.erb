@@ -22,12 +22,12 @@
 
         <div id="avatar" style="display:none;" class="mb-4" >
           <span>選択したアバター画像</span><br />
-          <img id="avatar_preview" class="rounded-circle" width="150" height="150">
+          <img id="avatar_preview" class="rounded-circle avatar-style" width="150" height="150">
         </div>
 
         <% if @user.avatar.attached? %>
           <span>登録済みアバター画像</span><br />
-          <%= image_tag @user.avatar, class: "rounded-circle mb-3", width: '150', height: '150' %>
+          <%= image_tag @user.avatar, class: "rounded-circle avatar-style mb-3", width: '150', height: '150' %>
         <% end %>
 
         <div>

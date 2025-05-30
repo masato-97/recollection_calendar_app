@@ -1,20 +1,20 @@
 <div class="col mb-4">
   <div id="post-id-<%= post.id %>">
     <% if post.memory.main_image.present? %>
-      <%= link_to image_tag(post.memory.main_image, class: "bd-placeholder-img rounded-top border-top border-end border-start", width: "100%", height: "250", xmlns: "http://www.w3.org/2000/svg", role: "img",  preserveAspectRatio: "xMidYMid slice", focusable: "false"), memory_post_path(memory_id: post.memory_id, id: post.id) %>
+      <%= link_to image_tag(post.memory.main_image, class: "bd-placeholder-img rounded-top border-top border-end border-start main-image-style", width: "100%", height: "250", xmlns: "http://www.w3.org/2000/svg", role: "img",  preserveAspectRatio: "xMidYMid slice", focusable: "false"), memory_post_path(memory_id: post.memory_id, id: post.id) %>
     <% else %>
-      <%= link_to image_tag("no_image.png", class: "bd-placeholder-img rounded-top border-top border-end border-start", width: "100%", height: "250", xmlns: "http://www.w3.org/2000/svg", role: "img",  preserveAspectRatio: "xMidYMid slice", focusable: "false"), memory_post_path(memory_id: post.memory_id, id: post.id) %>
+      <%= link_to image_tag("no_image.png", class: "bd-placeholder-img rounded-top border-top border-end border-start main-image-style", width: "100%", height: "250", xmlns: "http://www.w3.org/2000/svg", role: "img",  preserveAspectRatio: "xMidYMid slice", focusable: "false"), memory_post_path(memory_id: post.memory_id, id: post.id) %>
     <% end %>
 
     <div class="g-0 border-end border-start shadow-sm overflow-hidden flex-md-row h-md-250 position-relative memory-coloe post-style">
       <div class="col post-p flex-column position-static">
         <% if post.user.avatar.attached? %>
           <div class="mb-1 pb-1 user-style">
-            <%= image_tag post.user.avatar, class: "rounded-circle", alt: "mdo", width: '35', height: '35'  %><span class="name_style title-limit ms-1"><%= post.user.name %></span>
+            <%= image_tag post.user.avatar, class: "rounded-circle avatar-style", alt: "mdo", width: '35', height: '35'  %><span class="name_style title-limit ms-1"><%= post.user.name %></span>
           </div>
         <% else %>
           <div class="mb-1 pb-1 user-style">
-            <%= image_tag "icon.png", class: "rounded-circle", alt: "mdo", width: '35', height: '35' %><span class="name_style title-limit ms-1"><%= post.user.name %></span>
+            <%= image_tag "icon.png", class: "rounded-circle avatar-style", alt: "mdo", width: '35', height: '35' %><span class="name_style title-limit ms-1"><%= post.user.name %></span>
           </div>
         <% end %>
 
