@@ -50,8 +50,8 @@
     </div>
 
     <% if @tag_list.present? %>
-      - 思い出タグ -
-      <div class="tag-container">
+      <span class="tags">- 思い出タグ -</span>
+      <div class="tag-container tags">
         <% @tag_list.each do |tag|%>
           <div class="tag">
             <i class="bi bi-tag-fill"></i>

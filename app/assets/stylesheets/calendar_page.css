@@ -9,8 +9,7 @@
   width: 50%;
   margin: 110px 0px 20px 0px;
   align-items: center;
-  margin-right: 0.25rem !important;
-  margin-left: 0.5rem !important;
+  margin-left: 0.5rem;
 }
 
 .slide-posi {
@@ -25,14 +24,18 @@
 
 .total {
   font-size: 20px;
+  margin-left: 0.5rem;
+}
+
+.tags {
+  margin-left: 0.5rem;
 }
 
 .calendar-box {
   box-sizing: border-box;
   width: 50%;
   margin: 0px 0px 20px 0px;
-  margin-right: 0.5rem !important;
-  margin-left: 0.25rem !important;
+  margin-right: 0.5rem;
 }
 
 .day-title-box {
@@ -58,7 +61,6 @@
   .total-box {
     width: 100%;
     margin: 30px 0px 20px 0px;
-    margin-right: 0rem !important;
     margin-left: 0rem !important;
   }
 
@@ -66,7 +68,6 @@
     width: 100%;
     margin: 0px 0px 0px 0px;
     margin-right: 0rem !important;
-    margin-left: 0rem !important;
   }
 
   .slide-posi {
@@ -88,7 +89,6 @@
   .total-box {
     width: 100%;
     margin: 20px 0px 20px 0px;
-    margin-right: 0rem !important;
     margin-left: 0rem !important;
   }
 
@@ -96,7 +96,6 @@
     width: 100%;
     margin: 0px 0px 0px 0px;
     margin-right: 0rem !important;
-    margin-left: 0rem !important;
   }
 
   .slide-posi {
