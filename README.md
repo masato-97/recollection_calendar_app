@@ -79,7 +79,7 @@ Recordi（レコルディ）とは、思い出の記録、1〜5個の星で思�
 <br>
 
 ## ER図
-[![Image from Gyazo](https://i.gyazo.com/bf4fa679e3c9399e7c4ae84e21177aae.png)](https://gyazo.com/bf4fa679e3c9399e7c4ae84e21177aae)
+[![Image from Gyazo](https://i.gyazo.com/d9fca4bb8d1f9fac6e11c258aafd0ddb.png)](https://gyazo.com/d9fca4bb8d1f9fac6e11c258aafd0ddb)
 <br>
 
 ## 画面遷移図
