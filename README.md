@@ -67,19 +67,21 @@ Recordi（レコルディ）とは、思い出の記録、1〜5個の星で思�
 ## 使用技術
 | カテゴリ | 技術 |
 | --- | --- | 
-| サーバーサイド | Ruby 3.4.1 / Ruby on Rails 8.0.1 |
 | フロントエンド | Ruby on Rails / JavaScript |
+| バックエンド | Ruby 3.4.1 / Ruby on Rails 8.0.1 |
 | CSSフレームワーク | Bootstrap / Font Awesome |
+| データベース | PostgreSQL |
+| 認証 | devise 4.9.4 |
 | Web API | Google API |
-| データベースサーバー | PostgreSQL |
-| ファイルサーバー | AWS S3 |
-| アプリケーションサーバー | Fly.io |
+| 環境構築 | Docker |
+| インフラ | Fly.io / Amazon S3 |
 | CI/CD | Github Actions |
+<br>
+
+## ER図
+[![Image from Gyazo](https://i.gyazo.com/925169ac99fbea8277e4ea05e63a4516.png)](https://gyazo.com/925169ac99fbea8277e4ea05e63a4516)
 <br>
 
 ## 画面遷移図
 Figma：https://www.figma.com/design/q4G7Nwu8Wyb56KLD9ks0TM/recollection_calendar_app?node-id=0-1&p=f&t=CC89fp5GsBNClTqM-0
 <br>
-
-## ER図
-ER図：https://drive.google.com/file/d/18CzP48Ffv42-0Ntx27n2pQAB2zTgmDRc/view?usp=sharing
