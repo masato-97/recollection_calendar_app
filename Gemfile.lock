@@ -106,7 +106,7 @@ GEM
     bindex (0.8.1)
     bootsnap (1.18.4)
       msgpack (~> 1.2)
-    brakeman (7.0.2)
+    brakeman (7.1.0)
       racc
     builder (3.3.0)
     bulma-rails (1.0.3)
@@ -491,7 +491,7 @@ DEPENDENCIES
   active_storage_validations
   aws-sdk-s3
   bootsnap
-  brakeman (~> 7.0, >= 7.0.2)
+  brakeman (~> 7.1)
   bulma-rails
   capybara
   cssbundling-rails
