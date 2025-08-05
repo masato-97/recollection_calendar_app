@@ -71,7 +71,6 @@ gem "dotenv-rails"
 gem "devise", "~> 4.9", ">= 4.9.4"
 gem "simple_calendar", "~> 3.1"
 gem "bulma-rails"
-gem "jquery-rails"
 gem "ransack"
 gem "whenever", require: false
 gem "rails-i18n"

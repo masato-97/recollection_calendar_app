@@ -13,19 +13,15 @@ ratingValueDisplay = document.getElementById("rating-value-display");
 // indexという変数を定義
 var index;
 
-
 // 思い出作成・編集ページに遷移するとstars.lengthの値（5）だけ繰り返し
 // stars.lengthは配列の長さなので５になる
 for(let i=0; i<stars.length; i++){
-	console.log(stars.length)
-
 	// 星にカーソルが乗ったときに実行する処理（関数）を定義
 	// stars[i]は全ての星に対してという意味
 	stars[i].addEventListener("mouseover",function(){
 		// 星にカーソルが乗った時、全て星をくり抜く（星の色をなくす）
 		// stars.lengthは５なので、５つ（全て）の星に対して実行
 		for(let j=0; j<stars.length; j++){
-			console.log(stars.length)
 			// classListは特定の要素にクラス名を追加したり削除したりできるプロパティ
 			// "fa-star"を"fa-star-o"にする（クラスを変更する）
 			stars[j].classList.remove("fa-star");
@@ -36,7 +32,6 @@ for(let i=0; i<stars.length; i++){
 		// 例：３つ目の星にカーソルが乗ったら３回（３つの星分）以下の処理を繰り返す
 		// iはカーソルが乗っている星の値なので、３つ目の星の場合は値は２になる（０,1,２の３回処理する）
 		for(let j=0; j<=i; j++){
-			console.log(stars.length)
 			// "fa-star-o"を"fa-star"にする（クラスを変更する）
 			stars[j].classList.remove("fa-star-o");
 			stars[j].classList.add("fa-star");

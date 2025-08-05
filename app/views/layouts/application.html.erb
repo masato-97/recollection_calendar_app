@@ -20,7 +20,7 @@
 
     <%# Includes all stylesheet files in app/assets/stylesheets %>
     <%= stylesheet_link_tag :app, "data-turbo-track": "reload" %>
-    <%= javascript_include_tag "application", "data-turbo-track": "reload", type: "module" %>
+    <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
 
     <%= display_meta_tags(default_meta_tags) %>
@@ -45,10 +45,17 @@
     <% else %>
       <%= render 'shared/top_header' %>
     <% end %>
+
     <%= render 'shared/flash_message' %>
+
+    <div class="loader-wrap">
+      <div class="loader">Loading...</div>
+    </div>
+
     <main>
       <%= yield %>
     </main>
+
     <%= render 'shared/footer' %>
   </body>
 </html>
